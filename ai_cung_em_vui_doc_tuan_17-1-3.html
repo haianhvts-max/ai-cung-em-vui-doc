@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI cùng em vui đọc – Tuần 17: Vần</title>
+<style>
+:root{--ink:#253c35;--green:#197a51;--line:#d6e7dc;--gold:#f6c85f;--blue:#dff3fb}*{box-sizing:border-box}body{margin:0;background:#f4faf6;color:var(--ink);font-family:Arial,system-ui,sans-serif}main{max-width:940px;margin:auto;padding:12px}header,.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;margin:12px 0}header{background:linear-gradient(120deg,#dff6e8,#fff2d5)}h1{font-size:clamp(25px,5vw,36px);margin:8px 0;color:#19724e}h2{font-size:clamp(20px,4vw,25px);margin:4px 0 10px}p{line-height:1.5}.pill{display:inline-block;background:#fff;border-radius:99px;padding:6px 10px;font-size:13px}.status,.feedback{padding:12px;border-radius:12px;background:#f2f8f3;line-height:1.5;margin:10px 0;min-height:44px}.status{background:#fff7dc}.btn{border:0;border-radius:12px;padding:12px 15px;font-weight:bold;background:var(--green);color:#fff;font-size:15px;cursor:pointer;margin:3px}.btn.alt{background:#edf5ef;color:#245340;border:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:9px}.card{border:2px solid #c8e8f5;border-radius:16px;padding:10px;background:linear-gradient(145deg,#fff,#f0fbff);color:var(--ink);font-size:clamp(19px,4vw,27px);font-weight:bold;cursor:pointer;min-height:86px;box-shadow:0 3px 0 #d8edf5}.card .art{display:block;font-size:clamp(38px,9vw,60px);margin-bottom:5px}.card small{display:block;font-size:14px;font-weight:normal}.card.correct{background:#e4f8e9;border-color:#16844a}.card.wrong{background:#fff0ee;border-color:#d66b60}.card.selected{background:#fff4cf;border-color:#c99418}.muted{color:#5b7066;font-size:14px}.machine{border:2px dashed #a5d6bc;border-radius:18px;padding:12px;background:#f7fcf8;margin:12px 0}.belt{display:flex;gap:8px;overflow-x:auto;padding:8px 2px}.product{min-width:94px;min-height:92px;border-radius:14px;border:2px solid #d9e8df;background:white;padding:8px;font-size:17px;font-weight:bold}.product.correct{background:#e4f8e9;border-color:#16844a}.product.wrong{background:#fff0ee;border-color:#d66b60}.signal{font-size:36px;margin:0 6px}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:8px}.road{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.lane{background:#f5f8fa;border:2px dashed #b9c8cf;border-radius:14px;padding:10px;text-align:center;min-height:80px}.lane .art{font-size:36px;display:block}.robot{display:flex;align-items:center;gap:12px;background:#f7fbff;border:2px solid #cde5f5;border-radius:18px;padding:12px;margin:10px 0}.robotFace{font-size:64px}.part{font-size:34px;background:#fff;border:2px solid #d9e8df;border-radius:12px;padding:7px}.part.done{background:#e4f8e9;border-color:#16844a}.hidden{display:none}@media(max-width:480px){header,.panel{padding:12px}.card{min-height:76px}.road{gap:5px}.lane{padding:6px}}
+</style></head><body><main>
+<header><span class="pill">TUẦN 17 • PHẦN 2: VẦN</span><h1>🤖 AI cùng em vui đọc</h1><p><b>Mỗi em một điểm xuất phát, mỗi ngày một bước tiến bộ.</b></p><p>Tuần này, chúng mình cùng luyện các vần <b>oan, oăn, oát, oắt, oai, uê, uy, uân, uất, uyên, uyết</b>.</p><div class="status" id="status">🔊 Âm thanh tiếng Việt cần kết nối Internet. Bấm nút nghe để nghe nhiệm vụ và phản hồi.</div><button class="btn alt" onclick="speak('Chào các con! Hôm nay chúng mình cùng luyện các vần oan, oăn, oát, oắt, oai, uê, uy, uân, uất, uyên, uyết. Hãy bấm nút nghe để nghe nhiệm vụ nhé!')">🔊 Nghe lời chào</button></header>
+<section class="panel"><h2>🏭 Trò chơi 1: Dây chuyền nhà máy</h2><p>Quan sát hình và tên sản phẩm trên dây chuyền. Chạm vào hình hoặc tên sản phẩm để chọn.</p><button class="btn alt" id="listen1">🔊 Nghe nhiệm vụ</button><div class="machine"><p><b>Vần cần đưa vào khay:</b> <span id="target1" class="pill">uôi</span></p><div class="belt" id="belt1"></div></div><div class="feedback" id="fb1">Con quan sát hình và đọc tên sản phẩm nhé!</div><button class="btn" id="next1">Lượt mới</button></section>
+<section class="panel"><h2>🕵️ Trò chơi 2: Giải mã mật thư</h2><p>Nghe câu hỏi có nêu rõ vần và từ, rồi chọn đúng vần để mở khóa.</p><button class="btn alt" id="listen2">🔊 Nghe manh mối</button><div class="machine"><p><b>Mật thư:</b> <span id="clue2">Nghe cô đọc manh mối.</span></p><div class="grid" id="cards2"></div><p><b>Mã khóa:</b> <span id="code2">🔒 Chưa mở</span></p></div><div class="feedback" id="fb2">Con lắng nghe manh mối và chọn ký hiệu phù hợp nhé!</div><button class="btn" id="next2">Mật thư mới</button></section>
+<section class="panel"><h2>🚦 Trò chơi 3: Ngã tư quyết định</h2><p>Nghe nhận định: “Tiếng … có vần …”. Nếu nhận định đúng, con chọn “Đi tiếp”; nếu nhận định sai, con chọn “Dừng lại”.</p><button class="btn alt" id="listen3">🔊 Nghe tình huống</button><div class="road"><div class="lane"><span class="art">⬅️</span>Rẽ trái</div><div class="lane"><span class="art">🚦</span><span id="traffic3">Đèn đang đỏ</span></div><div class="lane"><span class="art">➡️</span>Rẽ phải</div></div><div class="machine"><p><b>Vần cần nghe:</b> <span id="target3" class="pill">uôi</span></p><p><b>Tiếng vừa nghe:</b> <span id="word3" class="pill">...</span></p><div class="choices"><button class="card" id="go3">🟢<small>Đi tiếp</small></button><button class="card" id="stop3">🛑<small>Dừng lại</small></button></div></div><div class="feedback" id="fb3">Con nghe thật kỹ rồi quyết định nhé!</div><button class="btn" id="next3">Tình huống mới</button></section>
+<section class="panel"><h2>🤖 Trò chơi 4: Lắp ráp rô-bốt</h2><p>Nghe tiếng hướng dẫn, rồi chọn bộ phận có tiếng mang vần mục tiêu để hoàn thiện rô-bốt.</p><button class="btn alt" id="listen4">🔊 Nghe hướng dẫn</button><div class="robot"><span class="robotFace" id="robotFace4">🤖</span><div><b>Rô-bốt đang chờ lắp ráp</b><p id="parts4" class="muted">Bộ phận đã lắp: 0 / 4</p><div id="built4"></div></div></div><p><b>Vần mục tiêu:</b> <span id="target4" class="pill">uôi</span></p><div class="grid" id="cards4"></div><div class="feedback" id="fb4">Con chọn bộ phận đúng để rô-bốt hoạt động nhé!</div><button class="btn" id="next4">Lượt lắp ráp mới</button></section>
+<section class="panel"><h2>💚 Con đã cố gắng!</h2><p>Mỗi lần lắng nghe và thử lại là một lần con tiến bộ.</p><button class="btn alt" onclick="speak('Các con đã cố gắng rất tốt! Bây giờ mình nghỉ ngơi nhé. Hẹn gặp lại các con!')">🔊 Nghe lời cô dặn</button></section>
+</main><script>
+const items=[
+ {v:'oan',word:'khoan',phrase:'mũi khoan',sentence:'Bố dùng mũi khoan.',emoji:'🛠️'},
+ {v:'oăn',word:'xoăn',phrase:'tóc xoăn',sentence:'Bé có tóc xoăn.',emoji:'👩‍🦱'},
+ {v:'oát',word:'thoát',phrase:'cửa thoát hiểm',sentence:'Bé đi theo cửa thoát hiểm.',emoji:'🚪'},
+ {v:'oắt',word:'thoắt',phrase:'thoắt cái',sentence:'Thoắt cái, bé đã chạy tới nơi.',emoji:'🏃'},
+ {v:'oai',word:'khoai',phrase:'củ khoai',sentence:'Mẹ luộc củ khoai.',emoji:'🍠'},
+ {v:'uê',word:'huệ',phrase:'hoa huệ',sentence:'Bông hoa huệ màu trắng.',emoji:'🌼'},
+ {v:'uy',word:'huy',phrase:'huy hiệu',sentence:'Bé nhận huy hiệu.',emoji:'🏅'},
+ {v:'uân',word:'xuân',phrase:'mùa xuân',sentence:'Mùa xuân có hoa nở.',emoji:'🌸'},
+ {v:'uất',word:'xuất',phrase:'xuất phát',sentence:'Các bạn chuẩn bị xuất phát.',emoji:'🏁'},
+ {v:'uyên',word:'thuyền',phrase:'con thuyền',sentence:'Con thuyền ở trên sông.',emoji:'⛵'},
+ {v:'uyết',word:'tuyết',phrase:'bông tuyết',sentence:'Bông tuyết rơi xuống.',emoji:'❄️'}
+];
+const distractors=[
+ {word:'mèo',phrase:'con mèo',emoji:'🐈'}, {word:'bàn',phrase:'cái bàn',emoji:'🪑'}, {word:'cá',phrase:'con cá',emoji:'🐟'}, {word:'nón',phrase:'cái nón',emoji:'👒'}, {word:'xe',phrase:'xe đạp',emoji:'🚲'}, {word:'gà',phrase:'con gà',emoji:'🐔'}, {word:'sách',phrase:'quyển sách',emoji:'📘'}, {word:'bút',phrase:'bút chì',emoji:'✏️'}
+];
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function stripTone(s){const map={'á':'a','à':'a','ả':'a','ã':'a','ạ':'a','ắ':'ă','ằ':'ă','ẳ':'ă','ẵ':'ă','ặ':'ă','ấ':'â','ầ':'â','ẩ':'â','ẫ':'â','ậ':'â','é':'e','è':'e','ẻ':'e','ẽ':'e','ẹ':'e','ế':'ê','ề':'ê','ể':'ê','ễ':'ê','ệ':'ê','í':'i','ì':'i','ỉ':'i','ĩ':'i','ị':'i','ó':'o','ò':'o','ỏ':'o','õ':'o','ọ':'o','ố':'ô','ồ':'ô','ổ':'ô','ỗ':'ô','ộ':'ô','ớ':'ơ','ờ':'ơ','ở':'ơ','ỡ':'ơ','ợ':'ơ','ú':'u','ù':'u','ủ':'u','ũ':'u','ụ':'u','ứ':'ư','ừ':'ư','ử':'ư','ữ':'ư','ự':'ư','ý':'y','ỳ':'y','ỷ':'y','ỹ':'y','ỵ':'y'};return [...s.toLowerCase()].map(c=>map[c]||c).join('')}
+function hasRime(word,rime){return String(word).toLowerCase().split(/[^\p{L}]+/u).filter(Boolean).some(s=>stripTone(s).endsWith(rime))}
+let audioQueue=[], audioIndex=0, currentAudio=null, speechFallbackUsed=false;
+function splitSpeechText(text,maxLen=150){
+  const sentences=String(text).replace(/\s+/g,' ').trim().match(/[^.!?。！？]+[.!?。！？]*/g)||[String(text)];
+  const chunks=[];let current='';
+  for(let sentence of sentences){sentence=sentence.trim();if(!sentence)continue;
+    if((current+' '+sentence).trim().length<=maxLen){current=(current+' '+sentence).trim();continue;}
+    if(current){chunks.push(current);current='';}
+    while(sentence.length>maxLen){let cut=sentence.lastIndexOf(' ',maxLen);if(cut<40)cut=maxLen;chunks.push(sentence.slice(0,cut).trim());sentence=sentence.slice(cut).trim();}
+    current=sentence;
+  }
+  if(current)chunks.push(current);return chunks;
+}
+function speak(text){
+  const st=document.getElementById('status');st.textContent='🔊 Đang tải giọng đọc tiếng Việt…';
+  if(currentAudio){currentAudio.pause();currentAudio.onended=null;currentAudio.onerror=null;}
+  if('speechSynthesis' in window)window.speechSynthesis.cancel();
+  audioQueue=splitSpeechText(text);audioIndex=0;speechFallbackUsed=false;
+  playNextAudioChunk();
+}
+function playNextAudioChunk(){
+  const st=document.getElementById('status');
+  if(audioIndex>=audioQueue.length){st.textContent='🔊 Đã đọc xong.';return;}
+  const part=audioQueue[audioIndex];
+  try{
+    currentAudio=new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q='+encodeURIComponent(part));
+    currentAudio.preload='auto';
+    currentAudio.onplaying=()=>{st.textContent='🔊 Đang phát giọng đọc tiếng Việt…';};
+    currentAudio.onended=()=>{audioIndex++;playNextAudioChunk();};
+    currentAudio.onerror=()=>useVietnameseSystemVoice(part);
+    const result=currentAudio.play();
+    if(result&&result.catch)result.catch(()=>useVietnameseSystemVoice(part));
+  }catch(e){useVietnameseSystemVoice(part);}
+}
+function useVietnameseSystemVoice(text){
+  if(speechFallbackUsed)return;
+  speechFallbackUsed=true;
+  const st=document.getElementById('status');
+  if(!('speechSynthesis' in window)||!('SpeechSynthesisUtterance' in window)){
+    st.textContent='⚠️ Trình duyệt này chưa hỗ trợ giọng đọc. Cô mở bằng Chrome và thử lại.';speechFallbackUsed=false;return;
+  }
+  const synth=window.speechSynthesis;
+  function speakWithAvailableVoice(){
+    const voices=synth.getVoices()||[];
+    const viVoice=voices.find(v=>/^vi([_-]|$)/i.test(v.lang||''));
+    if(!viVoice){
+      st.textContent='⚠️ Chưa tìm thấy giọng tiếng Việt trên thiết bị. Cô kiểm tra mục Chuyển văn bản thành giọng nói (TTS), chọn Dịch vụ giọng nói của Google và cài dữ liệu tiếng Việt, rồi tải lại trang.';
+      speechFallbackUsed=false;return;
+    }
+    try{
+      synth.cancel();
+      const utterance=new SpeechSynthesisUtterance(text);utterance.lang=viVoice.lang||'vi-VN';utterance.voice=viVoice;utterance.rate=.82;
+      utterance.onstart=()=>st.textContent='🔊 Đang dùng giọng tiếng Việt trên thiết bị…';
+      utterance.onend=()=>{speechFallbackUsed=false;audioIndex++;playNextAudioChunk();};
+      utterance.onerror=()=>{st.textContent='⚠️ Giọng tiếng Việt trên thiết bị chưa phát được. Cô kiểm tra cài đặt TTS rồi thử lại.';speechFallbackUsed=false;};
+      synth.speak(utterance);
+    }catch(e){st.textContent='⚠️ Chưa phát được giọng tiếng Việt. Cô kiểm tra cài đặt TTS rồi thử lại.';speechFallbackUsed=false;}
+  }
+  // Some mobile browsers populate the voice list asynchronously.
+  let finished=false;
+  const done=()=>{if(finished)return;finished=true;synth.removeEventListener?.('voiceschanged',done);speakWithAvailableVoice();};
+  synth.addEventListener?.('voiceschanged',done);
+  setTimeout(done,900);
+  synth.getVoices();
+}
+
+let targets=[0,0,0,0],rounds=[0,0,0,0],intro=[false,false,false,false],factoryDone=new Set(),robotDone=new Set();
+function target(i){return items[targets[i]%items.length]}
+function taskIntro(i,task){const introText=intro[i]?'':`Trò chơi ${['một','hai','ba','bốn'][i]}. ${['Dây chuyền nhà máy','Giải mã mật thư','Ngã tư quyết định','Lắp ráp rô-bốt'][i]}. `;intro[i]=true;speak(introText+task)}
+function render1(){const t=target(0);document.getElementById('target1').textContent=t.v;const root=document.getElementById('belt1');root.innerHTML='';const products=shuffle([t,...shuffle(items.filter(x=>x.v!==t.v)).slice(0,4)]);products.forEach(p=>{const b=document.createElement('button');b.type='button';b.className='product';b.style.cursor='pointer';b.style.flex='0 0 auto';b.setAttribute('aria-label',p.phrase);b.innerHTML=`<span class="art">${p.emoji}</span>${p.phrase}`;b.onclick=()=>{root.querySelectorAll('.product').forEach(x=>x.classList.remove('correct','wrong'));const ok=p.v===t.v;b.classList.add(ok?'correct':'wrong');const msg=ok?`Con chọn đúng sản phẩm “${p.phrase}” có tiếng mang vần ${t.v}.`:`Chưa đúng rồi. Sản phẩm “${p.phrase}” không có tiếng mang vần ${t.v}. Con thử lại nhé!`;document.getElementById('fb1').textContent=msg;speak(msg)};root.appendChild(b)});document.getElementById('fb1').textContent='Con chạm vào hình và tên sản phẩm có vần mục tiêu nhé!';document.getElementById('listen1').onclick=()=>taskIntro(0,`Con hãy chạm vào hình và tên sản phẩm có vần ${t.v}.`)}
+function render2(){const t=target(1);const clue=`Con hãy tìm vần ${t.v} trong từ ${t.phrase}.`;document.getElementById('clue2').textContent=clue;document.getElementById('code2').textContent='🔒 Chưa mở';const root=document.getElementById('cards2');root.innerHTML='';shuffle([t.v,...shuffle(items.filter(x=>x.v!==t.v).map(x=>x.v)).slice(0,5)]).forEach(v=>{const b=document.createElement('button');b.className='card';b.textContent=v;b.onclick=()=>{root.querySelectorAll('button').forEach(x=>x.classList.remove('correct','wrong'));const ok=v===t.v;if(ok){b.classList.add('correct');document.getElementById('code2').textContent='🔓 Mở khóa: '+t.v;const msg=`Đúng rồi! Trong từ ${t.phrase} có vần ${t.v}. Mật thư đã mở!`;document.getElementById('fb2').textContent=msg;speak(msg)}else{b.classList.add('wrong');const msg=`Chưa đúng. Từ ${t.phrase} có vần ${t.v}. Con hãy nghe lại và thử nhé!`;document.getElementById('fb2').textContent=msg;speak(msg)}};root.appendChild(b)});document.getElementById('fb2').textContent='Con nghe câu hỏi rồi chọn đúng vần nhé!';document.getElementById('listen2').onclick=()=>taskIntro(1,clue)}
+const scenarios3=[
+ {v:'oan',word:'khoan',correct:true},{v:'oan',word:'xoăn',correct:false},
+ {v:'oăn',word:'xoăn',correct:true},{v:'oăn',word:'khoan',correct:false},
+ {v:'oát',word:'thoát',correct:true},{v:'oát',word:'khoai',correct:false},
+ {v:'oắt',word:'thoắt',correct:true},{v:'oắt',word:'thoát',correct:false},
+ {v:'oai',word:'khoai',correct:true},{v:'oai',word:'huệ',correct:false},
+ {v:'uê',word:'huệ',correct:true},{v:'uê',word:'huy',correct:false},
+ {v:'uy',word:'huy',correct:true},{v:'uy',word:'huệ',correct:false},
+ {v:'uân',word:'xuân',correct:true},{v:'uân',word:'tuyết',correct:false},
+ {v:'uất',word:'xuất',correct:true},{v:'uất',word:'xuân',correct:false},
+ {v:'uyên',word:'thuyền',correct:true},{v:'uyên',word:'huy',correct:false},
+ {v:'uyết',word:'tuyết',correct:true},{v:'uyết',word:'thuyền',correct:false}
+];
+function render3(){const scenario=scenarios3[rounds[2]%scenarios3.length];const t=items.find(x=>x.v===scenario.v);const spoken=scenario.word;const correct=scenario.correct;document.getElementById('target3').textContent=t.v;document.getElementById('word3').textContent='Bấm “Nghe tình huống” để nghe';document.getElementById('traffic3').textContent='Đèn đang đỏ';const go=document.getElementById('go3'),stop=document.getElementById('stop3');go.classList.remove('correct','wrong');stop.classList.remove('correct','wrong');go.onclick=()=>answer3(true,correct,spoken,t);stop.onclick=()=>answer3(false,correct,spoken,t);document.getElementById('listen3').onclick=()=>{document.getElementById('word3').textContent=spoken;taskIntro(2,`Tiếng ${spoken} có vần ${t.v}. Nếu đúng, con chọn đi tiếp; nếu sai, con chọn dừng lại.`)};document.getElementById('fb3').textContent='Con nghe câu nhận định rồi quyết định nhé!'}
+function answer3(go,correct,spoken,t){const right=go===correct;const chosen=go?document.getElementById('go3'):document.getElementById('stop3');document.getElementById('go3').classList.remove('correct','wrong');document.getElementById('stop3').classList.remove('correct','wrong');chosen.classList.add(right?'correct':'wrong');document.getElementById('traffic3').textContent=correct?'🟢 Được đi tiếp':'🔴 Phải dừng lại';const msg=right?`Con quyết định đúng rồi! Tiếng ${spoken} ${correct?'có':'không có'} vần ${t.v}.`:`Con thử lại nhé. Tiếng ${spoken} ${correct?'có':'không có'} vần ${t.v}.`;document.getElementById('fb3').textContent=msg;speak(msg)}
+function render4(){const t=target(3);document.getElementById('target4').textContent=t.v;document.getElementById('parts4').textContent=`Bộ phận đã lắp: ${Math.min(robotDone.size,4)} / 4`;document.getElementById('built4').innerHTML=[...robotDone].map(v=>`<span class="part done" title="Đã lắp">${items.find(x=>x.v===v)?.emoji||'⚙️'}</span>`).join(' ');const root=document.getElementById('cards4');root.innerHTML='';const opts=shuffle([t,...shuffle(items.filter(x=>x.v!==t.v)).slice(0,3)]);opts.forEach(p=>{const b=document.createElement('button');b.className='card';b.innerHTML=`<span class="art">${p.emoji}</span>${p.word}<small>${p.phrase}</small>`;b.onclick=()=>{root.querySelectorAll('button').forEach(x=>x.classList.remove('correct','wrong'));const ok=p.v===t.v;if(ok){b.classList.add('correct');robotDone.add(t.v);document.getElementById('parts4').textContent=`Bộ phận đã lắp: ${Math.min(robotDone.size,4)} / 4`;document.getElementById('built4').innerHTML=[...robotDone].slice(-4).map(v=>`<span class="part done">${items.find(x=>x.v===v)?.emoji||'⚙️'}</span>`).join(' ');const done=robotDone.size>=4;const msg=`Con chọn đúng tiếng ${p.word}, có vần ${t.v}. ${done?'Rô-bốt đã hoàn thành!':'Bộ phận đã được lắp vào rô-bốt.'}`;document.getElementById('fb4').textContent=msg;speak(msg);document.getElementById('robotFace4').textContent=done?'🤖✨':'🤖'}else{b.classList.add('wrong');const msg=`Tiếng này chưa có vần ${t.v}. Con nghe lại hướng dẫn rồi chọn bộ phận khác nhé!`;document.getElementById('fb4').textContent=msg;speak(msg)}};root.appendChild(b)});document.getElementById('fb4').textContent='Con chọn bộ phận đúng để rô-bốt hoạt động nhé!';document.getElementById('listen4').onclick=()=>taskIntro(3,`Hãy chọn bộ phận có tiếng mang vần ${t.v} để lắp vào rô-bốt.`)}
+function renderAll(){render1();render2();render3();render4()}
+[1,2,3,4].forEach(n=>document.getElementById('next'+n).onclick=()=>{targets[n-1]=(targets[n-1]+1)%items.length;rounds[n-1]++;renderAll()});renderAll();
+</script></body></html>
