@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI cùng em vui đọc – Tuần 01: Làm quen</title>
 <style>
-:root{--ink:#243b35;--green:#197a51;--line:#d6e7dc}
+:root{--ink:#243b35;--green:#197a51;--line:#d6e7dc;--pale:#effaf3;--gold:#fff2d5}
 *{box-sizing:border-box}
 body{margin:0;background:#f5faf6;color:var(--ink);font-family:Arial,system-ui,sans-serif}
 main{max-width:900px;margin:auto;padding:14px}
 header,.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:18px;margin:12px 0}
 header{background:linear-gradient(120deg,#dff6e8,#fff2d5)}
 h1{color:#19724e;font-size:clamp(26px,5vw,38px);margin:6px 0}
+h2{margin-top:4px}
 p{line-height:1.5}
 .muted{font-size:14px;color:#596f64}
 .row{display:flex;gap:9px;flex-wrap:wrap}
@@ -27,6 +28,7 @@ p{line-height:1.5}
 .status{padding:10px;border-radius:10px;background:#fff7dc;font-size:14px;line-height:1.5}
 .pill{display:inline-block;background:#fff;border-radius:99px;padding:6px 10px;margin:3px;font-size:13px}
 .big{font-size:22px;font-weight:bold}
+.hide{display:none}
 .progress{height:8px;border-radius:8px;background:#e7efe9;overflow:hidden}
 .progress>div{height:100%;width:0;background:#197a51;transition:width .2s}
 </style>
@@ -37,8 +39,8 @@ p{line-height:1.5}
 <div class="pill">TUẦN 01 • LÀM QUEN • CHƯA HỌC BÀI 1–5</div>
 <h1>🤖 AI cùng em vui đọc</h1>
 <p><b>Mỗi em một điểm xuất phát, mỗi ngày một bước tiến bộ.</b><br>
-Tuần này mình làm quen với trò chơi: nghe đề, nhìn hình, chạm thẻ và thử lại vui vẻ. Không yêu cầu đọc âm, dấu thanh hay tiếng mới; chỉ quan sát hình và thao tác chơi.</p>
-<div class="status" id="status">🔊 Hai câu đã thu sẵn sẽ phát bằng MP3. Các câu còn lại tạm dùng giọng đọc trực tuyến.</div>
+Tuần này mình làm quen với trò chơi: nghe đề, nhìn hình, chạm thẻ và thử lại vui vẻ. Chưa kiểm tra đọc âm, vần hay tiếng mới.</p>
+<div class="status" id="status">🔊 Bấm nút “Nghe đề bài” để thử âm thanh tiếng Việt.</div>
 <div class="pill">⏱ Mỗi trò 2–4 phút</div>
 <div class="pill">🌱 Thử lại cũng là học</div>
 </header>
@@ -62,16 +64,7 @@ Tuần này mình làm quen với trò chơi: nghe đề, nhìn hình, chạm th
 </section>
 
 <section class="panel">
-<h2>🕵️ Trò chơi 3: Tìm hình khác biệt</h2>
-<p>Con hãy tìm hình không giống với ba hình còn lại nhé.</p>
-<button class="btn alt" id="speakOdd">🔊 Nghe đề bài</button>
-<div class="row" id="oddCards"></div>
-<div class="feedback" id="oddFeedback" aria-live="polite">Con quan sát các hình rồi chọn một hình nhé!</div>
-<button class="btn" id="resetOdd">Chơi lượt khác</button>
-</section>
-
-<section class="panel">
-<h2>😊 Trò chơi 4: Hôm nay con thấy thế nào?</h2>
+<h2>😊 Trò chơi 3: Hôm nay con thấy thế nào?</h2>
 <p>Con chọn hình thể hiện cảm xúc của mình khi chơi nhé.</p>
 <button class="btn alt" id="speakFeel">🔊 Nghe đề bài</button>
 <div class="row" id="feelCards"></div>
@@ -82,109 +75,120 @@ Tuần này mình làm quen với trò chơi: nghe đề, nhìn hình, chạm th
 <h2>🌟 Con đã làm quen xong!</h2>
 <p>Tuần này không chấm điểm đọc. Cô có thể quan sát xem con đã biết chạm thẻ, nghe đề và thử lại chưa.</p>
 <div class="progress"><div id="progressBar"></div></div>
-<p class="muted" id="progressText">Trò đã trải nghiệm: 0 / 4</p>
+<p class="muted" id="progressText">Trò đã trải nghiệm: 0 / 3</p>
 <button class="btn alt" id="speakFinish">🔊 Nghe lời động viên</button>
 <button class="btn" id="resetAll">Chơi lại từ đầu</button>
 </section>
 
 <section class="panel">
 <h3>Ghi chú dành cho giáo viên</h3>
-<p class="muted">Mục tiêu tuần 1: làm quen thao tác và tạo cảm giác an toàn, vui vẻ trước khi bước vào nội dung SGK ở tuần 2. Không dùng trò chơi này để kết luận năng lực đọc. MP3 cần nằm đúng trong thư mục audio/week-01; các câu khác hiện vẫn dùng TTS trực tuyến.</p>
+<p class="muted">Mục tiêu tuần 1: làm quen thao tác và tạo cảm giác an toàn, vui vẻ trước khi bước vào nội dung SGK ở tuần 2. Không dùng trò chơi này để kết luận năng lực đọc.</p>
 </section>
 </main>
 
 <script>
-/* Đặt hai tệp MP3 vào thư mục audio/week-01/ */
-const localAudioFiles = {
-  'Con hãy tìm hình con mèo.':
-    './Audio/Week-01/W01_instruction_picture.mp3',
-  'Chưa phải hình này. Con thử lại nhé!':
-    './Audio/week-01/w01_feedback_try_again.mp3'
-};
-
 let activeAudio = null;
+
+/* Correct MP3 paths: folders and filenames are lowercase. */
+const preparedAudio = {
+  'Con hãy tìm hình con mèo.':
+    './Audio/Week-01/Audio/Week-01/W01_instruction_picture.mp3',
+  'Chưa phải hình này. Con thử lại nhé!':
+    './audio/week-01/w01_feedback_try_again.mp3'
+};
 
 function speak(text) {
   const status = document.getElementById('status');
 
-  try {
-    if (activeAudio) {
-      activeAudio.pause();
-      activeAudio.currentTime = 0;
-    }
+  if (activeAudio) {
+    activeAudio.pause();
+    activeAudio.currentTime = 0;
+    activeAudio = null;
+  }
 
-    const localPath = localAudioFiles[text];
+  status.textContent = '🔊 Đang tải giọng đọc tiếng Việt…';
 
-    // Nếu câu đã có MP3 thì phát file MP3 đã chuẩn bị.
-    if (localPath) {
-      status.textContent = '🔊 Đang phát MP3 đã chuẩn bị…';
-      activeAudio = new Audio(localPath);
+  function playOnlineFallback() {
+    const url =
+      'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q='
+      + encodeURIComponent(text);
+
+    try {
+      activeAudio = new Audio(url);
       activeAudio.preload = 'auto';
 
       activeAudio.onplaying = () => {
-        status.textContent = '🔊 Đang phát MP3 đã chuẩn bị.';
+        status.textContent = '🔊 Đang phát giọng đọc tiếng Việt.';
       };
-      activeAudio.onended = () => {
-        status.textContent = '✅ Đã phát xong âm thanh.';
-      };
+
       activeAudio.onerror = () => {
         status.textContent =
-          '⚠️ Chưa phát được MP3. Cô kiểm tra tên tệp và thư mục audio/week-01 nhé.';
+          '⚠️ Chưa phát được âm thanh. Kiểm tra kết nối Internet hoặc tệp MP3.';
       };
 
       const result = activeAudio.play();
+
       if (result && result.catch) {
         result.catch(() => {
           status.textContent =
-            '⚠️ Chưa phát được MP3. Kiểm tra xem tệp đã tải lên đúng thư mục chưa.';
+            '⚠️ Âm thanh chưa phát được. Con hãy chạm nút nghe lần nữa nhé.';
         });
       }
-      return;
+    } catch (error) {
+      status.textContent = '⚠️ Chưa phát được âm thanh tiếng Việt.';
     }
+  }
 
-    // Những câu chưa có MP3 tạm dùng âm thanh trực tuyến.
-    status.textContent = '🔊 Đang tải giọng đọc tiếng Việt trực tuyến…';
-    const url =
-      'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=' +
-      encodeURIComponent(text);
+  const preparedUrl = preparedAudio[text];
 
-    activeAudio = new Audio(url);
+  if (!preparedUrl) {
+    playOnlineFallback();
+    return;
+  }
+
+  try {
+    activeAudio = new Audio(preparedUrl);
     activeAudio.preload = 'auto';
+
     activeAudio.onplaying = () => {
-      status.textContent = '🔊 Đang phát giọng đọc trực tuyến.';
+      status.textContent = '🔊 Đang phát âm thanh đã chuẩn bị.';
     };
+
     activeAudio.onerror = () => {
       status.textContent =
-        '⚠️ Chưa tải được âm thanh trực tuyến. Câu này chưa có MP3 riêng.';
+        '⚠️ Không tải được MP3 đã chuẩn bị; đang thử giọng đọc trực tuyến…';
+      playOnlineFallback();
     };
 
     const result = activeAudio.play();
+
     if (result && result.catch) {
       result.catch(() => {
         status.textContent =
-          '⚠️ Chrome chưa phát được âm thanh. Kiểm tra kết nối Internet rồi thử lại.';
+          '⚠️ MP3 không phát được; đang thử giọng đọc trực tuyến…';
+        playOnlineFallback();
       });
     }
   } catch (error) {
-    status.textContent = '⚠️ Chưa phát được âm thanh.';
+    playOnlineFallback();
   }
 }
 
 let completed = new Set();
 
-function markDone(n) {
-  completed.add(n);
+function markDone(number) {
+  completed.add(number);
   document.getElementById('progressBar').style.width =
-    (completed.size / 4 * 100) + '%';
+    (completed.size / 3 * 100) + '%';
   document.getElementById('progressText').textContent =
-    'Trò đã trải nghiệm: ' + completed.size + ' / 4';
+    'Trò đã trải nghiệm: ' + completed.size + ' / 3';
 }
 
-/* Trò chơi 1: Tìm đúng hình */
+/* GAME 1: FIND THE CORRECT PICTURE */
 const pictureItems = [
   {word:'con mèo',emoji:'🐱'},
   {word:'quả bóng',emoji:'⚽'},
-  {word:'ngôi nhà',emoji:'🏠'},
+  {word:'cái nhà',emoji:'🏠'},
   {word:'con cá',emoji:'🐟'}
 ];
 
@@ -226,28 +230,34 @@ function renderPictures() {
 function nextPicture() {
   pictureTarget =
     pictureItems[Math.floor(Math.random() * pictureItems.length)].word;
+
   document.getElementById('picturePrompt').textContent =
     'Con hãy tìm hình ' + pictureTarget + '.';
+
   document.getElementById('pictureFeedback').textContent =
     'Con chạm vào hình mà con nghĩ là đúng nhé!';
+
   renderPictures();
 }
 
 document.getElementById('nextPicture').onclick = nextPicture;
+
 document.getElementById('speakPicture').onclick = () =>
   speak(document.getElementById('picturePrompt').textContent);
+
 renderPictures();
 
-/* Trò chơi 2: Tìm hai hình giống nhau */
+/* GAME 2: MATCH PAIRS */
 const matchDeck = ['🐸','🐸','🌼','🌼','🚗','🚗'];
+
 let first = null;
 let lock = false;
 let matched = 0;
 
 function shuffle(array) {
   return array
-    .map(value => ({value,sort:Math.random()}))
-    .sort((a,b) => a.sort - b.sort)
+    .map(value => ({value, key: Math.random()}))
+    .sort((a,b) => a.key - b.key)
     .map(item => item.value);
 }
 
@@ -266,11 +276,11 @@ function renderMatch() {
     button.innerHTML = '<span>❔</span><small>Chạm để mở</small>';
 
     button.onclick = () => {
-      if (lock || button.dataset.open === '1' || button.disabled) return;
+      if (lock || button.dataset.open === '1') return;
 
       button.dataset.open = '1';
       button.innerHTML =
-        `<span>${emoji}</span><small>Hình ${index+1}</small>`;
+        `<span>${emoji}</span><small>Hình ${index + 1}</small>`;
 
       if (!first) {
         first = button;
@@ -302,12 +312,14 @@ function renderMatch() {
 
         document.getElementById('matchFeedback').textContent =
           'Hai hình khác nhau. Mình thử cặp khác nhé!';
+
         speak('Hai hình khác nhau. Mình thử cặp khác nhé!');
 
         setTimeout(() => {
           [old,button].forEach(card => {
             card.dataset.open = '0';
-            card.innerHTML = '<span>❔</span><small>Chạm để mở</small>';
+            card.innerHTML =
+              '<span>❔</span><small>Chạm để mở</small>';
           });
           lock = false;
         },650);
@@ -319,11 +331,13 @@ function renderMatch() {
 }
 
 document.getElementById('resetMatch').onclick = renderMatch;
+
 document.getElementById('speakMatch').onclick = () =>
   speak('Con hãy tìm hai thẻ có hình giống nhau. Chạm một thẻ, rồi tìm thẻ giống nó nhé.');
+
 renderMatch();
 
-/* Trò chơi 4: Cảm xúc */
+/* GAME 3: HOW DO YOU FEEL? */
 const feelings = [
   ['😊','Vui'],
   ['😐','Bình thường'],
@@ -331,112 +345,54 @@ const feelings = [
   ['🤩','Rất hào hứng']
 ];
 
-const feelingRoot = document.getElementById('feelCards');
+const feelingsRoot = document.getElementById('feelCards');
 
 feelings.forEach(([emoji,label]) => {
   const button = document.createElement('button');
   button.className = 'card';
-  button.innerHTML = `<span>${emoji}</span><small>${label}</small>`;
+  button.innerHTML =
+    `<span>${emoji}</span><small>${label}</small>`;
 
   button.onclick = () => {
-    feelingRoot.querySelectorAll('.card').forEach(card =>
+    feelingsRoot.querySelectorAll('.card').forEach(card =>
       card.classList.remove('selected')
     );
+
     button.classList.add('selected');
 
     document.getElementById('feelFeedback').textContent =
       'Cảm ơn con đã chia sẻ. Cô sẽ giúp con làm quen từng bước nhé!';
+
     speak('Cảm ơn con đã chia sẻ. Cô sẽ giúp con làm quen từng bước nhé!');
     markDone(3);
   };
 
-  feelingRoot.appendChild(button);
+  feelingsRoot.appendChild(button);
 });
 
 document.getElementById('speakFeel').onclick = () =>
   speak('Con chọn hình thể hiện cảm xúc của mình khi chơi nhé. Cảm xúc nào cũng được.');
+
 document.getElementById('speakFinish').onclick = () =>
   speak('Con đã cố gắng làm quen rồi. Mỗi ngày mình tiến bộ một chút nhé!');
 
-/* Trò chơi 3: Tìm hình khác biệt */
-const oddRounds = [
-  ['🐱','🐱','🐱','🚗'],
-  ['🌼','🌼','⚽','🌼'],
-  ['🐟','🐟','🐟','🏠'],
-  ['🍎','🍎','🍌','🍎']
-];
-
-let oddRound = 0;
-
-function renderOdd() {
-  const root = document.getElementById('oddCards');
-  root.innerHTML = '';
-  const round = oddRounds[oddRound % oddRounds.length];
-
-  round.forEach(emoji => {
-    const button = document.createElement('button');
-    button.className = 'card';
-    button.innerHTML = `<span>${emoji}</span><small>Hình</small>`;
-
-    button.onclick = () => {
-      root.querySelectorAll('.card').forEach(card =>
-        card.classList.remove('correct','wrong')
-      );
-
-      if (round.filter(value => value === emoji).length === 1) {
-        button.classList.add('correct');
-        document.getElementById('oddFeedback').textContent =
-          'Đúng rồi! Con đã tìm ra hình khác biệt. Giỏi lắm!';
-        speak('Đúng rồi! Con đã tìm ra hình khác biệt. Giỏi lắm!');
-        markDone(4);
-      } else {
-        button.classList.add('wrong');
-        document.getElementById('oddFeedback').textContent =
-          'Hình này giống với những hình khác. Con thử lại nhé!';
-        speak('Hình này giống với những hình khác. Con thử lại nhé!');
-      }
-    };
-
-    root.appendChild(button);
-  });
-
-  document.getElementById('oddFeedback').textContent =
-    'Con hãy tìm hình không giống với ba hình còn lại nhé.';
-}
-
-document.getElementById('resetOdd').onclick = () => {
-  oddRound = (oddRound + 1) % oddRounds.length;
-  renderOdd();
-};
-document.getElementById('speakOdd').onclick = () =>
-  speak('Con hãy tìm hình không giống với ba hình còn lại nhé.');
-renderOdd();
-
-/* Chơi lại từ đầu */
 document.getElementById('resetAll').onclick = () => {
   completed.clear();
+
   document.getElementById('progressBar').style.width = '0%';
   document.getElementById('progressText').textContent =
-    'Trò đã trải nghiệm: 0 / 4';
+    'Trò đã trải nghiệm: 0 / 3';
+
   nextPicture();
   renderMatch();
-  feelingRoot.querySelectorAll('.card').forEach(card =>
+
+  feelingsRoot.querySelectorAll('.card').forEach(card =>
     card.classList.remove('selected')
   );
-  oddRound = 0;
-  renderOdd();
+
   document.getElementById('feelFeedback').textContent =
     'Cảm xúc nào cũng được chào đón. Con có thể chọn bất cứ hình nào.';
 };
 </script>
-
-<a href="./index.html" id="backToWeeks" style="
-position:fixed;bottom:12px;left:50%;transform:translateX(-50%);
-z-index:9999;display:inline-block;padding:12px 22px;
-background:#1677d2;color:white;font-size:18px;font-weight:bold;
-text-decoration:none;border-radius:16px;
-box-shadow:0 3px 8px rgba(0,0,0,0.2);white-space:nowrap;">
-🏠 Về trang chọn tuần
-</a>
 </body>
 </html>
