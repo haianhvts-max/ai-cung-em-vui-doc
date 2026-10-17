@@ -4,101 +4,346 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI cùng em vui đọc – Tuần 01: Làm quen</title>
+
 <style>
-:root{--ink:#243b35;--green:#197a51;--line:#d6e7dc;--pale:#effaf3;--gold:#fff2d5}
-*{box-sizing:border-box}
-body{margin:0;background:#f5faf6;color:var(--ink);font-family:Arial,system-ui,sans-serif}
-main{max-width:900px;margin:auto;padding:14px}
-header,.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:18px;margin:12px 0}
-header{background:linear-gradient(120deg,#dff6e8,#fff2d5)}
-h1{color:#19724e;font-size:clamp(26px,5vw,38px);margin:6px 0}
-h2{margin-top:4px}
-p{line-height:1.5}
-.muted{font-size:14px;color:#596f64}
-.row{display:flex;gap:9px;flex-wrap:wrap}
-.card{flex:1 1 105px;min-height:105px;background:#fff;border:2px solid var(--line);border-radius:15px;padding:10px;color:var(--ink);font-size:18px;cursor:pointer}
-.card span{display:block;font-size:38px;margin-bottom:4px}
-.card small{display:block;font-size:14px}
-.card.correct{background:#e4f8e9;border-color:#16844a}
-.card.wrong{background:#fff0ee;border-color:#d66b60}
-.card.selected{background:#e7f8ed;border-color:#218653}
-.btn{border:0;border-radius:12px;padding:12px 15px;font-weight:bold;background:var(--green);color:white;font-size:15px;cursor:pointer;margin:3px}
-.btn.alt{background:#edf5ef;color:#245340;border:1px solid var(--line)}
-.feedback{background:#f3f8f4;border-radius:12px;padding:12px;margin-top:10px;min-height:44px}
-.status{padding:10px;border-radius:10px;background:#fff7dc;font-size:14px;line-height:1.5}
-.pill{display:inline-block;background:#fff;border-radius:99px;padding:6px 10px;margin:3px;font-size:13px}
-.big{font-size:22px;font-weight:bold}
-.hide{display:none}
-.progress{height:8px;border-radius:8px;background:#e7efe9;overflow:hidden}
-.progress>div{height:100%;width:0;background:#197a51;transition:width .2s}
+:root {
+  --ink: #243b35;
+  --green: #197a51;
+  --line: #d6e7dc;
+  --pale: #effaf3;
+  --gold: #fff2d5;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #f5faf6;
+  color: var(--ink);
+  font-family: Arial, system-ui, sans-serif;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 14px;
+}
+
+header, .panel {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 18px;
+  margin: 12px 0;
+}
+
+header {
+  background: linear-gradient(120deg, #dff6e8, #fff2d5);
+}
+
+h1 {
+  color: #19724e;
+  font-size: clamp(26px, 5vw, 38px);
+  margin: 6px 0;
+}
+
+h2 { margin-top: 4px; }
+
+p { line-height: 1.5; }
+
+.muted {
+  font-size: 14px;
+  color: #596f64;
+}
+
+.row {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1 1 105px;
+  min-height: 105px;
+  background: #fff;
+  border: 2px solid var(--line);
+  border-radius: 15px;
+  padding: 10px;
+  color: var(--ink);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.card span {
+  display: block;
+  font-size: 38px;
+  margin-bottom: 4px;
+}
+
+.card small {
+  display: block;
+  font-size: 14px;
+}
+
+.card.correct {
+  background: #e4f8e9;
+  border-color: #16844a;
+}
+
+.card.wrong {
+  background: #fff0ee;
+  border-color: #d66b60;
+}
+
+.card.selected {
+  background: #e7f8ed;
+  border-color: #218653;
+}
+
+.btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 15px;
+  font-weight: bold;
+  background: var(--green);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  margin: 3px;
+}
+
+.btn.alt {
+  background: #edf5ef;
+  color: #245340;
+  border: 1px solid var(--line);
+}
+
+button:focus-visible {
+  outline: 3px solid #218653;
+  outline-offset: 3px;
+}
+
+button:disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.feedback {
+  background: #f3f8f4;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 10px;
+  min-height: 44px;
+  line-height: 1.5;
+}
+
+.status {
+  padding: 10px;
+  border-radius: 10px;
+  background: #fff7dc;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.pill {
+  display: inline-block;
+  background: #fff;
+  border-radius: 99px;
+  padding: 6px 10px;
+  margin: 3px;
+  font-size: 13px;
+}
+
+.big {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.progress {
+  height: 8px;
+  border-radius: 8px;
+  background: #e7efe9;
+  overflow: hidden;
+}
+
+.progress > div {
+  height: 100%;
+  width: 0;
+  background: #197a51;
+  transition: width .2s;
+}
 </style>
 </head>
+
 <body>
 <main>
+
 <header>
-<div class="pill">TUẦN 01 • LÀM QUEN • CHƯA HỌC BÀI 1–5</div>
-<h1>🤖 AI cùng em vui đọc</h1>
-<p><b>Mỗi em một điểm xuất phát, mỗi ngày một bước tiến bộ.</b><br>
-Tuần này mình làm quen với trò chơi: nghe đề, nhìn hình, chạm thẻ và thử lại vui vẻ. Chưa kiểm tra đọc âm, vần hay tiếng mới.</p>
-<div class="status" id="status">🔊 Bấm nút “Nghe đề bài” để thử âm thanh tiếng Việt.</div>
-<div class="pill">⏱ Mỗi trò 2–4 phút</div>
-<div class="pill">🌱 Thử lại cũng là học</div>
+  <div class="pill">
+    TUẦN 01 • LÀM QUEN • CHƯA HỌC BÀI 1–5
+  </div>
+
+  <h1>🤖 AI cùng em vui đọc</h1>
+
+  <p>
+    <b>Mỗi em một điểm xuất phát, mỗi ngày một bước tiến bộ.</b><br>
+    Tuần này mình làm quen với trò chơi: nghe đề, nhìn hình,
+    chạm thẻ và thử lại vui vẻ. Chưa kiểm tra đọc âm, vần
+    hay tiếng mới.
+  </p>
+
+  <div class="status" id="status" role="status" aria-live="polite">
+    🔊 Bấm nút “Nghe đề bài” để nghe âm thanh tiếng Việt.
+  </div>
+
+  <div class="pill">⏱ Mỗi trò 2–4 phút</div>
+  <div class="pill">🌱 Thử lại cũng là học</div>
 </header>
 
 <section class="panel">
-<h2>🎯 Trò chơi 1: Tìm đúng hình</h2>
-<p id="picturePrompt" class="big">Con hãy tìm hình con mèo.</p>
-<button class="btn alt" id="speakPicture">🔊 Nghe đề bài</button>
-<div class="row" id="pictureCards"></div>
-<div class="feedback" id="pictureFeedback" aria-live="polite">Con chạm vào hình mà con nghĩ là đúng nhé!</div>
-<button class="btn" id="nextPicture">Lượt mới</button>
+  <h2>🎯 Trò chơi 1: Tìm đúng hình</h2>
+
+  <p id="picturePrompt" class="big">
+    Con hãy tìm hình con mèo.
+  </p>
+
+  <button class="btn alt" id="speakPicture">
+    🔊 Nghe đề bài
+  </button>
+
+  <div class="row" id="pictureCards"></div>
+
+  <div class="feedback" id="pictureFeedback" aria-live="polite">
+    Con chạm vào hình mà con nghĩ là đúng nhé!
+  </div>
+
+  <button class="btn" id="nextPicture">Lượt mới</button>
 </section>
 
 <section class="panel">
-<h2>👀 Trò chơi 2: Tìm hai hình giống nhau</h2>
-<p>Con tìm hai thẻ có hình giống nhau. Không cần đọc chữ.</p>
-<button class="btn alt" id="speakMatch">🔊 Nghe đề bài</button>
-<div class="row" id="matchCards"></div>
-<div class="feedback" id="matchFeedback" aria-live="polite">Hãy chọn một thẻ, rồi tìm thẻ giống nó nhé.</div>
-<button class="btn" id="resetMatch">Chơi lại</button>
+  <h2>👀 Trò chơi 2: Tìm hai hình giống nhau</h2>
+
+  <p>Con tìm hai thẻ có hình giống nhau. Không cần đọc chữ.</p>
+
+  <button class="btn alt" id="speakMatch">
+    🔊 Nghe đề bài
+  </button>
+
+  <div class="row" id="matchCards"></div>
+
+  <div class="feedback" id="matchFeedback" aria-live="polite">
+    Hãy chọn một thẻ, rồi tìm thẻ giống nó nhé.
+  </div>
+
+  <button class="btn" id="resetMatch">Chơi lại</button>
 </section>
 
 <section class="panel">
-<h2>😊 Trò chơi 3: Hôm nay con thấy thế nào?</h2>
-<p>Con chọn hình thể hiện cảm xúc của mình khi chơi nhé.</p>
-<button class="btn alt" id="speakFeel">🔊 Nghe đề bài</button>
-<div class="row" id="feelCards"></div>
-<div class="feedback" id="feelFeedback" aria-live="polite">Cảm xúc nào cũng được chào đón. Con có thể chọn bất cứ hình nào.</div>
+  <h2>😊 Trò chơi 3: Hôm nay con thấy thế nào?</h2>
+
+  <p>Con chọn hình thể hiện cảm xúc của mình khi chơi nhé.</p>
+
+  <button class="btn alt" id="speakFeel">
+    🔊 Nghe đề bài
+  </button>
+
+  <div class="row" id="feelCards"></div>
+
+  <div class="feedback" id="feelFeedback" aria-live="polite">
+    Cảm xúc nào cũng được chào đón. Con có thể chọn bất cứ hình nào.
+  </div>
 </section>
 
 <section class="panel">
-<h2>🌟 Con đã làm quen xong!</h2>
-<p>Tuần này không chấm điểm đọc. Cô có thể quan sát xem con đã biết chạm thẻ, nghe đề và thử lại chưa.</p>
-<div class="progress"><div id="progressBar"></div></div>
-<p class="muted" id="progressText">Trò đã trải nghiệm: 0 / 3</p>
-<button class="btn alt" id="speakFinish">🔊 Nghe lời động viên</button>
-<button class="btn" id="resetAll">Chơi lại từ đầu</button>
+  <h2>🌟 Con đã làm quen xong!</h2>
+
+  <p>
+    Tuần này không chấm điểm đọc. Cô có thể quan sát xem con
+    đã biết chạm thẻ, nghe đề và thử lại chưa.
+  </p>
+
+  <div class="progress">
+    <div id="progressBar"></div>
+  </div>
+
+  <p class="muted" id="progressText">
+    Trò đã trải nghiệm: 0 / 3
+  </p>
+
+  <button class="btn alt" id="speakFinish">
+    🔊 Nghe lời động viên
+  </button>
+
+  <button class="btn" id="resetAll">
+    Chơi lại từ đầu
+  </button>
 </section>
 
 <section class="panel">
-<h3>Ghi chú dành cho giáo viên</h3>
-<p class="muted">Mục tiêu tuần 1: làm quen thao tác và tạo cảm giác an toàn, vui vẻ trước khi bước vào nội dung SGK ở tuần 2. Không dùng trò chơi này để kết luận năng lực đọc.</p>
+  <h3>Ghi chú dành cho giáo viên</h3>
+
+  <p class="muted">
+    Mục tiêu tuần 1: làm quen thao tác và tạo cảm giác an toàn,
+    vui vẻ trước khi bước vào nội dung SGK ở tuần 2.
+    Không dùng trò chơi này để kết luận năng lực đọc.
+  </p>
 </section>
+
 </main>
 
 <script>
-let activeAudio = null;
+'use strict';
 
-/* Correct MP3 paths: folders and filenames are lowercase. */
-const preparedAudio = {
-  'Con hãy tìm hình con mèo.':
-    './Audio/Week-01/W01_instruction_picture.mp3',
-  'Chưa phải hình này. Con thử lại nhé!':
-    './Audio/Week-01/W01_feedback_try_again.mp3'
+/*
+  MP3-ONLY AUDIO
+  Audio folder:
+  audio/week-01/
+
+  No speech synthesis.
+  No online text-to-speech fallback.
+*/
+
+const AUDIO_BASE = './audio/week-01/';
+
+const AUDIO = {
+  pictureCat: 'w01_instruction_picture.mp3',
+  pictureBall: 'w01_instruction_find_ball.mp3',
+  pictureHouse: 'w01_instruction_find_house.mp3',
+  pictureFish: 'w01_instruction_find_fish.mp3',
+
+  instructionMatch: 'w01_instruction_match.mp3',
+  instructionFeelings: 'w01_instruction_feelings.mp3',
+
+  tryAgain: 'w01_feedback_try_again.mp3',
+  pictureCorrect: 'w01_feedback_picture_correct.mp3',
+  matchFound: 'w01_feedback_match_found.mp3',
+  matchComplete: 'w01_feedback_match_complete.mp3',
+  matchDifferent: 'w01_feedback_match_different.mp3',
+  feelingsThanks: 'w01_feedback_feelings_thanks.mp3',
+  finish: 'w01_feedback_finish.mp3'
 };
 
-function speak(text) {
-  const status = document.getElementById('status');
+let activeAudio = null;
+let audioGeneration = 0;
+
+const status = document.getElementById('status');
+
+/*
+  Play a prepared MP3 file.
+
+  Calling another audio file stops the previous file.
+  Missing files show an error; no generated speech is used.
+*/
+
+function playAudio(key) {
+  const filename = AUDIO[key];
+
+  if (!filename) {
+    status.textContent = '⚠️ Chưa khai báo tệp âm thanh: ' + key;
+    return;
+  }
+
+  const generation = ++audioGeneration;
 
   if (activeAudio) {
     activeAudio.pause();
@@ -106,93 +351,75 @@ function speak(text) {
     activeAudio = null;
   }
 
-  status.textContent = '🔊 Đang tải giọng đọc tiếng Việt…';
+  const audio = new Audio(AUDIO_BASE + filename);
+  activeAudio = audio;
+  audio.preload = 'auto';
 
-  function playOnlineFallback() {
-    const url =
-      'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q='
-      + encodeURIComponent(text);
+  status.textContent = '🔊 Đang tải âm thanh: ' + filename;
 
-    try {
-      activeAudio = new Audio(url);
-      activeAudio.preload = 'auto';
+  audio.onplaying = () => {
+    if (generation !== audioGeneration) return;
+    status.textContent = '🔊 Đang phát âm thanh tiếng Việt.';
+  };
 
-      activeAudio.onplaying = () => {
-        status.textContent = '🔊 Đang phát giọng đọc tiếng Việt.';
-      };
+  audio.onended = () => {
+    if (generation !== audioGeneration) return;
+    status.textContent = '✅ Đã phát xong âm thanh.';
+    activeAudio = null;
+  };
 
-      activeAudio.onerror = () => {
-        status.textContent =
-          '⚠️ Chưa phát được âm thanh. Kiểm tra kết nối Internet hoặc tệp MP3.';
-      };
+  audio.onerror = () => {
+    if (generation !== audioGeneration) return;
+    status.textContent =
+      '⚠️ Không tải được ' + filename +
+      '. Hãy kiểm tra tên tệp và thư mục audio/week-01/.';
+    activeAudio = null;
+  };
 
-      const result = activeAudio.play();
-
-      if (result && result.catch) {
-        result.catch(() => {
-          status.textContent =
-            '⚠️ Âm thanh chưa phát được. Con hãy chạm nút nghe lần nữa nhé.';
-        });
-      }
-    } catch (error) {
-      status.textContent = '⚠️ Chưa phát được âm thanh tiếng Việt.';
-    }
-  }
-
-  const preparedUrl = preparedAudio[text];
-
-  if (!preparedUrl) {
-    playOnlineFallback();
-    return;
-  }
-
-  try {
-    activeAudio = new Audio(preparedUrl);
-    activeAudio.preload = 'auto';
-
-    activeAudio.onplaying = () => {
-      status.textContent = '🔊 Đang phát âm thanh đã chuẩn bị.';
-    };
-
-    activeAudio.onerror = () => {
-      status.textContent =
-        '⚠️ Không tải được MP3 đã chuẩn bị; đang thử giọng đọc trực tuyến…';
-      playOnlineFallback();
-    };
-
-    const result = activeAudio.play();
-
-    if (result && result.catch) {
-      result.catch(() => {
-        status.textContent =
-          '⚠️ MP3 không phát được; đang thử giọng đọc trực tuyến…';
-        playOnlineFallback();
-      });
-    }
-  } catch (error) {
-    playOnlineFallback();
-  }
+  audio.play().catch(() => {
+    if (generation !== audioGeneration) return;
+    status.textContent =
+      '⚠️ Không phát được âm thanh. Hãy chạm nút nghe lần nữa.';
+  });
 }
 
-let completed = new Set();
+/* PROGRESS */
+
+const completed = new Set();
 
 function markDone(number) {
   completed.add(number);
+
   document.getElementById('progressBar').style.width =
     (completed.size / 3 * 100) + '%';
+
   document.getElementById('progressText').textContent =
     'Trò đã trải nghiệm: ' + completed.size + ' / 3';
 }
 
+function resetProgress() {
+  completed.clear();
+
+  document.getElementById('progressBar').style.width = '0%';
+
+  document.getElementById('progressText').textContent =
+    'Trò đã trải nghiệm: 0 / 3';
+}
+
 /* GAME 1: FIND THE CORRECT PICTURE */
+
 const pictureItems = [
-  {word:'con mèo',emoji:'🐱'},
-  {word:'quả bóng',emoji:'⚽'},
-  {word:'cái nhà',emoji:'🏠'},
-  {word:'con cá',emoji:'🐟'}
+  { word: 'con mèo', emoji: '🐱', audio: 'pictureCat' },
+  { word: 'quả bóng', emoji: '⚽', audio: 'pictureBall' },
+  { word: 'cái nhà', emoji: '🏠', audio: 'pictureHouse' },
+  { word: 'con cá', emoji: '🐟', audio: 'pictureFish' }
 ];
 
-let pictureTarget = 'con mèo';
+let pictureTarget = pictureItems[0].word;
+
+function getPictureTarget() {
+  return pictureItems.find(item => item.word === pictureTarget);
+}
 
 function renderPictures() {
   const root = document.getElementById('pictureCards');
@@ -201,25 +428,36 @@ function renderPictures() {
   pictureItems.forEach(item => {
     const button = document.createElement('button');
     button.className = 'card';
-    button.innerHTML =
-      `<span>${item.emoji}</span><small>${item.word}</small>`;
+    button.type = 'button';
+
+    const emoji = document.createElement('span');
+    emoji.textContent = item.emoji;
+
+    const label = document.createElement('small');
+    label.textContent = item.word;
+
+    button.append(emoji, label);
 
     button.onclick = () => {
-      root.querySelectorAll('.card').forEach(card =>
-        card.classList.remove('correct','wrong')
-      );
+      root.querySelectorAll('.card').forEach(card => {
+        card.classList.remove('correct', 'wrong');
+      });
 
       if (item.word === pictureTarget) {
         button.classList.add('correct');
+
         document.getElementById('pictureFeedback').textContent =
           'Đúng rồi! Con đã tìm được hình. Giỏi lắm!';
-        speak('Đúng rồi! Con đã tìm được hình. Giỏi lắm!');
+
+        playAudio('pictureCorrect');
         markDone(1);
       } else {
         button.classList.add('wrong');
+
         document.getElementById('pictureFeedback').textContent =
           'Chưa phải hình này. Con thử lại nhé!';
-        speak('Chưa phải hình này. Con thử lại nhé!');
+
+        playAudio('tryAgain');
       }
     };
 
@@ -228,8 +466,14 @@ function renderPictures() {
 }
 
 function nextPicture() {
+  const current = pictureTarget;
+
+  const alternatives = pictureItems.filter(
+    item => item.word !== current
+  );
+
   pictureTarget =
-    pictureItems[Math.floor(Math.random() * pictureItems.length)].word;
+    alternatives[Math.floor(Math.random() * alternatives.length)].word;
 
   document.getElementById('picturePrompt').textContent =
     'Con hãy tìm hình ' + pictureTarget + '.';
@@ -242,45 +486,67 @@ function nextPicture() {
 
 document.getElementById('nextPicture').onclick = nextPicture;
 
-document.getElementById('speakPicture').onclick = () =>
-  speak(document.getElementById('picturePrompt').textContent);
+document.getElementById('speakPicture').onclick = () => {
+  const target = getPictureTarget();
+
+  if (target) playAudio(target.audio);
+};
 
 renderPictures();
 
 /* GAME 2: MATCH PAIRS */
-const matchDeck = ['🐸','🐸','🌼','🌼','🚗','🚗'];
+
+const matchDeck = ['🐸', '🐸', '🌼', '🌼', '🚗', '🚗'];
 
 let first = null;
 let lock = false;
 let matched = 0;
 
 function shuffle(array) {
-  return array
-    .map(value => ({value, key: Math.random()}))
-    .sort((a,b) => a.key - b.key)
-    .map(item => item.value);
+  const result = [...array];
+
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+
+  return result;
 }
 
 function renderMatch() {
   const root = document.getElementById('matchCards');
+
   root.innerHTML = '';
   first = null;
   lock = false;
   matched = 0;
 
-  shuffle(matchDeck).forEach((emoji,index) => {
+  document.getElementById('matchFeedback').textContent =
+    'Hãy chọn một thẻ, rồi tìm thẻ giống nó nhé.';
+
+  shuffle(matchDeck).forEach((emoji, index) => {
     const button = document.createElement('button');
+
     button.className = 'card';
+    button.type = 'button';
     button.dataset.em = emoji;
     button.dataset.open = '0';
-    button.innerHTML = '<span>❔</span><small>Chạm để mở</small>';
+
+    const hiddenEmoji = document.createElement('span');
+    hiddenEmoji.textContent = '❔';
+
+    const label = document.createElement('small');
+    label.textContent = 'Chạm để mở';
+
+    button.append(hiddenEmoji, label);
 
     button.onclick = () => {
       if (lock || button.dataset.open === '1') return;
 
       button.dataset.open = '1';
-      button.innerHTML =
-        `<span>${emoji}</span><small>Hình ${index + 1}</small>`;
+
+      button.querySelector('span').textContent = emoji;
+      button.querySelector('small').textContent = 'Hình ' + (index + 1);
 
       if (!first) {
         first = button;
@@ -290,39 +556,45 @@ function renderMatch() {
       if (first.dataset.em === button.dataset.em) {
         first.classList.add('correct');
         button.classList.add('correct');
+
         first.disabled = true;
         button.disabled = true;
+
         first = null;
         matched += 2;
 
-        if (matched === 6) {
+        if (matched === matchDeck.length) {
           document.getElementById('matchFeedback').textContent =
             'Tuyệt vời! Con đã tìm đủ các cặp hình giống nhau.';
-          speak('Tuyệt vời! Con đã tìm đủ các cặp hình giống nhau.');
+
+          playAudio('matchComplete');
           markDone(2);
         } else {
           document.getElementById('matchFeedback').textContent =
             'Hai hình giống nhau rồi! Tìm tiếp nhé.';
-          speak('Hai hình giống nhau rồi! Tìm tiếp nhé.');
+
+          playAudio('matchFound');
         }
       } else {
         lock = true;
-        const old = first;
+
+        const previous = first;
         first = null;
 
         document.getElementById('matchFeedback').textContent =
           'Hai hình khác nhau. Mình thử cặp khác nhé!';
 
-        speak('Hai hình khác nhau. Mình thử cặp khác nhé!');
+        playAudio('matchDifferent');
 
-        setTimeout(() => {
-          [old,button].forEach(card => {
+        window.setTimeout(() => {
+          [previous, button].forEach(card => {
             card.dataset.open = '0';
-            card.innerHTML =
-              '<span>❔</span><small>Chạm để mở</small>';
+            card.querySelector('span').textContent = '❔';
+            card.querySelector('small').textContent = 'Chạm để mở';
           });
+
           lock = false;
-        },650);
+        }, 900);
       }
     };
 
@@ -332,66 +604,94 @@ function renderMatch() {
 
 document.getElementById('resetMatch').onclick = renderMatch;
 
-document.getElementById('speakMatch').onclick = () =>
-  speak('Con hãy tìm hai thẻ có hình giống nhau. Chạm một thẻ, rồi tìm thẻ giống nó nhé.');
+document.getElementById('speakMatch').onclick = () => {
+  playAudio('instructionMatch');
+};
 
 renderMatch();
 
 /* GAME 3: HOW DO YOU FEEL? */
+
 const feelings = [
-  ['😊','Vui'],
-  ['😐','Bình thường'],
-  ['😟','Hơi lo'],
-  ['🤩','Rất hào hứng']
+  ['😊', 'Vui'],
+  ['😐', 'Bình thường'],
+  ['😟', 'Hơi lo'],
+  ['🤩', 'Rất hào hứng']
 ];
 
 const feelingsRoot = document.getElementById('feelCards');
 
-feelings.forEach(([emoji,label]) => {
+feelings.forEach(([emoji, label]) => {
   const button = document.createElement('button');
+
   button.className = 'card';
-  button.innerHTML =
-    `<span>${emoji}</span><small>${label}</small>`;
+  button.type = 'button';
+
+  const icon = document.createElement('span');
+  icon.textContent = emoji;
+
+  const caption = document.createElement('small');
+  caption.textContent = label;
+
+  button.append(icon, caption);
 
   button.onclick = () => {
-    feelingsRoot.querySelectorAll('.card').forEach(card =>
-      card.classList.remove('selected')
-    );
+    feelingsRoot.querySelectorAll('.card').forEach(card => {
+      card.classList.remove('selected');
+    });
 
     button.classList.add('selected');
 
     document.getElementById('feelFeedback').textContent =
       'Cảm ơn con đã chia sẻ. Cô sẽ giúp con làm quen từng bước nhé!';
 
-    speak('Cảm ơn con đã chia sẻ. Cô sẽ giúp con làm quen từng bước nhé!');
+    playAudio('feelingsThanks');
     markDone(3);
   };
 
   feelingsRoot.appendChild(button);
 });
 
-document.getElementById('speakFeel').onclick = () =>
-  speak('Con chọn hình thể hiện cảm xúc của mình khi chơi nhé. Cảm xúc nào cũng được.');
+document.getElementById('speakFeel').onclick = () => {
+  playAudio('instructionFeelings');
+};
 
-document.getElementById('speakFinish').onclick = () =>
-  speak('Con đã cố gắng làm quen rồi. Mỗi ngày mình tiến bộ một chút nhé!');
+document.getElementById('speakFinish').onclick = () => {
+  playAudio('finish');
+};
+
+/* RESET ALL GAMES */
 
 document.getElementById('resetAll').onclick = () => {
-  completed.clear();
+  if (activeAudio) {
+    activeAudio.pause();
+    activeAudio.currentTime = 0;
+    activeAudio = null;
+    audioGeneration++;
+  }
 
-  document.getElementById('progressBar').style.width = '0%';
-  document.getElementById('progressText').textContent =
-    'Trò đã trải nghiệm: 0 / 3';
+  resetProgress();
 
-  nextPicture();
+  pictureTarget = pictureItems[0].word;
+
+  document.getElementById('picturePrompt').textContent =
+    'Con hãy tìm hình con mèo.';
+
+  document.getElementById('pictureFeedback').textContent =
+    'Con chạm vào hình mà con nghĩ là đúng nhé!';
+
+  renderPictures();
   renderMatch();
 
-  feelingsRoot.querySelectorAll('.card').forEach(card =>
-    card.classList.remove('selected')
-  );
+  feelingsRoot.querySelectorAll('.card').forEach(card => {
+    card.classList.remove('selected');
+  });
 
   document.getElementById('feelFeedback').textContent =
     'Cảm xúc nào cũng được chào đón. Con có thể chọn bất cứ hình nào.';
+
+  status.textContent =
+    '🔊 Bấm nút “Nghe đề bài” để nghe âm thanh tiếng Việt.';
 };
 </script>
 </body>
