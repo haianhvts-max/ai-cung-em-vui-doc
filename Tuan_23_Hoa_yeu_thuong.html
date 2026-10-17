@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 23 – Hoa yêu thương</title>
+<style>
+:root{--purple:#7250a2;--pink:#ffe5ef;--cream:#fff9eb;--ink:#30263b;--green:#e6f5e7;--gold:#fff0b9}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(#f5eafa,#fff9ed);font-family:Arial,"Noto Sans",sans-serif;color:var(--ink);font-size:19px;line-height:1.65}
+main{max-width:900px;margin:auto;padding:16px}.hero{background:#fff;border:3px solid #e5d5f4;border-radius:24px;padding:20px;text-align:center;box-shadow:0 5px 0 #e3d3ee}
+h1{font-size:clamp(30px,6vw,46px);line-height:1.2;color:var(--purple);margin:0 0 6px}h2{font-size:clamp(24px,5vw,32px);color:var(--purple);margin:0 0 12px}.sub{font-size:20px;font-weight:bold}
+.card{background:white;border-radius:20px;padding:20px;margin:18px 0;box-shadow:0 4px 0 #eadff1;border:2px solid #f0e7f5}
+.reading{font-size:clamp(19px,3.8vw,23px);line-height:1.8;white-space:pre-line}.author{text-align:right;font-weight:bold;margin-top:10px}.note{background:#fff8df;padding:12px 15px;border-radius:12px}
+button{font:inherit;font-weight:bold;border:0;border-radius:15px;padding:13px 17px;min-height:54px;background:#f0e6ff;color:#392653;cursor:pointer;box-shadow:0 3px 0 #d4c0e9}
+button:focus{outline:4px solid #ffc94a}button:hover{filter:brightness(.98)}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:14px}.choices button{background:#f5efff}.choices button:disabled{opacity:1}.feedback{font-weight:bold;margin-top:14px;min-height:32px}.correct{color:#23733b}.retry{color:#9b4b12}.small{font-size:16px;color:#5b5263}.tag{display:inline-block;background:var(--pink);padding:4px 12px;border-radius:99px;font-weight:bold;color:#7e3560;margin:4px}.next{background:var(--purple);color:white;box-shadow:0 3px 0 #503777}.end{background:#f1faef;border:2px dashed #9dcaa0;border-radius:16px;padding:15px}
+input[type=text]{width:100%;font:inherit;padding:12px;border:2px solid #d8c7e8;border-radius:12px;margin:8px 0}
+@media(max-width:520px){main{padding:10px}.card{padding:15px}.choices{grid-template-columns:1fr}body{font-size:18px}}
+</style>
+</head>
+<body>
+<main>
+<header class="hero">
+  <div class="sub">AI CÙNG EM VUI ĐỌC · TUẦN 23</div>
+  <h1>🌼 Hoa yêu thương 🌼</h1>
+  <div class="sub">Bài đọc – Phạm Thúy</div>
+</header>
+
+<section class="card">
+<h2>📖 Bài đọc</h2>
+<div class="reading">Hoa yêu thương
+
+Hôm nay cô giáo cho lớp vẽ những gì yêu thích. Tuệ An hí hoáy vẽ siêu nhân áo đỏ, thắt lưng vàng. Gia Huy say sưa vẽ mèo máy, tỉ mỉ tô cái ria cong cong.
+
+Cuối giờ, chúng tôi mang tranh đính lên bảng. Mọi ánh mắt đều hướng về bức tranh bông hoa bốn cánh của Hà.
+
+Trên mỗi cánh hoa ghi tên một tổ trong lớp. Giữa nhụy hoa là cô giáo cười rất tươi. Bên dưới có dòng chữ nắn nót “Hoa yêu thương”. Ai cũng thấy có mình trong tranh. Chúng tôi treo bức tranh ở góc sáng tạo của lớp.</div>
+<div class="author">(Phạm Thúy)</div>
+<p class="note"><b>Con nhớ:</b> Hãy tự đọc bài. Các trò chơi không đọc hộ con nhé.</p>
+</section>
+
+<section class="card" id="g1">
+<h2>🌸 Trò chơi 1: Tìm tiếng trong bài</h2>
+<p id="q1" class="sub">Tìm tiếng có vần <b>oay</b>.</p>
+<div class="choices" id="c1"></div><div class="feedback" id="f1" aria-live="polite"></div>
+</section>
+
+<section class="card" id="g2">
+<h2>🔎 Trò chơi 2: Đọc kĩ từ ngữ</h2>
+<p id="q2" class="sub"></p><div class="choices" id="c2"></div><div class="feedback" id="f2" aria-live="polite"></div>
+</section>
+
+<section class="card" id="g3">
+<h2>🧩 Trò chơi 3: Nhớ chi tiết trong bài</h2>
+<p id="q3" class="sub"></p><div class="choices" id="c3"></div><div class="feedback" id="f3" aria-live="polite"></div>
+</section>
+
+<section class="card" id="g4">
+<h2>📚 Trò chơi 4: Tìm câu đúng với bài đọc</h2>
+<p id="q4" class="sub"></p><div class="choices" id="c4"></div><div class="feedback" id="f4" aria-live="polite"></div>
+</section>
+
+<section class="card">
+<h2>💛 Vận dụng: Mỗi bạn là một cánh hoa</h2>
+<p>Trong bài, bức tranh có tên “Hoa yêu thương” vì ai cũng thấy mình trong tranh.</p>
+<p><b>Con thử nghĩ:</b> Điều gì làm lớp mình trở nên đáng yêu? Có thể là mỗi bạn có sở thích riêng, biết giúp đỡ nhau, hoặc cùng làm một việc tốt.</p>
+<p class="small">Con có thể nghĩ thầm hoặc nói với người thân khi con muốn. Không cần kể điều riêng tư cho cả lớp.</p>
+<label for="reflection"><b>Con muốn góp một “cánh hoa yêu thương” bằng việc gì?</b></label>
+<input id="reflection" type="text" placeholder="Ví dụ: giúp bạn nhặt bút…">
+<button class="next" onclick="document.getElementById('thanks').textContent='Cảm ơn con! Một việc tốt nhỏ cũng có thể làm lớp mình ấm áp hơn. 🌷'">Hoàn thành</button>
+<div id="thanks" class="feedback" aria-live="polite"></div>
+</section>
+<p class="small">Dành cho học sinh lớp 1 · Nếu chọn chưa đúng, con hãy đọc lại và thử lần nữa nhé.</p>
+</main>
+<script>
+function shuffle(arr){let a=arr.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function game(prefix, question, options, answer, praise){
+ document.getElementById('q'+prefix).innerHTML=question;
+ let wrap=document.getElementById('c'+prefix), fb=document.getElementById('f'+prefix);wrap.innerHTML='';fb.textContent='';fb.className='feedback';
+ let items=shuffle(options.map((t,i)=>({t,ok:t===answer})));
+ items.forEach(item=>{let b=document.createElement('button');b.textContent=item.t;b.onclick=()=>{if(item.ok){fb.textContent=praise;fb.className='feedback correct';Array.from(wrap.children).forEach(x=>x.disabled=true)}else{fb.textContent='Chưa đúng rồi, con đọc lại bài và thử lựa chọn khác nhé!';fb.className='feedback retry'}};wrap.appendChild(b)});
+}
+game('1','Tìm tiếng có vần <b>oay</b>.',['xoay','hoa','lớp','cánh'],'xoay','Giỏi lắm! Con đã tìm được tiếng có vần oay.');
+game('2','Từ “hí hoáy” trong bài nói về việc Tuệ An làm gì?',['Vẽ rất chăm chú','Chạy ra sân','Cất sách vào cặp'],'Vẽ rất chăm chú','Đúng rồi! Tuệ An hí hoáy vẽ siêu nhân.');
+game('3','Gia Huy vẽ gì?',['Mèo máy','Bông hoa bốn cánh','Cô giáo'],'Mèo máy','Chính xác! Gia Huy say sưa vẽ mèo máy.');
+game('4','Trên mỗi cánh hoa ghi điều gì?',['Tên một tổ trong lớp','Tên các bạn ở trường khác','Tên các con vật'],'Tên một tổ trong lớp','Đúng rồi! Trên mỗi cánh hoa ghi tên một tổ trong lớp.');
+</script>
+</body>
+</html>

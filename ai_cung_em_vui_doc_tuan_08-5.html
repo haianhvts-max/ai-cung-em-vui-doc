@@ -1,0 +1,81 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI cùng em vui đọc – Tuần 8: Vần</title><style>
+:root{--ink:#243b35;--green:#197a51;--line:#d6e7dc}*{box-sizing:border-box}body{margin:0;background:#f5faf6;color:var(--ink);font-family:Arial,system-ui,sans-serif}main{max-width:920px;margin:auto;padding:14px}header,.panel{background:white;border:1px solid var(--line);border-radius:20px;padding:18px;margin:12px 0}header{background:linear-gradient(120deg,#dff6e8,#fff2d5)}h1{color:#19724e;font-size:clamp(26px,5vw,38px);margin:6px 0}p{line-height:1.5}.row{display:flex;gap:9px;flex-wrap:wrap}.card{flex:1 1 100px;min-height:94px;background:linear-gradient(145deg,#fff,#f0fbff);border:2px solid #c8e8f5;border-radius:18px;padding:10px;color:var(--ink);font-size:clamp(26px,6vw,40px);font-weight:bold;cursor:pointer;box-shadow:0 4px 0 #d8edf5}.card.correct{background:#e4f8e9;border-color:#16844a}.card.wrong{background:#fff0ee;border-color:#d66b60}.card.selected{background:#e7f8ed;border-color:#218653}.card span{display:block;font-size:38px}.card small{display:block;font-size:20px}.btn{border:0;border-radius:12px;padding:12px 15px;font-weight:bold;background:var(--green);color:white;font-size:15px;cursor:pointer;margin:3px}.btn.alt{background:#edf5ef;color:#245340;border:1px solid var(--line)}.feedback{background:#f3f8f4;border-radius:12px;padding:12px;margin-top:10px;min-height:44px}.status{padding:10px;border-radius:10px;background:#fff7dc;font-size:14px;line-height:1.5}.pill{display:inline-block;background:#fff;border-radius:99px;padding:6px 10px;margin:3px;font-size:13px}.muted{font-size:14px;color:#596f64}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(85px,1fr));gap:9px}.card:focus-visible,.btn:focus-visible,select:focus-visible{outline:3px solid #267cc2;outline-offset:3px}select{padding:9px;border:1px solid var(--line);border-radius:10px;background:white;color:var(--ink);font-size:15px}</style></head><body><main><header><div class="pill">TUẦN 8 • PHẦN 2: VẦN</div><h1>🤖 AI cùng em vui đọc</h1><p><b>Mỗi em một điểm xuất phát, mỗi ngày một bước tiến bộ.</b></p><p>Tuần này, chúng mình cùng chơi với 13 vần nhé!</p><div class="status" id="status">🔊 Âm thanh tiếng Việt cần kết nối Internet. Hãy bấm nút nghe để nghe tên trò chơi, đề bài và phản hồi.</div><p><button class="btn alt" onclick="speak('Chào các con! Hôm nay chúng mình cùng vui đọc các vần. Hãy bấm nút nghe đề bài để nghe hướng dẫn nhé!')">🔊 Nghe lời chào</button></p></header>
+<section class="panel"><h2>🌳 Trò chơi 1: Khu vườn kho báu</h2><p id="p1">Nghe cô đọc vần, tìm kho báu có vần ấy.</p><button class="btn alt" id="listen1">🔊 Nghe hướng dẫn</button><div class="grid" id="cards1"></div><div class="feedback" id="fb1">Con chọn đáp án phù hợp nhé!</div><button class="btn" id="next1">Lượt tiếp theo</button></section>
+<section class="panel"><h2>🎣 Trò chơi 2: Câu cá tìm vần</h2><p id="p2">Câu con cá mang tiếng có vần cô đọc.</p><button class="btn alt" id="listen2">🔊 Nghe hướng dẫn</button><div class="grid" id="cards2"></div><div class="feedback" id="fb2">Con chọn chú cá phù hợp nhé!</div><button class="btn" id="next2">Lượt tiếp theo</button></section>
+<section class="panel"><h2>🥐 Trò chơi 3: Tiệm bánh kỳ diệu</h2><p id="p3">Chọn câu ngắn có tiếng chứa vần cô đọc.</p><button class="btn alt" id="listen3">🔊 Nghe hướng dẫn</button><div class="grid" id="cards3"></div><div class="feedback" id="fb3">Con chọn chiếc bánh phù hợp nhé!</div><button class="btn" id="next3">Lượt tiếp theo</button></section>
+<section class="panel"><h2>🚀 Trò chơi 4: Tên lửa chinh phục hành tinh</h2><p id="p4">Vận dụng: chọn tiếng hoặc từ phù hợp với vần đã nghe.</p><button class="btn alt" id="listen4">🔊 Nghe hướng dẫn</button><div class="grid" id="cards4"></div><div class="feedback" id="fb4">Mỗi đáp án đúng giúp tên lửa tiến lên một bước!</div><p id="progress4">🚀 Hành trình: 0 / 13</p><button class="btn" id="next4">Lượt tiếp theo</button></section>
+<section class="panel"><h2>💚 Con đã cố gắng!</h2><p>Con có thể nghỉ khi mệt. Mỗi lần thử là một lần học thêm.</p><button class="btn alt" onclick="speak('Các con đã cố gắng rất tốt! Bây giờ mình nghỉ ngơi nhé. Hẹn gặp lại các con!')">🔊 Nghe lời cô dặn</button></section></main>
+<script>
+const items=[
+ {v:'an',w:'bạn',sentence:'Bạn Lan hát.',emoji:'💎',pool:['bàn ăn','đàn gà','bạn Lan','lan can']},
+ {v:'ăn',w:'khăn',sentence:'Bé gấp khăn.',emoji:'🧣',pool:['khăn đỏ','bắn cá','ăn cơm','lăn bóng']},
+ {v:'ân',w:'sân',sentence:'Bé chơi ở sân.',emoji:'🏡',pool:['sân nhà','cân gạo','ân cần','vân vê']},
+ {v:'on',w:'con',sentence:'Con mèo ngủ.',emoji:'🐱',pool:['ngọn núi','con mèo','non xanh','hòn bi']},
+ {v:'ôn',w:'ôn',sentence:'Bé ôn bài.',emoji:'📘',pool:['ôn bài','khôn lớn','tôn trọng','môn học']},
+ {v:'ơn',w:'ơn',sentence:'Bé nhớ ơn mẹ.',emoji:'🎨',pool:['sơn ca','cơn mưa','biết ơn','ơn cô']},
+ {v:'en',w:'sen',sentence:'Hoa sen nở.',emoji:'🪷',pool:['hoa sen','đèn pin','khen bé','len áo']},
+ {v:'ên',w:'bên',sentence:'Bé ngồi bên cô.',emoji:'👩‍🏫',pool:['bên nhà','tên bé','mến bạn','nến thơm']},
+ {v:'in',w:'pin',sentence:'Đèn cần pin.',emoji:'🔋',pool:['pin đỏ','tin vui','in hình','chín quả']},
+ {v:'un',w:'vun',sentence:'Bé vun đất.',emoji:'🌱',pool:['vun đất','run chân','vun cây','bùn non']},
+ {v:'om',w:'xóm',sentence:'Bé về xóm.',emoji:'📗',pool:['đầu xóm','xóm nhỏ','con tôm','đom đóm']},
+ {v:'ôm',w:'ôm',sentence:'Bé ôm mẹ.',emoji:'🤗',pool:['ôm mẹ','tôm cá','cốm xanh','ôm em']},
+ {v:'ơm',w:'rơm',sentence:'Bó rơm ở sân.',emoji:'🌾',pool:['bó rơm','cơm ngon','thơm lừng','rơm khô']}
+]
+let audio=null;function speak(text){const st=document.getElementById('status');st.textContent='🔊 Đang tải giọng đọc tiếng Việt…';try{if(audio){audio.pause();audio.currentTime=0}audio=new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q='+encodeURIComponent(text));audio.onplaying=()=>st.textContent='🔊 Đang phát giọng đọc tiếng Việt.';audio.onerror=()=>st.textContent='⚠️ Chưa tải được âm thanh. Cần kiểm tra kết nối Internet hoặc thử mở bằng Chrome.';const pr=audio.play();if(pr&&pr.catch)pr.catch(()=>st.textContent='⚠️ Chưa phát được âm thanh. Cô thử bấm nút nghe lại nhé.')}catch(e){st.textContent='⚠️ Chưa phát được âm thanh tiếng Việt.'}}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+const rounds=[0,0,0,0], rocketDone=new Set(), introHeard=[false,false,false,false];
+const names=['Khu vườn kho báu','Câu cá tìm vần','Tiệm bánh kỳ diệu','Tên lửa chinh phục hành tinh'];
+const verbs=['Tìm kho báu','Câu cá','Chọn chiếc bánh','Tìm hành tinh'];
+const praise=[
+ d=>`Con đã tìm được kho báu có chứa vần ${d.v} rồi này. Con giỏi quá!`,
+ d=>`Con đã câu được tiếng ${d.w} có vần ${d.v} rồi này. Tuyệt lắm!`,
+ d=>`Con đã chọn đúng tiếng ${d.w}, có vần ${d.v} rồi. Con làm tốt lắm!`,
+ d=>`Tên lửa đã đến hành tinh có câu chứa tiếng ${d.w}, mang vần ${d.v} rồi này. Con giỏi quá!`
+];
+const retry=[
+ 'Kho báu này chưa đúng rồi. Con nghe lại vần cần tìm và thử lần nữa nhé!',
+ 'Chú cá này chưa đúng rồi. Con nghe lại đề bài, rồi câu cá khác nhé!',
+ 'Chiếc bánh này chưa đúng rồi. Con nghe lại từ cần tìm và thử lại nhé!',
+ 'Hành tinh này chưa đúng rồi. Con nghe lại câu có từ cần tìm rồi thử lại nhé!'
+];
+function render(i){
+ const target=items[rounds[i]%items.length], root=document.getElementById('cards'+(i+1));root.innerHTML='';
+ let choices=[];
+ if(i===0){
+   // Game 1: identify the exact rime heard; only rime cards are shown.
+   choices=shuffle([target.v,...shuffle(items.filter(x=>x.v!==target.v).map(x=>x.v)).slice(0,3)]);
+ }else if(i===1){
+   // Game 2: fishing for meaningful syllables/words that contain the heard rime.
+   const pool=target.pool.filter((x,j,a)=>a.indexOf(x)===j);
+   const distractors=items.filter(x=>x.v!==target.v).flatMap(x=>x.pool).filter(x=>!pool.includes(x));
+   choices=shuffle([...shuffle(pool).slice(0,Math.min(2,pool.length)),...shuffle(distractors).slice(0,4)]).slice(0,6);
+   if(!choices.some(x=>target.pool.includes(x))) choices[0]=target.w;
+ }else if(i===2){
+   // Game 3: find a short sentence with the target rime in its key word.
+   choices=shuffle([target,...shuffle(items.filter(x=>x.v!==target.v)).slice(0,3)]);
+ }else{
+   // Game 4: application—choose the matching meaningful syllable/word, not another rime card.
+   const distractors=items.filter(x=>x.v!==target.v).map(x=>x.w);
+   choices=shuffle([target.w,...shuffle(distractors).slice(0,4)]);
+ }
+ choices.forEach(choice=>{
+   const b=document.createElement('button');b.className='card';
+   const text=typeof choice==='string'?choice:(i===2?choice.sentence:choice.w);
+   b.textContent=(i===1?'🐟 ':i===2?'💬 ':i===3?'🚀 ':'💎 ')+text;
+   b.setAttribute('aria-label',text);
+   b.onclick=()=>{root.querySelectorAll('button').forEach(x=>x.classList.remove('correct','wrong'));const fb=document.getElementById('fb'+(i+1));let ok=false;
+     if(i===0)ok=choice===target.v;
+     else if(i===1)ok=target.pool.includes(choice);
+     else if(i===2)ok=choice.v===target.v;
+     else ok=choice===target.w;
+     if(ok){b.classList.add('correct');const msg=i===0?`Con đã tìm được kho báu có chứa vần ${target.v} rồi này. Con giỏi quá!`:i===1?`Con tìm đúng từ “${text}” có vần ${target.v} rồi. Tuyệt lắm!`:i===2?`Con đã tìm được câu “${target.sentence}” có tiếng chứa vần ${target.v}. Giỏi quá!`:`Con chọn đúng tiếng “${target.w}” có vần ${target.v}. Con vận dụng rất tốt!`;fb.textContent=msg;speak(msg);if(i===3){rocketDone.add(target.v);document.getElementById('progress4').textContent='🚀 Hành trình: '+rocketDone.size+' / 13'}}
+     else{b.classList.add('wrong');const msg=i===0?`Chưa đúng rồi. Con nghe lại vần ${target.v} và tìm kho báu nhé!`:i===1?`Chú cá này chưa có vần ${target.v}. Con thử câu chú cá khác nhé!`:i===2?`Câu này chưa có tiếng chứa vần ${target.v}. Con thử câu khác nhé!`:`Con thử tìm tiếng có vần ${target.v} nhé!`;fb.textContent=msg;speak(msg)}
+   };root.appendChild(b);
+ });
+ const task=i===0?`Hãy tìm vần ${target.v}.`:i===1?`Hãy câu cá mang tiếng có vần ${target.v}.`:i===2?`Hãy chọn câu có tiếng chứa vần ${target.v}.`:`Hãy chọn tiếng có vần ${target.v}.`;
+ document.getElementById('fb'+(i+1)).textContent='Con nghe nhiệm vụ rồi chọn đáp án nhé!';
+ document.getElementById('listen'+(i+1)).onclick=()=>{const intro=introHeard[i]?'':`Trò chơi ${['một','hai','ba','bốn'][i]}. ${names[i]}. `;introHeard[i]=true;speak(intro+task)};
+}
+
+for(let i=0;i<4;i++){render(i);document.getElementById('next'+(i+1)).onclick=()=>{rounds[i]++;render(i)}}
+</script></body></html>

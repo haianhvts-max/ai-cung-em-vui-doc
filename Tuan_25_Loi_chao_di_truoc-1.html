@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 25 – Lời chào đi trước</title>
+<style>
+:root{--ink:#24334a;--purple:#7553a6;--lav:#f1eaff;--yellow:#fff2b8;--mint:#e1f7ed;--pink:#ffe4ec;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#f8f4ff,#fffaf0);font-family:Arial,'Trebuchet MS',sans-serif;color:var(--ink);font-size:20px;line-height:1.55}
+main{max-width:900px;margin:auto;padding:18px}.hero{background:var(--purple);color:white;padding:22px 18px;border-radius:24px;text-align:center;box-shadow:0 5px 0 #53387e}.hero h1{font-size:clamp(30px,6vw,44px);line-height:1.15;margin:0 0 8px;font-weight:900}.hero p{font-size:22px;margin:0;font-weight:700}.intro{margin:20px 0;background:white;border:3px solid #e8dcff;border-radius:20px;padding:18px}.intro h2{font-size:28px;margin:0 0 8px;color:var(--purple)}.intro p{margin:6px 0}.levelbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0;background:#fff;padding:14px;border-radius:18px;border:2px solid #e9e1f4}.levelbar label{font-weight:800}.levelbar select{font-size:19px;padding:10px;border:2px solid #a18ac4;border-radius:12px;max-width:100%}.card{background:white;border-radius:22px;padding:20px;margin:18px 0;box-shadow:0 4px 0 #e5d9f4;border:2px solid #eee6f7}.step{font-weight:900;color:var(--purple);font-size:18px;letter-spacing:.3px}.card h2{font-size:clamp(25px,5vw,32px);line-height:1.25;margin:8px 0}.instruction{font-size:22px;font-weight:800;margin:10px 0 16px}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:12px}.choice{font:inherit;font-weight:800;line-height:1.35;min-height:66px;text-align:left;padding:14px 16px;border-radius:16px;border:3px solid #ded2f0;background:#faf7ff;color:var(--ink);cursor:pointer}.choice:focus-visible,button:focus-visible,select:focus-visible{outline:4px solid #f3b53c;outline-offset:2px}.choice:hover{background:#f0e8ff}.choice.wrong{border-color:#d97b83;background:#fff0f1}.choice.correct{border-color:#27845d;background:#e5fff1}.feedback{font-size:21px;font-weight:800;margin-top:14px;min-height:32px}.feedback.good{color:#176b49}.feedback.try{color:#8a4a27}.controls{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}.btn{font:inherit;font-weight:900;border:0;border-radius:15px;padding:13px 20px;background:var(--purple);color:white;cursor:pointer}.btn.secondary{background:#eee7f7;color:#493468}.hidden{display:none!important}.progress{font-weight:800;color:#574275;margin-top:10px}.application{background:var(--yellow);border:3px solid #f2d778}.scenario{background:white;border-radius:16px;padding:14px;margin:12px 0;border:2px dashed #e2bd47}.scenario h3{font-size:23px;margin:0 0 8px}.scenario button{margin:5px}.poem{background:#fff;border:3px solid #d7c6f2;border-radius:22px;padding:22px;margin:20px 0}.poem h2{text-align:center;color:var(--purple);font-size:30px;margin:0 0 16px}.poemtext{font-size:23px;line-height:1.8;white-space:pre-line}.author{text-align:right;font-weight:800;margin-top:10px}.note{font-size:16px;color:#655779}.pill{display:inline-block;border-radius:999px;padding:5px 12px;background:#f0e7ff;font-weight:800;font-size:16px}
+@media(max-width:560px){main{padding:12px}.card,.intro,.poem{padding:15px}.choice{min-height:60px}.poemtext{font-size:21px}}
+</style></head>
+<body><main>
+<header class="hero"><h1>🌼 LỜI CHÀO ĐI TRƯỚC 🌼</h1><p>Tuần 25 · Cùng đọc, cùng khám phá</p></header>
+<section class="intro"><h2>🎯 Nhiệm vụ của con</h2><p>Con hãy <b>tự đọc thật kĩ</b> từng từ, từng dòng thơ rồi chọn câu trả lời. Trang này không đọc bài thay con.</p><p>Chọn mức phù hợp với mình. Nếu chưa đúng, con cứ đọc lại và thử lần nữa nhé!</p></section>
+<div class="levelbar"><label for="level">Con chọn mức luyện đọc:</label><select id="level"><option value="light">🌱 Nhẹ nhàng – tìm từ trong bài</option><option value="medium" selected>🌿 Vừa sức – tìm từ và đọc dòng thơ</option><option value="hard">🌳 Nâng cao – đọc và hiểu nghĩa trong bài</option></select></div>
+<section class="card" id="game"><div class="step" id="step">THỬ THÁCH</div><h2 id="question"></h2><div class="instruction" id="instruction"></div><div id="content"></div><div class="feedback" id="feedback" aria-live="polite"></div><div class="controls"><button class="btn hidden" id="next">Thử thách tiếp theo →</button><button class="btn secondary hidden" id="restart">Chơi lại từ đầu ↻</button></div><div class="progress" id="progress"></div></section>
+<section class="card application"><div class="step">🌟 VẬN DỤNG CUỐI CÙNG</div><h2>Con sẽ mở lời thế nào?</h2><p>Đọc từng tình huống rồi chọn lời nói phù hợp. Mỗi tình huống là một cách để con luyện dùng lời chào trong đời sống.</p>
+<div class="scenario"><h3>1. Buổi sáng, con gặp bác bảo vệ ở cổng trường.</h3><div class="choices" data-app="1"><button class="choice" data-correct="true">“Cháu chào bác ạ!”</button><button class="choice">Lặng lẽ đi qua, không nhìn bác.</button><button class="choice">“Bác tránh ra cho cháu đi!”</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="scenario"><h3>2. Một bạn mới chuyển đến đứng một mình trong lớp.</h3><div class="choices" data-app="2"><button class="choice" data-correct="true">“Bạn tên gì? Mình làm quen nhé!”</button><button class="choice">“Bạn không được chơi với chúng tớ.”</button><button class="choice">Quay đi vì bạn ấy chưa quen mình.</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="scenario"><h3>3. Con đang vui chơi thì nghe trống báo vào lớp.</h3><div class="choices" data-app="3"><button class="choice" data-correct="true">Chào bạn rồi cùng bạn nhanh chóng vào lớp.</button><button class="choice">Cứ chơi tiếp, mặc kệ tiếng trống.</button><button class="choice">Giận dỗi vì phải dừng chơi.</button></div><div class="feedback" aria-live="polite"></div></div>
+<p><b>Điều con có thể nhớ:</b> Một lời chào chân thành, cởi mở có thể giúp mọi người gần nhau hơn. Con không cần nói thật to; chỉ cần lễ phép, tự nhiên và phù hợp với người mình gặp.</p></section>
+<section class="poem"><h2>📖 Đọc bài: Lời chào đi trước</h2><div class="poemtext">Đi đến nơi nào
+Lời chào đi trước
+Lời chào dẫn bước
+Chẳng sợ lạc nhà
+
+Lời chào kết bạn
+Con đường bớt xa
+Lời chào là hoa
+Nở từ lòng tốt
+
+Là con gió mát
+Buổi sáng đầu ngày
+Như một bàn tay
+Chân thành cởi mở
+
+Ai ai cũng có
+Chẳng nặng là bao
+Bạn ơi đi đâu
+Nhớ mang đi nhé.</div><div class="author">(Nguyễn Hoàng Sơn)</div><p class="note">Bài thơ được chép theo ảnh SGK cô gửi.</p></section>
+</main>
+<script>
+const tasks=[
+{kind:'word',step:'TÌM TỪ',title:'Tìm từ trong bài thơ',instruction:'Con hãy đọc bài thơ và chọn từ có trong bài.',options:['cởi mở','mở cửa','cởi áo','mở sách'],answer:'cởi mở',explain:'Từ “cởi mở” có trong dòng thơ “Chân thành cởi mở”.'},
+{kind:'word',step:'TÌM TỪ',title:'Tìm từ trong bài thơ',instruction:'Từ nào dưới đây xuất hiện trong bài thơ?',options:['chân thành','chân trời','thành phố','thật thà'],answer:'chân thành',explain:'Bài thơ có dòng “Chân thành cởi mở”.'},
+{kind:'word',step:'TÌM TỪ',title:'Tìm từ trong bài thơ',instruction:'Con hãy tìm đúng từ có trong bài.',options:['lạc nhà','lạc đường','ngôi nhà','mái nhà'],answer:'lạc nhà',explain:'Từ “lạc nhà” nằm ở cuối khổ thơ đầu.'},
+{kind:'sentence',step:'ĐỌC DÒNG THƠ',title:'Đọc và tìm dòng thơ',instruction:'Con đọc lại khổ thơ thứ hai. Dòng nào nói lời chào giúp mọi người làm quen?',options:['Lời chào kết bạn','Lời chào đi trước','Là con gió mát','Chẳng nặng là bao'],answer:'Lời chào kết bạn',explain:'Dòng thơ nói trực tiếp rằng lời chào giúp kết bạn.'},
+{kind:'sentence',step:'ĐỌC DÒNG THƠ',title:'Đọc và tìm thông tin',instruction:'Con đọc khổ thơ thứ ba. Lời chào được so sánh với những gì?',options:['Một bông hoa và con đường','Một bàn tay và làn gió mát','Một chiếc cặp và quyển sách','Một cơn mưa và dòng suối'],answer:'Một bàn tay và làn gió mát',explain:'Khổ thơ có các dòng “Là con gió mát” và “Như một bàn tay”.'},
+{kind:'meaning',step:'HIỂU TỪ TRONG BÀI',title:'Hiểu nghĩa từ “cởi mở”',instruction:'Con đọc lại hai dòng cuối của khổ thơ thứ ba. “Chân thành cởi mở” gần với ý nào nhất?',options:['Thân thiện, thật lòng với mọi người','Nói thật to để ai cũng nghe','Chỉ nói chuyện với bạn thân','Luôn đồng ý với mọi điều'],answer:'Thân thiện, thật lòng với mọi người',explain:'Trong bài thơ, “chân thành cởi mở” gợi cách cư xử thân thiện và thật lòng.'},
+{kind:'meaning',step:'HIỂU Ý BÀI THƠ',title:'Đọc cả bài và suy nghĩ',instruction:'Theo bài thơ, vì sao chúng ta nên mang theo lời chào?',options:['Vì lời chào giúp kết bạn và làm mọi người gần nhau hơn','Vì lời chào thay cho mọi việc cần làm','Vì lời chào giúp mình không bao giờ bị lạc','Vì ai cũng phải nói thật nhiều'],answer:'Vì lời chào giúp kết bạn và làm mọi người gần nhau hơn',explain:'Bài thơ nhấn mạnh lời chào kết bạn, thể hiện lòng tốt và sự cởi mở.'}
+];
+let idx=0, score=0, done=new Set();const $=id=>document.getElementById(id);
+function shuffle(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function setTasks(){let level=$('level').value;return tasks.filter(t=>level==='light'?t.kind==='word':level==='medium'?t.kind==='word'||t.kind==='sentence':true)}
+function render(){let list=setTasks();if(idx>=list.length){$('step').textContent='HOÀN THÀNH';$('question').textContent='Con đã hoàn thành lượt luyện đọc! 🌟';$('instruction').textContent='Con có thể chơi lại hoặc chuyển xuống phần vận dụng cuối cùng.';$('content').innerHTML='';$('feedback').textContent='Con hãy tiếp tục đọc bài thơ thật rõ ràng nhé!';$('next').classList.add('hidden');$('restart').classList.remove('hidden');$('progress').textContent='Số thử thách đã hoàn thành: '+done.size+'/'+list.length;return}
+let t=list[idx];$('step').textContent=`${t.step} · THỬ THÁCH ${idx+1}/${list.length}`;$('question').textContent=t.title;$('instruction').textContent=t.instruction;$('feedback').textContent='';$('feedback').className='feedback';$('next').classList.add('hidden');$('restart').classList.add('hidden');$('content').innerHTML='';let grid=document.createElement('div');grid.className='choices';shuffle(t.options).forEach(opt=>{let b=document.createElement('button');b.className='choice';b.textContent=opt;b.addEventListener('click',()=>{if(b.dataset.locked==='yes')return;if(opt===t.answer){score++;done.add(idx);grid.querySelectorAll('button').forEach(x=>x.dataset.locked='yes');b.classList.add('correct');$('feedback').textContent='Đúng rồi! '+t.explain;$('feedback').className='feedback good';$('next').classList.remove('hidden')}else{b.classList.add('wrong');b.dataset.locked='yes';$('feedback').textContent='Chưa đúng. Con hãy đọc lại bài thơ và thử một lựa chọn khác nhé.';$('feedback').className='feedback try'}$('progress').textContent=`Đã hoàn thành ${done.size}/${list.length} thử thách.`});grid.appendChild(b)});$('content').appendChild(grid);$('progress').textContent=`Đã hoàn thành ${done.size}/${list.length} thử thách.`}
+$('next').addEventListener('click',()=>{idx++;render()});$('restart').addEventListener('click',()=>{idx=0;score=0;done.clear();render()});$('level').addEventListener('change',()=>{idx=0;done.clear();render()});
+document.querySelectorAll('[data-app]').forEach(group=>{group.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{if(group.dataset.done==='yes')return;let fb=group.parentElement.querySelector('.feedback');if(btn.dataset.correct==='true'){group.dataset.done='yes';group.querySelectorAll('button').forEach(x=>x.dataset.locked='yes');btn.classList.add('correct');fb.textContent='Đúng rồi! Đó là cách mở lời phù hợp và thân thiện.';fb.className='feedback good'}else{btn.classList.add('wrong');btn.dataset.locked='yes';fb.textContent='Con thử nghĩ xem lời nói nào lễ phép hoặc giúp người khác cảm thấy được chào đón nhé.';fb.className='feedback try'}}))});
+render();
+</script></body></html>

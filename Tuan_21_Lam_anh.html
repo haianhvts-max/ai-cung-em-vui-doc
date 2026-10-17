@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 21 – Làm anh | AI cùng em vui đọc</title>
+<style>
+:root{--orange:#f28b30;--orange2:#fff0dc;--green:#25845b;--ink:#263238;--muted:#5c6770;--paper:#fff;--bg:#fff9f1;--blue:#eaf5ff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,"Noto Sans",sans-serif;font-size:19px;line-height:1.65}
+header{background:linear-gradient(120deg,#f57c2b,#ffb43d);color:white;padding:24px 18px;text-align:center}
+header h1{font-size:clamp(30px,5vw,44px);line-height:1.2;margin:0 0 8px;font-weight:900}header p{margin:0;font-size:19px;font-weight:700}
+main{max-width:900px;margin:0 auto;padding:18px}
+section{background:var(--paper);border-radius:20px;padding:clamp(18px,4vw,30px);margin:18px 0;box-shadow:0 3px 14px #714a1a12}
+h2{font-size:clamp(25px,4vw,32px);line-height:1.3;color:#a84c0b;margin:0 0 12px;font-weight:900}
+h3{font-size:23px;line-height:1.4;margin:0 0 10px}
+.poem-title{text-align:center;font-size:28px;font-weight:900;margin-bottom:16px}
+.poem{font-size:clamp(20px,3vw,25px);line-height:1.9;white-space:pre-line;text-align:center}
+.meta{background:#fff5e7;border-left:6px solid var(--orange);padding:12px 16px;border-radius:10px;margin-top:16px}
+.small{color:var(--muted);font-size:17px}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 20px}
+button{font:inherit;font-weight:800;cursor:pointer;border:2px solid #d6dfe4;border-radius:14px;padding:12px 17px;background:white;color:var(--ink);min-height:52px}
+button:focus-visible{outline:4px solid #f9bd62;outline-offset:2px}
+button.level{flex:1;min-width:145px;border-color:#f4c28d;background:#fff8ee}
+button.level.active{background:var(--orange);color:white;border-color:var(--orange)}
+button.choice{width:100%;text-align:left;margin:6px 0;min-height:56px}
+button.choice:hover{border-color:var(--orange)}
+button.primary{background:var(--green);color:white;border-color:var(--green);margin-top:12px}
+.feedback{margin-top:12px;padding:12px 14px;border-radius:12px;background:#f2f7f4;min-height:0;font-weight:700}
+.feedback:empty{display:none}.task{padding:18px;border:2px solid #f3e3d0;border-radius:16px;background:#fffdf9}
+.question{font-size:22px;font-weight:800;margin:10px 0 12px}
+footer{text-align:center;color:var(--muted);font-size:15px;padding:18px}
+.reading-note{background:var(--blue);padding:14px 16px;border-radius:12px}
+@media(max-width:520px){body{font-size:18px}main{padding:10px}section{border-radius:15px;margin:12px 0}button{width:100%}.tabs button{width:auto}}
+</style>
+</head>
+<body>
+<header><h1>Tuần 21 · Làm anh</h1><p>AI cùng em vui đọc · Tiếng Việt 1</p></header>
+<main>
+<section id="reading">
+<h2>1. Bài đọc</h2>
+<div class="poem-title">Làm anh</div>
+<div class="poem">Làm anh khó đấy
+Phải đâu chuyện đùa
+Với em gái bé
+Phải “người lớn” cơ.
+
+Khi em bé khóc
+Anh phải dỗ dành
+Nếu em bé ngã
+Anh nâng dịu dàng.
+
+Mẹ cho quà bánh
+Chia em phần hơn
+Có đồ chơi đẹp
+Cũng nhường em luôn.
+
+Làm anh thật khó
+Nhưng mà thật vui
+Ai yêu em bé
+Thì làm được thôi.</div>
+<div class="meta"><strong>Từ ngữ trong bài:</strong> dỗ dành, dịu dàng.</div>
+<p class="small">Đọc bài thơ theo từng khổ. Con tự đọc bằng mắt và thành tiếng; trang này không đọc bài thay con.</p>
+</section>
+
+<section>
+<h2>2. Luyện vần</h2>
+<p>Chọn tiếng cùng vần với tiếng được nêu. Hãy đọc các tiếng rồi chọn nhé.</p>
+<div class="tabs" id="levels"></div>
+<div id="taskArea"></div>
+</section>
+
+<section>
+<h2>3. Tìm hiểu từ ngữ</h2>
+<p><strong>Dỗ dành:</strong> nhẹ nhàng an ủi để em bé bớt khóc hoặc yên lòng.</p>
+<p><strong>Dịu dàng:</strong> nhẹ nhàng, ân cần trong lời nói và việc làm.</p>
+<p>Con hãy tự đọc lại hai khổ thơ đầu, rồi chọn cách hiểu phù hợp trong trò chơi.</p>
+<div id="vocabArea"></div>
+</section>
+
+<section>
+<h2>4. Luyện đọc và đọc hiểu</h2>
+<p>Đọc lại bài thơ. Tìm thông tin trong đúng khổ thơ trước khi chọn câu trả lời.</p>
+<div id="comprehensionArea"></div>
+</section>
+
+<section>
+<h2>5. Vận dụng – kể, nói và suy nghĩ</h2>
+<p><strong>Cùng suy nghĩ:</strong> Theo em, làm anh có những việc gì? Vì sao bài thơ nói “Làm anh thật khó / Nhưng mà thật vui”?</p>
+<p><strong>Liên hệ nhẹ nhàng:</strong> Nếu em có anh, chị hoặc em, em có thể kể về một lần người thân quan tâm em hoặc em đã quan tâm người thân. Nếu chưa muốn kể chuyện riêng, con có thể chỉ nghĩ thầm hoặc nói về một việc tốt mà anh chị em có thể làm cho nhau.</p>
+<div class="task">
+<h3>Trong tình huống này, em sẽ làm gì?</h3>
+<div class="question">Em nhỏ đang buồn và khóc. Cách nào thể hiện sự quan tâm?</div>
+<div id="applicationChoices">
+<button class="choice" data-good="1">Nhẹ nhàng hỏi thăm và tìm cách giúp em.</button>
+<button class="choice" data-good="0">Mắng em vì em đang khóc.</button>
+<button class="choice" data-good="0">Bỏ đi, không quan tâm đến em.</button>
+</div>
+<div id="applicationFeedback" class="feedback" aria-live="polite"></div>
+</div>
+<p class="small">Con không bắt buộc phải chia sẻ chuyện riêng tư trước lớp. Mỗi gia đình mỗi khác; điều quan trọng là quan tâm và đối xử tử tế với nhau.</p>
+</section>
+<footer>AI cùng em vui đọc · Luyện đọc nhẹ nhàng, tôn trọng nhịp học của mỗi bạn.</footer>
+</main>
+<script>
+const tiers={
+"Nhẹ nhàng":[
+{title:"Tìm tiếng cùng vần",q:"Tiếng nào cùng vần với “bánh”?",opts:["lành","sách","bàn"],a:0,why:"“Bánh – lành” cùng vần anh."},
+{title:"Tìm tiếng cùng vần",q:"Tiếng nào cùng vần với “đẹp”?",opts:["em","nẹp","đi"],a:1,why:"“Đẹp – nẹp” cùng vần ep."},
+{title:"Tìm tiếng cùng vần",q:"Tiếng nào cùng vần với “vui”?",opts:["núi","vơi","về"],a:0,why:"“Vui – núi” cùng vần ui."}
+],
+"Vừa sức":[
+{title:"Đọc và tìm thông tin",q:"Khi em bé khóc, anh phải làm gì?",opts:["Dỗ dành","Chia phần bánh","Chạy đi chơi"],a:0,why:"Con tìm ở khổ thơ thứ hai nhé: “Khi em bé khóc / Anh phải dỗ dành.”"},
+{title:"Đọc và tìm thông tin",q:"Nếu em bé ngã, anh làm gì?",opts:["Anh nâng dịu dàng","Anh lấy đồ chơi","Anh đi vào lớp"],a:0,why:"Khổ thơ thứ hai nói: “Nếu em bé ngã / Anh nâng dịu dàng.”"},
+{title:"Đọc và tìm thông tin",q:"Khi mẹ cho quà bánh, người anh làm gì?",opts:["Chia em phần hơn","Giữ hết cho mình","Đem giấu đi"],a:0,why:"Con tìm ở khổ thơ thứ ba: “Chia em phần hơn.”"}
+],
+"Nâng cao":[
+{title:"Hiểu nghĩa từ trong ngữ cảnh",q:"Trong bài thơ, “dỗ dành” gần nghĩa nhất với cách nào?",opts:["Nhẹ nhàng an ủi em","Ra lệnh cho em","Trêu em"],a:0,why:"Dỗ dành là nhẹ nhàng an ủi để em bớt buồn hoặc yên lòng."},
+{title:"Hiểu nghĩa từ trong ngữ cảnh",q:"“Anh nâng dịu dàng” cho thấy người anh như thế nào?",opts:["Quan tâm, nhẹ nhàng","Vội vàng, cáu gắt","Không để ý đến em"],a:0,why:"Câu thơ cho thấy người anh nâng em một cách nhẹ nhàng, ân cần."},
+{title:"Suy nghĩ từ bài thơ",q:"Vì sao làm anh có thể “thật khó” nhưng “thật vui”?",opts:["Vì cần quan tâm, nhường nhịn em nhưng có niềm vui khi yêu thương em","Vì anh luôn được làm mọi điều mình thích","Vì anh không cần để ý đến em"],a:0,why:"Bài thơ nói đến việc dỗ dành, nâng đỡ, chia sẻ và nhường nhịn em."}
+]};
+let tier="Nhẹ nhàng",idx=0;
+const levels=document.getElementById("levels"),taskArea=document.getElementById("taskArea");
+function renderLevels(){levels.innerHTML="";Object.keys(tiers).forEach(name=>{const b=document.createElement("button");b.className="level"+(tier===name?" active":"");b.textContent=name;b.onclick=()=>{tier=name;idx=0;renderLevels();renderTask()};levels.appendChild(b)})}
+function makeTask(target,items,heading){let i=0;function draw(){target.innerHTML="";const item=items[i];const card=document.createElement("div");card.className="task";card.innerHTML=`<h3>${heading} ${i+1}/${items.length}</h3><div class="question"></div><div class="choices"></div><div class="feedback" aria-live="polite"></div><button class="primary next" disabled>${i===items.length-1?"Làm lại phần này":"Câu tiếp theo →"}</button>`;card.querySelector(".question").textContent=item.q;const choices=card.querySelector(".choices"),feedback=card.querySelector(".feedback"),next=card.querySelector(".next");item.opts.forEach((opt,n)=>{const b=document.createElement("button");b.className="choice";b.textContent=opt;b.onclick=()=>{if(b.dataset.correct==="yes")return;if(n===item.a){b.dataset.correct="yes";b.style.borderColor="#25845b";b.style.background="#e9f7ef";b.textContent=opt+" ✓";feedback.textContent="Chính xác! "+item.why;choices.querySelectorAll("button").forEach(x=>x.disabled=true);next.disabled=false}else{feedback.textContent="Chưa đúng, con hãy đọc lại bài hoặc câu hỏi rồi thử chọn lại nhé.";}};choices.appendChild(b)});next.onclick=()=>{i=(i+1)%items.length;draw()};target.appendChild(card)}draw()}
+function renderTask(){makeTask(taskArea,tiers[tier],"Câu")}
+renderLevels();renderTask();
+makeTask(document.getElementById("vocabArea"),[
+{q:"“Dỗ dành” có nghĩa gần nhất với điều nào?",opts:["Nhẹ nhàng an ủi","Làm em sợ","Giành đồ của em"],a:0,why:"Dỗ dành là nhẹ nhàng an ủi."},
+{q:"“Dịu dàng” miêu tả cách làm như thế nào?",opts:["Nhẹ nhàng, ân cần","Ồn ào, thô bạo","Lạnh lùng"],a:0,why:"Dịu dàng là nhẹ nhàng, ân cần."}
+],"Từ ngữ");
+makeTask(document.getElementById("comprehensionArea"),[
+{q:"Làm anh thì cần làm gì với em gái bé?",opts:["Cần là “người lớn”, biết quan tâm em","Chỉ lo chơi một mình","Luôn giành phần hơn"],a:0,why:"Khổ thơ đầu nhắc người anh phải là “người lớn” với em gái bé."},
+{q:"Khi em bé khóc, anh phải làm gì?",opts:["Dỗ dành","Trêu em","Bỏ đi"],a:0,why:"Khổ thơ thứ hai: “Khi em bé khóc / Anh phải dỗ dành.”"},
+{q:"Theo bài thơ, người anh chia quà bánh thế nào?",opts:["Chia em phần hơn","Giữ hết cho mình","Chia đều cho người ngoài"],a:0,why:"Khổ thơ thứ ba: “Mẹ cho quà bánh / Chia em phần hơn.”"},
+{q:"Hai câu cuối bài thơ là gì?",opts:["Ai yêu em bé / Thì làm được thôi.","Khi em bé khóc / Anh phải dỗ dành.","Có đồ chơi đẹp / Cũng nhường em luôn."],a:0,why:"Con đọc khổ thơ cuối để kiểm tra hai câu kết."}
+],"Câu hỏi");
+document.querySelectorAll("#applicationChoices .choice").forEach(b=>b.onclick=()=>{const fb=document.getElementById("applicationFeedback");if(b.dataset.good==="1"){document.querySelectorAll("#applicationChoices .choice").forEach(x=>x.disabled=true);b.style.borderColor="#25845b";b.style.background="#e9f7ef";fb.textContent="Con chọn cách quan tâm, nhẹ nhàng với em. Mỗi gia đình có thể khác nhau; hãy tìm cách giúp đỡ an toàn và tử tế nhé."}else{fb.textContent="Con thử nghĩ lại nhé: khi em buồn, lời nói nhẹ nhàng và sự quan tâm có thể giúp em cảm thấy được yêu thương."}});
+</script>
+</body>
+</html>

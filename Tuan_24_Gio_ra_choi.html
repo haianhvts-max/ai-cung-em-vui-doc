@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 24 – Giờ ra chơi</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4effb;color:#30263b;font:19px/1.7 Arial,sans-serif}main{max-width:900px;margin:auto;padding:14px}.hero,.card{background:#fff;border:2px solid #e5d8f0;border-radius:22px;padding:20px;margin:14px 0;box-shadow:0 4px 0 #e4d7ef}.hero{text-align:center}h1{font-size:clamp(30px,6vw,44px);line-height:1.2;color:#7150a0;margin:8px 0}h2{font-size:clamp(24px,5vw,31px);line-height:1.3;color:#7150a0;margin:0 0 12px}.sub{font-size:21px;font-weight:bold}.reading{font-size:clamp(20px,4vw,24px);line-height:1.85;white-space:pre-line}.author{text-align:right;font-weight:bold}.hint{background:#fff5d8;padding:12px;border-radius:12px}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:14px}button{font:inherit;font-weight:bold;border:0;border-radius:15px;padding:13px;min-height:56px;background:#f1e8ff;color:#392653;box-shadow:0 3px 0 #d2bfe8;cursor:pointer}button:focus{outline:4px solid #ffc94a}.feedback{min-height:32px;margin-top:12px;font-weight:bold}.ok{color:#21723a}.try{color:#98500d}.small{font-size:16px;color:#5d5364}.primary{background:#7150a0;color:white;box-shadow:0 3px 0 #503775}input{width:100%;font:inherit;border:2px solid #d6c4e7;border-radius:12px;padding:12px;margin:8px 0}@media(max-width:520px){main{padding:9px}.card,.hero{padding:15px}.choices{grid-template-columns:1fr}}
+</style></head><body><main>
+<header class="hero"><div class="sub">AI CÙNG EM VUI ĐỌC · TUẦN 24</div><h1>☀️ Giờ ra chơi</h1><div class="sub">Bài thơ · Nguyễn Lâm Thắng</div></header>
+<section class="card"><h2>📖 Bài đọc</h2><div class="reading">Giờ ra chơi
+
+Trống báo giờ ra chơi
+Từng đàn chim áo trắng
+Xếp sách vở mau thôi
+Ùa ra ngoài sân nắng.
+
+Chỗ này đây, bạn gái
+Vui nhảy dây nhịp nhàng
+Vòng quay đều êm ái
+Rộn tiếng cười hoà vang.
+
+Đằng kia, ấy bạn trai
+Đá cầu bay vun vút
+Đôi chân móc rất tài
+Tung nắng hồng lên ngực.
+
+Giờ chơi vừa chấm dứt
+Đàn chim non vội vàng
+Xếp hàng nhanh vào lớp
+Bài học mới sang trang.</div><div class="author">(Nguyễn Lâm Thắng)</div><p class="hint"><b>Con tự đọc bài thơ nhé.</b> Trò chơi không đọc hộ con.</p></section>
+<section class="card"><h2>🍃 Trò chơi 1: Tìm từ trong bài</h2><p id="q1" class="sub"></p><div id="c1" class="choices"></div><div id="f1" class="feedback" aria-live="polite"></div></section>
+<section class="card"><h2>🔎 Trò chơi 2: Hiểu từ ngữ</h2><p id="q2" class="sub"></p><div id="c2" class="choices"></div><div id="f2" class="feedback" aria-live="polite"></div></section>
+<section class="card"><h2>🧠 Trò chơi 3: Nhớ chi tiết bài thơ</h2><p id="q3" class="sub"></p><div id="c3" class="choices"></div><div id="f3" class="feedback" aria-live="polite"></div></section>
+<section class="card"><h2>📚 Trò chơi 4: Theo dõi trình tự</h2><p id="q4" class="sub"></p><div id="c4" class="choices"></div><div id="f4" class="feedback" aria-live="polite"></div></section>
+<section class="card"><h2>💛 Vận dụng: Giờ ra chơi của con</h2><p>Bài thơ kể về các bạn vui chơi rồi xếp hàng trở lại lớp khi giờ ra chơi kết thúc.</p><p><b>Con thử nghĩ:</b> Con thích làm gì trong giờ ra chơi? Làm thế nào để vui chơi an toàn và để bạn nào cũng có thể tham gia?</p><p class="small">Con có thể nghĩ thầm hoặc kể với người thân khi muốn.</p><label for="r"><b>Con muốn chơi trò gì cùng các bạn?</b></label><input id="r" placeholder="Con có thể viết vài từ…"><button class="primary" onclick="document.getElementById('thanks').textContent='Cảm ơn con! Chúc con có giờ ra chơi vui vẻ, an toàn và biết quan tâm đến bạn. 🌈'">Hoàn thành</button><div id="thanks" class="feedback" aria-live="polite"></div></section>
+<p class="small">Nếu chọn chưa đúng, con hãy đọc lại bài thơ rồi thử lựa chọn khác nhé.</p></main>
+<script>
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function game(n,q,opts,ans,success){document.getElementById('q'+n).textContent=q;let w=document.getElementById('c'+n),f=document.getElementById('f'+n);w.innerHTML='';f.textContent='';shuffle(opts).forEach(t=>{let b=document.createElement('button');b.textContent=t;b.onclick=()=>{if(t===ans){f.textContent=success;f.className='feedback ok';[...w.children].forEach(x=>x.disabled=true)}else{f.textContent='Chưa đúng rồi, con đọc lại bài thơ và thử lựa chọn khác nhé!';f.className='feedback try'}};w.appendChild(b)})}
+game(1,'Từ nào trong bài miêu tả quả cầu bay rất nhanh?',['vun vút','nhịp nhàng','vội vàng'],'vun vút','Đúng rồi! Bài thơ viết “Đá cầu bay vun vút”.');
+game(2,'Từ “nhịp nhàng” trong bài miêu tả các bạn làm gì?',['Nhảy dây đều đặn, ăn khớp','Xếp hàng vào lớp','Đá cầu thật mạnh'],'Nhảy dây đều đặn, ăn khớp','Chính xác! Các bạn gái vui nhảy dây nhịp nhàng.');
+game(3,'Khi trống báo giờ ra chơi, các bạn làm gì?',['Xếp sách vở rồi ùa ra sân','Ngồi yên học bài mới','Đi về nhà'],'Xếp sách vở rồi ùa ra sân','Đúng rồi! Các bạn xếp sách vở rồi ùa ra ngoài sân nắng.');
+game(4,'Khi giờ chơi vừa chấm dứt, các bạn làm gì?',['Xếp hàng nhanh vào lớp','Tiếp tục đá cầu','Nhảy dây thêm một lúc'],'Xếp hàng nhanh vào lớp','Giỏi lắm! Các bạn xếp hàng nhanh vào lớp để học bài mới.');
+</script></body></html>

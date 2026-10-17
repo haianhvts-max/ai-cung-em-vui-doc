@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tuần 22 – Bữa cơm gia đình | AI cùng em vui đọc</title>
+<style>
+:root{--orange:#ed7b2b;--ink:#263238;--green:#247c57;--bg:#fff8f0;--muted:#5d6870}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:20px/1.7 Arial,"Noto Sans",sans-serif}
+header{background:linear-gradient(120deg,#ed722b,#ffb43c);color:#fff;text-align:center;padding:24px 16px}
+header h1{font-size:clamp(30px,5vw,44px);line-height:1.2;margin:0 0 8px;font-weight:900}header p{margin:0;font-weight:700}
+main{max-width:920px;margin:auto;padding:16px}section{background:#fff;border-radius:18px;padding:clamp(18px,4vw,30px);margin:16px 0;box-shadow:0 3px 14px #714a1a12}
+h2{color:#a94b0a;font-size:clamp(25px,4vw,32px);line-height:1.3;margin:0 0 12px;font-weight:900}h3{font-size:23px;margin:0 0 8px;line-height:1.4}
+.poem-title{text-align:center;font-size:27px;font-weight:900;margin:10px 0 16px}.reading{font-size:clamp(20px,2.7vw,24px);line-height:1.85;white-space:pre-line}
+.small{font-size:16px;color:var(--muted)}button{font:inherit;font-weight:800;cursor:pointer;border:2px solid #d5dfe3;border-radius:13px;background:#fff;color:var(--ink);padding:12px 16px;min-height:56px}
+button:focus-visible{outline:4px solid #ffcb70;outline-offset:2px}.levels{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+button.level{flex:1;min-width:135px;background:#fff5e8;border-color:#f1c28f}button.level.active{background:var(--orange);border-color:var(--orange);color:white}
+.choice{display:block;width:100%;text-align:left;margin:7px 0;min-height:56px}.primary{background:var(--green);border-color:var(--green);color:#fff;margin-top:12px}
+.task{border:2px solid #f0e2d2;background:#fffdf9;border-radius:15px;padding:17px}.question{font-size:22px;font-weight:800;margin:12px 0}
+.feedback{margin-top:12px;padding:10px 13px;border-radius:10px;background:#f0f7f2;font-weight:700;min-height:0}.feedback:empty{display:none}
+textarea{width:100%;font:inherit;border:2px solid #d5dfe3;border-radius:12px;padding:12px}footer{text-align:center;padding:18px;color:var(--muted);font-size:15px}
+@media(max-width:520px){main{padding:9px}section{margin:11px 0;border-radius:14px}button{width:100%}button.level{width:auto}}
+</style></head><body>
+<header><h1>Tuần 22 · Bữa cơm gia đình</h1><p>AI cùng em vui đọc · Tiếng Việt 1</p></header><main>
+<section><h2>1. Bài đọc</h2><div class="poem-title">Bữa cơm gia đình</div>
+<div class="reading">Thấy mẹ đi chợ về, Chi hỏi:
+– Sao mẹ mua nhiều đồ ăn thế ạ?
+– Đố con hôm nay là ngày gì?
+Chi chạy lại xem lịch:
+– À, ngày 28 tháng 6, ngày Gia đình Việt Nam.
+– Đúng rồi. Vì thế, hôm nay nhà mình liên hoan con ạ.
+
+Chi vui lắm. Em nhặt rau giúp mẹ. Bố dọn nhà, rửa xoong nồi, cốc chén. Ông bà trông em bé để mẹ nấu ăn. Cả nhà quây quần bên nhau. Bữa cơm thật tuyệt. Chi thích ngày nào cũng là ngày Gia đình Việt Nam.</div>
+<p class="small">Tác giả: Châu Anh. Con tự đọc bài bằng mắt và thành tiếng; trang này không đọc bài thay con.</p></section>
+<section><h2>2. Luyện vần</h2><p>Đọc kĩ tiếng trong bài rồi chọn tiếng có vần <strong>oong</strong>.</p><div class="levels" id="levelButtons"></div><div id="rhymeTasks"></div></section>
+<section><h2>3. Tìm hiểu từ ngữ</h2><p>Đọc từ và câu hỏi. Chọn nghĩa phù hợp với bài đọc.</p><div id="vocabTasks"></div></section>
+<section><h2>4. Luyện đọc từ khó, câu dài và đọc hiểu</h2><p>Con tự đọc lại bài, tìm chi tiết trong câu rồi mới chọn đáp án. Chọn sai thì con được thử lại.</p><div id="comprehensionTasks"></div></section>
+<section><h2>5. Vận dụng – suy nghĩ và liên hệ</h2><div class="task"><h3>Cùng suy nghĩ</h3><div class="question">Vì sao Chi thích ngày nào cũng là ngày Gia đình Việt Nam?</div><p>Con có thể nghĩ thầm, viết vài từ hoặc kể với người thân khi sẵn sàng. Không bắt buộc chia sẻ chuyện riêng trước lớp.</p><textarea rows="3" placeholder="Con nghĩ hoặc viết câu trả lời của mình…"></textarea></div>
+<div class="task" style="margin-top:16px"><h3>Chọn cách ứng xử</h3><div class="question">Khi cả nhà chuẩn bị bữa cơm, em có thể làm gì để góp sức?</div><div id="applicationChoices"><button class="choice" data-good="1">Hỏi người lớn xem mình có thể giúp việc nhỏ, an toàn nào.</button><button class="choice" data-good="0">Không quan tâm dù có việc vừa sức mình.</button><button class="choice" data-good="0">Tự làm việc nguy hiểm khi chưa biết cách.</button></div><div class="feedback" id="applicationFeedback" aria-live="polite"></div></div>
+<p class="small">Mỗi gia đình có thể khác nhau. Con chỉ cần nghĩ về một cách quan tâm phù hợp với hoàn cảnh của mình.</p></section>
+<footer>AI cùng em vui đọc · Luyện đọc nhẹ nhàng, tôn trọng nhịp học của mỗi bạn.</footer></main>
+<script>
+const tiers={
+"Nhẹ nhàng":[
+{q:"Tiếng nào trong bài có vần oong?",opts:["xoong","cơm","nhà"],a:0,why:"“Xoong” có vần oong."},
+{q:"Từ nào trong bài có tiếng mang vần oong?",opts:["xoong nồi","liên hoan","quây quần"],a:0,why:"Tiếng “xoong” có vần oong."}],
+"Vừa sức":[
+{q:"Trong cụm “rửa xoong nồi”, tiếng nào có vần oong?",opts:["xoong","rửa","nồi"],a:0,why:"Tiếng “xoong” có vần oong."},
+{q:"Câu nào trong bài có tiếng mang vần oong?",opts:["Bố dọn nhà, rửa xoong nồi, cốc chén.","Chi chạy lại xem lịch.","Chi vui lắm."],a:0,why:"Câu này có tiếng “xoong” mang vần oong."}],
+"Nâng cao":[
+{q:"Hãy chọn đúng tiếng có vần oong, không nhầm với vần gần giống.",opts:["xoong","quần","bữa"],a:0,why:"“Xoong” có vần oong; “quần” và “bữa” không có vần này."},
+{q:"Đọc cụm từ và tìm tiếng có vần oong.",opts:["rửa xoong nồi","cả nhà","đi chợ"],a:0,why:"Tiếng cần tìm là “xoong” trong cụm “rửa xoong nồi”.}]};
+function makeTasks(target,items,title){let i=0;function draw(){target.innerHTML="";const item=items[i],card=document.createElement("div");card.className="task";card.innerHTML=`<h3>${title} ${i+1}/${items.length}</h3><div class="question"></div><div class="choices"></div><div class="feedback" aria-live="polite"></div><button class="primary next" disabled>${i===items.length-1?"Làm lại phần này":"Câu tiếp theo →"}</button>`;card.querySelector(".question").textContent=item.q;const choices=card.querySelector(".choices"),fb=card.querySelector(".feedback"),next=card.querySelector(".next");item.opts.forEach((opt,n)=>{const b=document.createElement("button");b.className="choice";b.textContent=opt;b.onclick=()=>{if(!next.disabled)return;if(n===item.a){fb.textContent="Chính xác! "+item.why;b.style.background="#e7f6eb";b.style.borderColor="#25845b";choices.querySelectorAll("button").forEach(x=>x.disabled=true);next.disabled=false}else{fb.textContent="Chưa đúng, con đọc lại từ hoặc câu trong bài rồi thử lại nhé.";}};choices.appendChild(b)});next.onclick=()=>{i=(i+1)%items.length;draw()};target.appendChild(card)}draw()}
+let current="Nhẹ nhàng";const levelButtons=document.getElementById("levelButtons"),rhymeTasks=document.getElementById("rhymeTasks");
+function renderLevels(){levelButtons.innerHTML="";Object.keys(tiers).forEach(n=>{const b=document.createElement("button");b.className="level"+(current===n?" active":"");b.textContent=n;b.onclick=()=>{current=n;renderLevels();makeTasks(rhymeTasks,tiers[n],"Câu")};levelButtons.appendChild(b)})}renderLevels();makeTasks(rhymeTasks,tiers[current],"Câu");
+makeTasks(document.getElementById("vocabTasks"),[
+{q:"Trong bài, “liên hoan” gần nghĩa với việc gì?",opts:["Cùng tổ chức ăn mừng, vui vẻ bên nhau","Đi học một mình","Dọn đồ đi xa"],a:0,why:"Trong câu chuyện, gia đình liên hoan để cùng vui ngày Gia đình Việt Nam."},
+{q:"“Quây quần bên nhau” có nghĩa là gì?",opts:["Mọi người tụ họp gần gũi bên nhau","Mỗi người đi một nơi","Mọi người làm việc ở ngoài sân"],a:0,why:"“Quây quần bên nhau” diễn tả mọi người sum họp gần gũi."},
+{q:"Ai trông em bé để mẹ nấu ăn?",opts:["Ông bà","Chi","Bố"],a:0,why:"Bài đọc viết: “Ông bà trông em bé để mẹ nấu ăn.”"}
+],"Từ ngữ");
+makeTasks(document.getElementById("comprehensionTasks"),[
+{q:"Ngày Gia đình Việt Nam được nhắc trong bài là ngày nào?",opts:["Ngày 28 tháng 6","Ngày 1 tháng 6","Ngày 20 tháng 11"],a:0,why:"Chi xem lịch và nói: ngày 28 tháng 6, ngày Gia đình Việt Nam."},
+{q:"Chi làm gì để giúp mẹ?",opts:["Nhặt rau","Rửa xoong nồi","Trông em bé"],a:0,why:"Bài đọc kể: “Em nhặt rau giúp mẹ.”"},
+{q:"Bố làm những việc gì?",opts:["Dọn nhà, rửa xoong nồi, cốc chén","Nhặt rau và nấu ăn","Đưa Chi đi học"],a:0,why:"Con đối chiếu câu kể về việc bố làm trong bài."},
+{q:"Vì sao bữa cơm được Chi cảm thấy thật tuyệt?",opts:["Cả nhà quây quần bên nhau","Chi được đi chơi núi","Mọi người ăn thật nhanh"],a:0,why:"Bài đọc nối niềm vui với việc cả nhà quây quần bên nhau."}
+],"Câu hỏi");
+document.querySelectorAll("#applicationChoices .choice").forEach(b=>b.onclick=()=>{const fb=document.getElementById("applicationFeedback");if(b.dataset.good==="1"){document.querySelectorAll("#applicationChoices .choice").forEach(x=>x.disabled=true);b.style.background="#e7f6eb";b.style.borderColor="#25845b";fb.textContent="Con chọn cách góp sức phù hợp và an toàn. Một việc nhỏ cũng có thể thể hiện sự quan tâm."}else{fb.textContent="Con nghĩ thêm nhé: hãy chọn việc vừa sức và hỏi người lớn nếu chưa chắc chắn."}});
+</script></body></html>

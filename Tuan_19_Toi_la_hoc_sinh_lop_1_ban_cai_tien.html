@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 19 - Tôi là học sinh lớp 1</title>
+<style>
+:root{--ink:#24324a;--blue:#2864c5;--pale:#eef5ff;--gold:#ffce67;--green:#23865b;--red:#c34c4c;--paper:#fffdf8}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:linear-gradient(135deg,#eef6ff,#fff8e8);color:var(--ink);line-height:1.55}
+header{padding:24px 16px 18px;text-align:center;background:#fffdf8;border-bottom:4px solid var(--gold)}
+header .tag{display:inline-block;background:#e7f0ff;color:#2458a6;border-radius:999px;padding:5px 12px;font-size:.9rem;font-weight:700}
+h1{margin:10px 0 4px;font-size:clamp(1.5rem,4vw,2.25rem)}
+header p{margin:0;color:#5c6b81}
+main{max-width:900px;margin:20px auto;padding:0 14px 36px}
+.panel{background:#fff;border-radius:20px;padding:20px;margin:16px 0;box-shadow:0 5px 18px #263c5c12;border:1px solid #e5ebf4}
+h2{margin:0 0 8px;font-size:1.3rem}
+#question{font-size:clamp(1.45rem,4.5vw,2rem);font-weight:850;color:#173f83;line-height:1.25;margin-bottom:12px}
+#instruction{font-size:clamp(1.12rem,3.4vw,1.35rem);font-weight:750;color:#263b59;line-height:1.5;background:#fff6d9;border:2px solid #f0cd70;border-radius:14px;padding:14px;margin:10px 0 16px}
+.reading-title{font-size:clamp(1.35rem,4vw,1.8rem);font-weight:850;color:#173f83;background:#eaf2ff;border:3px solid #9bbcf4;border-radius:14px;padding:14px;text-align:center;margin:0 0 14px}
+.text-card .reading-copy{font-size:1.08rem;line-height:1.85}
+.intro{color:#53627a;margin-top:0}
+.progress-wrap{height:9px;background:#e9eef6;border-radius:99px;overflow:hidden;margin:14px 0 4px}
+#progress{height:100%;width:0;background:linear-gradient(90deg,#4d9bfa,#47b889);transition:width .25s}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;padding:11px 15px;font-weight:700}
+button:focus-visible,.choice:focus-visible{outline:3px solid #f1b83f;outline-offset:3px}
+.primary{background:var(--blue);color:white}
+.secondary{background:#edf2f8;color:#31445f}
+.choice-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin:14px 0}
+.choice{border:2px solid #dce5f1;background:#fff;border-radius:14px;padding:14px 10px;min-height:58px;font-weight:700;font-size:1.05rem;text-align:center;cursor:pointer}
+.choice:hover{border-color:#7aa5eb;background:#f7faff}
+.choice.correct{border-color:var(--green);background:#e9f8f0;color:#176342}
+.choice.wrong{border-color:var(--red);background:#fff0f0;color:#9c3434}
+.feedback{min-height:28px;font-weight:700;margin:10px 0 2px}
+.feedback.good{color:var(--green)}.feedback.bad{color:var(--red)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.hidden{display:none!important}
+.text-card{background:#fffaf0;border-left:5px solid var(--gold);padding:14px 16px;border-radius:12px;margin:10px 0}
+.text-card p{margin:0 0 12px}.text-card p:last-child{margin-bottom:0}
+.small{font-size:.92rem;color:#68758a}
+label{font-weight:650}
+select{font:inherit;border:1px solid #cbd6e4;border-radius:10px;padding:9px;background:white}
+footer{text-align:center;padding:18px;color:#64728a;font-size:.9rem}
+.family-talk{margin-top:22px;padding:20px;border:3px solid #f4c96b;border-radius:20px;background:linear-gradient(145deg,#fff9e9,#fff);box-shadow:0 6px 18px #a8791514}
+.family-badge{display:inline-block;background:#fff0bf;color:#805313;padding:7px 12px;border-radius:999px;font-size:.88rem;font-weight:850;margin-bottom:10px}
+.family-talk h2{font-size:clamp(1.35rem,4vw,1.8rem);color:#7c4c0c;margin:4px 0 10px}
+.family-lead{font-size:1.12rem;background:#fff;border:2px solid #f3d98f;padding:14px;border-radius:14px;line-height:1.6}
+.talk-questions{display:grid;gap:10px;margin:14px 0}
+.talk-question{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid #f0e0b8;border-radius:14px;padding:12px}
+.talk-question>span{font-size:1.35rem;min-width:32px}
+.talk-question p{margin:5px 0 0;color:#657086}
+.sentence-starter{background:#edf8f1;border:2px dashed #8bc8a6;border-radius:14px;padding:13px 15px;margin:14px 0}
+.sentence-starter p{font-size:1.08rem;font-weight:750;color:#216744;margin:8px 0}
+.family-label{display:block;margin:14px 0 7px}
+#family-note{display:block;width:100%;font:inherit;border:2px solid #d8e1eb;border-radius:12px;padding:12px;resize:vertical;background:#fff}
+.family-check{display:flex;align-items:flex-start;gap:10px;margin-top:14px;padding:12px;background:#fff;border-radius:12px}
+.family-check input{transform:scale(1.25);margin-top:5px}
+.family-feedback{margin:10px 0 0;font-weight:700;color:#49627d}
+@media(max-width:520px){.panel{padding:16px}header{padding:20px 12px}.choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header>
+  <span class="tag">TIẾNG VIỆT 1 · TUẦN 19</span>
+  <h1>📚 Tôi là học sinh lớp 1</h1>
+  <p>Đọc bằng mắt, tự tìm thông tin, chinh phục từng thử thách!</p>
+</header>
+<main>
+  <section class="panel">
+    <h2>🌟 Hành trình đọc của con</h2>
+    <p class="intro">Con sẽ đi qua những thử thách đọc, tìm từ và hiểu bài. Sau đó, con hãy đọc lại bài và kể chuyện với ba mẹ nhé!</p>
+    <label for="level">Chọn mức luyện tập:</label>
+    <select id="level">
+      <option value="support">Bắt đầu nhẹ nhàng</option>
+      <option value="standard" selected>Thử thách vừa sức</option>
+      <option value="challenge">Thử thách nâng cao</option>
+    </select>
+    <div class="progress-wrap"><div id="progress"></div></div>
+    <div class="small" id="scoreline">Đã hoàn thành 0 thử thách · Đúng 0 câu</div>
+  </section>
+
+  <section class="panel" id="game">
+    <div class="small" id="step">THỬ THÁCH 1/3 · ĐỌC TỪ</div>
+    <h2 id="question">Tìm đúng từ</h2>
+    <p class="intro" id="instruction">Con hãy tự đọc các từ rồi chọn từ được yêu cầu.</p>
+    <div id="content"></div>
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+    <div class="actions">
+      <button class="primary hidden" id="next">Thử thách tiếp theo →</button>
+      <button class="secondary hidden" id="retry">Thử lại</button>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2 class="reading-title">📖 Đọc bài: Tôi là học sinh lớp 1</h2>
+    <p class="small">Con hãy tự đọc lại bài đã học ở lớp.</p>
+    <div class="text-card">
+      <p class="reading-copy">Tôi tên là Nam, học sinh lớp 1A, Trường Tiểu học Lê Quý Đôn. Ngày đầu đi học, mặc bộ đồng phục của trường, tôi hãnh diện lắm.</p>
+      <p class="reading-copy">Hồi đầu năm học, tôi mới học chữ cái. Thế mà bây giờ, tôi đã đọc được truyện tranh. Tôi còn biết làm toán nữa. Tôi có thêm nhiều bạn mới.</p>
+      <p class="reading-copy">Ai cũng bảo từ khi đi học, tôi chững chạc hẳn lên.</p>
+    </div>
+    <section class="family-talk" aria-labelledby="family-title">
+      <div class="family-badge">💛 CHẶNG ĐẶC BIỆT · TRÒ CHUYỆN CÙNG GIA ĐÌNH</div>
+      <h2 id="family-title">Con kể với ba mẹ nhé!</h2>
+      <p class="family-lead"><strong>Câu hỏi dành cho con:</strong> Con thích nhất điều gì khi đi học? Vì sao con thích điều đó?</p>
+      <div class="talk-questions">
+        <div class="talk-question"><span>💬 1</span><div><strong>Ở trường, con thích nhất điều gì?</strong><p>Ví dụ: con thích học đọc, học toán, chơi cùng bạn hoặc được cô giáo khen.</p></div></div>
+        <div class="talk-question"><span>🌱 2</span><div><strong>Từ khi vào lớp 1, con đã làm được điều gì mới?</strong><p>Con có thể kể về một điều con đã học hoặc một việc con tự làm được.</p></div></div>
+        <div class="talk-question"><span>😊 3</span><div><strong>Khi làm được điều đó, con cảm thấy thế nào?</strong><p>Con vui, tự hào, hồi hộp hay có cảm xúc khác?</p></div></div>
+      </div>
+      <div class="sentence-starter"><strong>Con có thể bắt đầu như thế này:</strong><p>“Con thích nhất khi đi học là … vì …”</p><p>“Từ khi vào lớp 1, con đã biết … Con cảm thấy …”</p></div>
+      <label for="family-note" class="family-label">Con muốn kể hoặc vẽ bằng lời điều gì? (Không bắt buộc viết)</label>
+      <textarea id="family-note" rows="3" placeholder="Con có thể nói cho ba mẹ nghe; người lớn có thể ghi lại lời của con ở đây…"></textarea>
+      <label class="family-check"><input id="shared" type="checkbox"> Con đã đọc lại bài và trò chuyện với ba mẹ.</label>
+      <p id="family-feedback" class="family-feedback" aria-live="polite">Không có đáp án đúng hay sai. Điều quan trọng là con được nói thật về cảm xúc của mình.</p>
+    </section>
+    <p class="small">Ghi chú: Trò chơi ghi nhận lựa chọn của con, không tự đánh giá độ chính xác, âm lượng hay tốc độ khi con đọc thành tiếng. Giáo viên sẽ quan sát các tiêu chí đó trực tiếp trên lớp.</p>
+  </section>
+</main>
+<footer>AI cùng em vui đọc · Mỗi em một điểm xuất phát, mỗi ngày một bước tiến bộ.</footer>
+<script>
+const tasks = [
+ {kind:"word",title:"Tìm từ: đồng phục",step:"ĐỌC TỪ",instruction:"Con hãy tự đọc từng lựa chọn rồi tìm đúng từ “đồng phục” có trong bài.",
+  options:["đồng phục","đồng ruộng","đồng hồ","đồng đội","đồng lòng","đồng thanh"],answer:"đồng phục",
+  explain:"Con đã tìm đúng từ “đồng phục” trong bài đọc."},
+ {kind:"word",title:"Tìm từ: hãnh diện",step:"ĐỌC TỪ",instruction:"Con hãy tự đọc từng lựa chọn rồi tìm đúng từ “hãnh diện” có trong bài.",
+  options:["hãnh diện","học sinh","truyện tranh","bạn mới","đồng phục","chững chạc"],answer:"hãnh diện",
+  explain:"Con đã tìm đúng từ “hãnh diện” trong bài đọc."},
+ {kind:"word",title:"Tìm từ: chững chạc",step:"ĐỌC TỪ",instruction:"Con hãy tự đọc từng lựa chọn rồi tìm đúng từ “chững chạc” có trong bài.",
+  options:["chững chạc","chăm chỉ","truyện tranh","bạn mới","hãnh diện","đồng phục"],answer:"chững chạc",
+  explain:"Con đã tìm đúng từ “chững chạc” trong bài đọc."},
+ {kind:"meaning",title:"Hiểu nghĩa của từ",step:"HIỂU TỪ",instruction:"Trong bài, Nam mặc đồng phục ngày đầu đi học và cảm thấy “hãnh diện lắm”. “Hãnh diện” gần nghĩa với điều nào?",
+  options:["Vui và tự hào về mình","Buồn vì không làm được việc","Sợ hãi khi gặp người lạ","Mệt vì đi bộ xa"],answer:"Vui và tự hào về mình",
+  explain:"“Hãnh diện” là cảm thấy vui và tự hào."},
+ {kind:"meaning",title:"Hiểu từ trong câu",step:"HIỂU TỪ",instruction:"Đọc câu: “Ai cũng bảo từ khi đi học, tôi chững chạc hẳn lên.” Từ “chững chạc” nói về bạn Nam như thế nào?",
+  options:["Có vẻ trưởng thành hơn","Luôn chạy thật nhanh","Thường xuyên buồn ngủ","Chưa biết làm việc gì"],answer:"Có vẻ trưởng thành hơn",
+  explain:"“Chững chạc” nghĩa là có vẻ trưởng thành, đĩnh đạc hơn."},
+ {kind:"sentence",title:"Đọc câu, tìm thông tin",step:"ĐỌC CÂU",instruction:"Con hãy tự đọc các câu. Câu nào cho biết cảm xúc của Nam khi mặc đồng phục ngày đầu đi học?",
+  options:["Ngày đầu đi học, mặc bộ đồng phục của trường, tôi hãnh diện lắm.",
+           "Tôi có thêm nhiều bạn mới.",
+           "Tôi còn biết làm toán nữa.",
+           "Ai cũng bảo từ khi đi học, tôi chững chạc hẳn lên.",
+           "Hồi đầu năm học, tôi mới học chữ cái.",
+           "Tôi tên là Nam, học sinh lớp 1A, Trường Tiểu học Lê Quý Đôn."],
+  answer:"Ngày đầu đi học, mặc bộ đồng phục của trường, tôi hãnh diện lắm.",
+  explain:"Câu này cho biết cảm xúc của Nam trong ngày đầu đi học."},
+ {kind:"paragraph",title:"Đọc đoạn, tìm thông tin",step:"ĐỌC ĐOẠN",instruction:"Con hãy đọc lại đoạn thứ hai. Nam đã làm được những gì?",
+  options:["Đọc được truyện tranh, biết làm toán và có thêm nhiều bạn mới.",
+           "Chỉ mặc bộ đồng phục của trường.",
+           "Chỉ mới học chữ cái và chưa biết làm gì khác.",
+           "Chỉ biết tên trường của mình.",
+           "Đã biết tất cả mọi việc."],
+  answer:"Đọc được truyện tranh, biết làm toán và có thêm nhiều bạn mới.",
+  explain:"Đoạn thứ hai kể những điều Nam làm được và những bạn mới mà Nam có."}
+];
+let index=0, correctCount=0, completed=new Set(), answered=false;
+const $=id=>document.getElementById(id);
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function getTasks(){
+ const level=$("level").value;
+ // Mỗi mức có phạm vi nhiệm vụ riêng, không chỉ thay đổi số phương án.
+ const order={word:0,sentence:1,paragraph:2,meaning:3};
+ if(level==="support") return tasks.filter(t=>t.kind==="word");
+ if(level==="standard") return tasks.filter(t=>t.kind==="word" || t.kind==="sentence" || t.kind==="paragraph").sort((a,b)=>order[a.kind]-order[b.kind]);
+ return tasks.filter(t=>t.kind==="word" || t.kind==="sentence" || t.kind==="paragraph" || t.kind==="meaning").sort((a,b)=>order[a.kind]-order[b.kind]);
+}
+function render(){
+ const currentTasks=getTasks();
+ if(index>=currentTasks.length) index=0;
+ const t=currentTasks[index]; answered=false;
+ $("step").textContent=`THỬ THÁCH ${index+1}/${currentTasks.length} · ${t.step}`;
+ $("question").textContent=t.title;
+ $("instruction").textContent=t.instruction;
+ $("feedback").textContent=""; $("feedback").className="feedback";
+ $("next").classList.add("hidden"); $("retry").classList.add("hidden");
+ const box=$("content"); box.innerHTML="";
+ const grid=document.createElement("div"); grid.className="choice-grid";
+ shuffle(t.options).forEach(opt=>{
+   const b=document.createElement("button"); b.className="choice"; b.type="button"; b.textContent=opt;
+   b.addEventListener("click",()=>choose(b,opt,t,grid)); grid.appendChild(b);
+ });
+ box.appendChild(grid);
+ updateScore();
+}
+function choose(btn,opt,t,grid){
+ if(answered)return;
+ if(opt===t.answer){
+   answered=true; correctCount++; completed.add(index);
+   btn.classList.add("correct");
+   $("feedback").textContent="Chính xác! "+t.explain;
+   $("feedback").className="feedback good";
+   [...grid.children].forEach(b=>b.disabled=true);
+   $("next").classList.remove("hidden");
+ }else{
+   btn.classList.add("wrong");
+   $("feedback").textContent="Chưa đúng. Con hãy đọc lại từng lựa chọn rồi thử lại nhé.";
+   $("feedback").className="feedback bad";
+   btn.disabled=true;
+   $("retry").classList.remove("hidden");
+ }
+ updateScore();
+}
+$("retry").addEventListener("click",()=>{ $("feedback").textContent=""; $("feedback").className="feedback"; $("retry").classList.add("hidden"); });
+$("next").addEventListener("click",()=>{
+ const currentTasks=getTasks();
+ if(index<currentTasks.length-1){index++;render();}
+ else{
+   $("step").textContent="🎉 HOÀN THÀNH HÀNH TRÌNH";
+   $("question").textContent="Con đã chinh phục các thử thách!";
+   $("instruction").textContent="Con hãy tự hào vì đã kiên trì đọc và suy nghĩ. Bây giờ, hãy đến phần “Con kể với ba mẹ nhé!” ngay bên dưới bài đọc.";
+   $("content").innerHTML=`
+     <div class="text-card">
+       <p style="font-size:1.15rem"><strong>🌟 Con đã luyện tập:</strong></p>
+       <p>🔎 Tìm và nhận ra từ trong bài.</p>
+       <p>📖 Đọc câu để tìm thông tin.</p>
+       <p>💡 Suy nghĩ về ý nghĩa của từ (nếu có trong mức con chọn).</p>
+       <p><strong>Thử thách tiếp theo:</strong> Đọc lại bài và kể với ba mẹ điều con thích nhất khi đi học.</p>
+     </div>
+     <div class="actions"><button class="primary" id="restart">🔄 Chơi lại hành trình</button></div>`;
+   $("feedback").textContent="Ba mẹ hãy lắng nghe con đọc và trò chuyện cùng con. Phần chia sẻ cảm xúc không có đáp án đúng hay sai.";
+   $("feedback").className="feedback";
+   $("next").classList.add("hidden");
+   $("restart").addEventListener("click",()=>{index=0;correctCount=0;completed=new Set();render();});
+ }
+ updateScore();
+});
+$("level").addEventListener("change",()=>{index=0;correctCount=0;completed=new Set();render();});
+$("shared").addEventListener("change",e=>{
+ $("family-feedback").textContent=e.target.checked
+   ? "Tuyệt vời! Con đã dành thời gian đọc và trò chuyện cùng ba mẹ. 💛"
+   : "Khi sẵn sàng, con hãy đọc lại bài và trò chuyện với ba mẹ nhé.";
+});
+function updateScore(){
+ const total=getTasks().length;
+ $("progress").style.width=(completed.size/total*100)+"%";
+ $("scoreline").textContent=`Đã hoàn thành ${completed.size}/${total} thử thách · Đúng ${correctCount} câu`;
+}
+render();
+</script>
+</body>
+</html>

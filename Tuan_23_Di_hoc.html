@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Tuần 23 – Đi học</title>
+<style>
+:root{--purple:#7650a3;--pink:#f4dff0;--cream:#fffaf2;--ink:#29223a;--green:#e4f5e5;--red:#fff0e9}*{box-sizing:border-box}body{margin:0;background:#f5f1fa;color:var(--ink);font-family:Arial,'Trebuchet MS',sans-serif;font-size:20px;line-height:1.6}.wrap{max-width:850px;margin:auto;padding:16px}.hero{background:linear-gradient(135deg,#e7dafa,#fff0f7);border:3px solid #d4c0ec;border-radius:24px;padding:22px;text-align:center}.eyebrow{font-size:18px;font-weight:800;color:#68438e}.hero h1{font-size:clamp(32px,7vw,46px);line-height:1.15;margin:8px 0;color:#64418d}.sub{font-size:19px}.card{background:white;border:2px solid #e5dced;border-radius:20px;padding:20px;margin-top:18px;box-shadow:0 3px 0 #e8e0ef}.card h2{font-size:clamp(25px,5vw,32px);margin:0 0 12px;color:#67448e;line-height:1.25}.poem{font-size:clamp(22px,4.7vw,27px);font-weight:600;line-height:1.85;background:#fffaf3;border-radius:16px;padding:16px;white-space:pre-line}.author{text-align:right;font-weight:700;margin-top:8px}.hint{background:#f7f0ff;border-radius:12px;padding:12px;font-size:18px}.q{font-weight:800;font-size:22px;margin:16px 0 10px}.choices{display:grid;gap:10px}.choice,button{font:inherit;font-weight:700;border:2px solid #d8c8eb;border-radius:14px;padding:13px 15px;background:#fff;cursor:pointer;color:var(--ink);text-align:left}.choice:hover,button:hover{background:#f7efff}.choice:disabled{cursor:default;opacity:1}.feedback{font-weight:800;min-height:32px;margin-top:10px}.good{color:#226c36}.retry{color:#a64b21}.pill{display:inline-block;background:#f2e8ff;border-radius:999px;padding:4px 12px;font-size:16px;font-weight:800}.small{font-size:18px}.footer{font-size:16px;text-align:center;color:#665d70;padding:20px}.btn{background:#7650a3;color:white;border:none;text-align:center}.word{font-weight:900;color:#71469a}.line{padding:12px;border-radius:12px;background:#faf6ff;margin:8px 0}.app textarea{width:100%;min-height:90px;font:inherit;padding:12px;border:2px solid #d8c8eb;border-radius:14px}.note{font-size:16px;color:#6a6170}
+</style></head><body><main class="wrap">
+<header class="hero"><div class="eyebrow">AI CÙNG EM VUI ĐỌC · TUẦN 23</div><h1>Đi học</h1><div class="sub">Bài thơ · Tác giả: Hoàng Minh Chính</div></header>
+<section class="card"><h2>📖 Bài đọc</h2><div class="poem">(1) Hôm qua em tới trường
+Mẹ dắt tay từng bước
+Hôm nay mẹ lên nương
+Một mình em tới lớp.
+
+(2) Trường của em be bé
+Nằm lặng giữa rừng cây
+Cô giáo em tre trẻ
+Dạy em hát rất hay.
+
+(3) Hương rừng thơm đồi vắng
+Nước suối trong thầm thì...
+Cọ xoè ô che nắng
+Râm mát đường em đi.</div><div class="author">— Hoàng Minh Chính</div><p class="note">Con hãy tự đọc bài thơ bằng mắt và thành tiếng. Trò chơi không đọc thay con.</p></section>
+<section class="card"><h2>1. Tìm tiếng trong bài</h2><div class="pill">Mức nhẹ nhàng</div><div class="q">Con hãy tìm tiếng có trong bài thơ.</div><div class="choices" id="q1"></div><div class="feedback" id="f1" aria-live="polite"></div></section>
+<section class="card"><h2>2. Đọc đúng dòng thơ</h2><div class="pill">Mức vừa sức</div><div class="q">Dòng thơ nào nói rằng hôm nay bạn nhỏ tự đi đến lớp?</div><div class="choices" id="q2"></div><div class="feedback" id="f2" aria-live="polite"></div></section>
+<section class="card"><h2>3. Hiểu từ ngữ</h2><div class="pill">Mức nâng cao</div><div class="q">Trong bài thơ, “thầm thì” gợi tiếng nước suối như thế nào?</div><div class="choices" id="q3"></div><div class="feedback" id="f3" aria-live="polite"></div></section>
+<section class="card"><h2>4. Tìm chi tiết trong bài</h2><div class="q">Cô giáo trong bài thơ được miêu tả như thế nào?</div><div class="choices" id="q4"></div><div class="feedback" id="f4" aria-live="polite"></div></section>
+<section class="card app"><h2>5. Liên hệ với bản thân</h2><p class="q">Trong sách, câu hỏi gợi ý: “Nói về cảm xúc của em sau mỗi ngày đi học.”</p><p>Con có thể nghĩ thầm hoặc viết vài từ về cảm xúc của mình. Cảm xúc nào cũng được đón nhận; con không bắt buộc phải chia sẻ với người khác.</p><textarea id="reflection" placeholder="Hôm nay sau khi đi học, con cảm thấy… (không bắt buộc)"></textarea><p><button class="btn" onclick="document.getElementById('thanks').textContent='Cảm ơn con đã lắng nghe cảm xúc của mình. Con có thể giữ câu trả lời riêng cho mình nhé!'">Con đã suy nghĩ xong</button></p><div class="feedback good" id="thanks" aria-live="polite"></div></section>
+<div class="footer">Con đọc thật chậm, nhìn kĩ từng tiếng. Nếu chọn chưa đúng, con hãy thử lại nhé! 🌱</div>
+</main><script>
+const data=[
+{id:'q1',f:'f1',correct:'nương',options:['nương','bước','lớp','hát'],explain:'“Nương” có trong dòng “Hôm nay mẹ lên nương.”'},
+{id:'q2',f:'f2',correct:'Một mình em tới lớp.',options:['Mẹ dắt tay từng bước','Một mình em tới lớp.','Dạy em hát rất hay.','Cọ xoè ô che nắng'],explain:'Con tìm thấy dòng thơ ở khổ (1): “Một mình em tới lớp.”'},
+{id:'q3',f:'f3',correct:'Tiếng nước suối nhỏ nhẹ, nghe êm êm.',options:['Tiếng nước suối rất ồn ào','Tiếng nước suối nhỏ nhẹ, nghe êm êm.','Tiếng nước suối như tiếng trống','Không có tiếng nước suối'],explain:'“Thầm thì” gợi âm thanh nhẹ và êm.'},
+{id:'q4',f:'f4',correct:'Cô giáo trẻ, dạy các bạn hát rất hay.',options:['Cô giáo già, dạy các bạn viết chữ','Cô giáo trẻ, dạy các bạn hát rất hay.','Cô giáo đi lên nương','Cô giáo che nắng cho đường'],explain:'Con đọc lại khổ (2) để tìm chi tiết về cô giáo.'}
+];
+// Correct answer locations deliberately vary: 1st, 2nd, 2nd, 2nd.
+data.forEach(item=>{const box=document.getElementById(item.id),fb=document.getElementById(item.f);let attempts=0;item.options.forEach((opt,i)=>{const b=document.createElement('button');b.className='choice';b.textContent=opt;b.onclick=()=>{if(opt===item.correct){fb.className='feedback good';fb.textContent='Đúng rồi! '+item.explain;Array.from(box.children).forEach(x=>x.disabled=true)}else{attempts++;fb.className='feedback retry';fb.textContent='Chưa đúng rồi, con đọc lại bài thơ và thử chọn lần nữa nhé.';b.style.borderColor='#e8b5a0';b.style.background='#fff8f4';}};box.appendChild(b)});});
+</script></body></html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 22 – Cả nhà đi chơi núi | AI cùng em vui đọc</title>
+<style>
+:root{--orange:#ed7b2b;--ink:#263238;--green:#247c57;--bg:#fff8f0;--muted:#5d6870}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:19px/1.7 Arial,"Noto Sans",sans-serif}
+header{background:linear-gradient(120deg,#ed722b,#ffb43c);color:#fff;text-align:center;padding:24px 16px}
+header h1{font-size:clamp(30px,5vw,44px);line-height:1.2;margin:0 0 8px;font-weight:900}header p{margin:0;font-weight:700}
+main{max-width:920px;margin:auto;padding:16px}
+section{background:#fff;border-radius:18px;padding:clamp(18px,4vw,30px);margin:16px 0;box-shadow:0 3px 14px #714a1a12}
+h2{color:#a94b0a;font-size:clamp(25px,4vw,32px);line-height:1.3;margin:0 0 12px;font-weight:900}
+h3{font-size:23px;margin:0 0 8px;line-height:1.4}
+.poem-title{text-align:center;font-size:27px;font-weight:900;margin:10px 0 16px}
+.reading{font-size:clamp(19px,2.7vw,23px);line-height:1.85;white-space:pre-line}
+.meta{background:#fff4e4;border-left:6px solid var(--orange);border-radius:10px;padding:12px 15px;margin-top:14px}
+.note{background:#edf6ff;border-radius:12px;padding:13px 15px}
+.small{font-size:16px;color:var(--muted)}
+button{font:inherit;font-weight:800;cursor:pointer;border:2px solid #d5dfe3;border-radius:13px;background:#fff;color:var(--ink);padding:12px 16px;min-height:52px}
+button:focus-visible{outline:4px solid #ffcb70;outline-offset:2px}
+.levels{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+button.level{flex:1;min-width:135px;background:#fff5e8;border-color:#f1c28f}
+button.level.active{background:var(--orange);border-color:var(--orange);color:white}
+.choice{display:block;width:100%;text-align:left;margin:7px 0;min-height:56px}
+.primary{background:var(--green);border-color:var(--green);color:#fff;margin-top:12px}
+.task{border:2px solid #f0e2d2;background:#fffdf9;border-radius:15px;padding:17px}
+.question{font-size:22px;font-weight:800;margin:12px 0}
+.feedback{margin-top:12px;padding:10px 13px;border-radius:10px;background:#f0f7f2;font-weight:700}
+.feedback:empty{display:none}
+footer{text-align:center;padding:18px;color:var(--muted);font-size:15px}
+@media(max-width:520px){body{font-size:18px}main{padding:9px}section{margin:11px 0;border-radius:14px}button{width:100%}button.level{width:auto}}
+</style>
+</head>
+<body>
+<header><h1>Tuần 22 · Cả nhà đi chơi núi</h1><p>AI cùng em vui đọc · Tiếng Việt 1</p></header>
+<main>
+<section>
+<h2>1. Bài đọc</h2>
+<div class="poem-title">Cả nhà đi chơi núi</div>
+<div class="reading">Bố mẹ cho Nam và Đức đi chơi núi. Hôm trước, mẹ thức khuya để chuẩn bị quần áo, thức ăn, nước uống và cả tuýp thuốc chống côn trùng.
+
+Hôm sau, khi mặt trời lên, cả nhà đã tới chân núi. Nam và Đức thích thú, đuổi nhau huỳnh huỵch. Càng lên cao, đường càng dốc và khúc khuỷu, bố phải cõng Đức. Thỉnh thoảng, mẹ lại mở hỏi cho hai anh em.
+
+Lúc lên đến đỉnh núi, hai anh em vui sướng hét vang.</div>
+<p class="small">Con tự đọc bài bằng mắt và thành tiếng. Trang này không đọc bài thay con. Lưu ý: ở câu “Thỉnh thoảng, mẹ lại ... cho hai anh em”, ảnh SGK chưa đủ rõ để xác nhận chính xác cụm từ; cô/thầy vui lòng đối chiếu bản sách trước khi dùng chính thức.</p>
+</section>
+
+<section>
+<h2>2. Luyện vần</h2>
+<p>Đọc tiếng trong câu hỏi và các lựa chọn. Chọn tiếng có vần được hỏi.</p>
+<div class="levels" id="levelButtons"></div>
+<div id="rhymeTasks"></div>
+</section>
+
+<section>
+<h2>3. Tìm hiểu từ ngữ</h2>
+<p><strong>Tuýp thuốc:</strong> thuốc đựng trong một ống nhỏ.</p>
+<p><strong>Côn trùng:</strong> nhóm động vật nhỏ như muỗi, kiến, bướm.</p>
+<p><strong>Huỳnh huỵch:</strong> từ gợi tả tiếng bước chân nặng, liên tiếp.</p>
+<p><strong>Khúc khuỷu:</strong> quanh co, có nhiều đoạn ngoặt, không thẳng.</p>
+<div id="vocabTasks"></div>
+</section>
+
+<section>
+<h2>4. Luyện đọc và đọc hiểu</h2>
+<p>Đọc lại bài. Hãy tìm đúng câu trong bài trước khi chọn câu trả lời.</p>
+<div id="comprehensionTasks"></div>
+</section>
+
+<section>
+<h2>5. Vận dụng – suy nghĩ và liên hệ</h2>
+<p><strong>Cùng suy nghĩ:</strong> Trong chuyến đi, mẹ chuẩn bị đồ dùng, còn bố cõng Đức khi đường dốc. Những việc đó giúp em hiểu gì về sự quan tâm trong gia đình?</p>
+<p><strong>Liên hệ nhẹ nhàng:</strong> Con có thể kể về một lần người thân chuẩn bị giúp con hoặc giúp con khi gặp khó khăn. Nếu chưa muốn kể chuyện riêng, con chỉ cần nghĩ thầm hoặc nói một việc nhỏ mình có thể làm để giúp gia đình.</p>
+<div class="task">
+<h3>Chọn cách ứng xử phù hợp</h3>
+<div class="question">Khi thấy người thân đang mang nhiều đồ, nếu con có thể giúp một cách an toàn, con nên làm gì?</div>
+<div id="applicationChoices">
+<button class="choice" data-good="1">Hỏi xem mình có thể giúp việc gì.</button>
+<button class="choice" data-good="0">Lờ đi dù mình có thể giúp.</button>
+<button class="choice" data-good="0">Giành lấy đồ nặng dù không mang nổi.</button>
+</div>
+<div class="feedback" id="applicationFeedback" aria-live="polite"></div>
+</div>
+<p class="small">Không bắt buộc chia sẻ chuyện riêng tư trước lớp. Hãy chọn việc giúp đỡ phù hợp với khả năng và an toàn của mình.</p>
+</section>
+<footer>AI cùng em vui đọc · Luyện đọc nhẹ nhàng, tôn trọng nhịp học của mỗi bạn.</footer>
+</main>
+<script>
+const tiers={
+"Nhẹ nhàng":[
+{q:"Tiếng nào có vần uya?",opts:["khuya","núi","cao"],a:0,why:"“Khuya” có vần uya."},
+{q:"Tiếng nào có vần uych?",opts:["huỵch","mặt","đỉnh"],a:0,why:"“Huỵch” có vần uych."},
+{q:"Tiếng nào có vần uyu?",opts:["khuỷu","thuốc","mẹ"],a:0,why:"“Khuỷu” có vần uyu."}
+],
+"Vừa sức":[
+{q:"Trong từ “huỳnh huỵch”, tiếng nào có vần uynh?",opts:["huỳnh","huỵch","cả hai"],a:0,why:"Tiếng “huỳnh” có vần uynh."},
+{q:"Từ nào trong bài có tiếng mang vần uyu?",opts:["khúc khuỷu","tuýp thuốc","thức ăn"],a:0,why:"Từ “khuỷu” có vần uyu."},
+{q:"“Mẹ thức khuya” có tiếng nào chứa vần uya?",opts:["khuya","thức","mẹ"],a:0,why:"Tiếng “khuya” có vần uya."}
+],
+"Nâng cao":[
+{q:"Trong bài, “huỳnh huỵch” gợi tả điều gì?",opts:["Tiếng bước chân nặng, liên tiếp","Tiếng chim hót","Tiếng nước chảy"],a:0,why:"Từ này gợi tiếng bước chân nặng, liên tiếp."},
+{q:"Từ nào chỉ đặc điểm của con đường lên núi?",opts:["khúc khuỷu","tuýp thuốc","côn trùng"],a:0,why:"“Khúc khuỷu” chỉ con đường quanh co, nhiều đoạn ngoặt."},
+{q:"Từ nào chỉ đồ dùng mẹ chuẩn bị để chống côn trùng?",opts:["tuýp thuốc","quần áo","nước uống"],a:0,why:"Bài đọc nêu mẹ chuẩn bị cả tuýp thuốc chống côn trùng."}
+]};
+function makeTasks(target,items,title){let i=0;function draw(){target.innerHTML="";const item=items[i],card=document.createElement("div");card.className="task";card.innerHTML=`<h3>${title} ${i+1}/${items.length}</h3><div class="question"></div><div class="choices"></div><div class="feedback" aria-live="polite"></div><button class="primary next" disabled>${i===items.length-1?"Làm lại phần này":"Câu tiếp theo →"}</button>`;card.querySelector(".question").textContent=item.q;const choices=card.querySelector(".choices"),fb=card.querySelector(".feedback"),next=card.querySelector(".next");item.opts.forEach((opt,n)=>{const b=document.createElement("button");b.className="choice";b.textContent=opt;b.onclick=()=>{if(next.disabled===false)return;if(n===item.a){fb.textContent="Chính xác! "+item.why;b.style.background="#e7f6eb";b.style.borderColor="#25845b";b.textContent=opt+" ✓";choices.querySelectorAll("button").forEach(x=>x.disabled=true);next.disabled=false}else{fb.textContent="Chưa đúng, con đọc lại từ hoặc câu trong bài rồi thử chọn lại nhé.";}};choices.appendChild(b)});next.onclick=()=>{i=(i+1)%items.length;draw()};target.appendChild(card)}draw()}
+const levelButtons=document.getElementById("levelButtons"),rhymeTasks=document.getElementById("rhymeTasks");let current="Nhẹ nhàng";
+function renderLevels(){levelButtons.innerHTML="";Object.keys(tiers).forEach(n=>{const b=document.createElement("button");b.className="level"+(current===n?" active":"");b.textContent=n;b.onclick=()=>{current=n;renderLevels();rhymeTasks.innerHTML="";makeTasks(rhymeTasks,tiers[n],"Câu")};levelButtons.appendChild(b)})}
+renderLevels();makeTasks(rhymeTasks,tiers[current],"Câu");
+makeTasks(document.getElementById("vocabTasks"),[
+{q:"“Côn trùng” là nhóm nào?",opts:["Động vật nhỏ như muỗi, kiến, bướm","Các loại cây","Đồ dùng đi chơi"],a:0,why:"Muỗi, kiến, bướm là những ví dụ về côn trùng."},
+{q:"“Khúc khuỷu” miêu tả con đường thế nào?",opts:["Quanh co, nhiều đoạn ngoặt","Rộng và thẳng","Bằng phẳng hoàn toàn"],a:0,why:"Khúc khuỷu là quanh co, có nhiều đoạn ngoặt."},
+{q:"“Huỳnh huỵch” gợi tiếng gì?",opts:["Bước chân nặng, liên tiếp","Tiếng thì thầm","Tiếng lá rơi"],a:0,why:"Từ này gợi tả tiếng bước chân nặng, liên tiếp."}
+],"Từ ngữ");
+makeTasks(document.getElementById("comprehensionTasks"),[
+{q:"Nam và Đức được bố mẹ cho đi đâu?",opts:["Đi chơi núi","Đi ra biển","Đến trường"],a:0,why:"Câu đầu bài đọc cho biết bố mẹ cho Nam và Đức đi chơi núi."},
+{q:"Mẹ chuẩn bị những gì cho chuyến đi?",opts:["Quần áo, thức ăn, nước uống và tuýp thuốc chống côn trùng","Chỉ đồ chơi","Chỉ sách vở"],a:0,why:"Con tìm câu đầu bài đọc để đối chiếu các đồ mẹ chuẩn bị."},
+{q:"Đến đoạn đường dốc và khúc khuỷu, bố phải làm gì?",opts:["Cõng Đức","Quay về nhà","Chạy lên trước"],a:0,why:"Bài đọc viết: “bố phải cõng Đức.”"},
+{q:"Khi lên đến đỉnh núi, hai anh em thế nào?",opts:["Vui sướng hét vang","Buồn bã khóc","Ngủ ngay"],a:0,why:"Câu cuối bài cho biết hai anh em vui sướng hét vang."}
+],"Câu hỏi");
+document.querySelectorAll("#applicationChoices .choice").forEach(b=>b.onclick=()=>{const fb=document.getElementById("applicationFeedback");if(b.dataset.good==="1"){document.querySelectorAll("#applicationChoices .choice").forEach(x=>x.disabled=true);b.style.background="#e7f6eb";b.style.borderColor="#25845b";fb.textContent="Con chọn cách quan tâm và hỏi trước khi giúp. Hãy giúp trong khả năng của mình và giữ an toàn nhé."}else{fb.textContent="Con thử nghĩ lại nhé: quan tâm có thể bắt đầu bằng việc hỏi người thân xem mình giúp được gì."}});
+</script>
+</body>
+</html>

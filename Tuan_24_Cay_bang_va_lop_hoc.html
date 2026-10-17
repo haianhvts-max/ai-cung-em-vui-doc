@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 24 – Cây bàng và lớp học</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f0ff;color:#2f2638;font:19px/1.7 Arial,sans-serif}main{max-width:900px;margin:auto;padding:14px}.hero,.card{background:#fff;border:2px solid #e6d9f1;border-radius:22px;padding:20px;margin:14px 0;box-shadow:0 4px 0 #e5d8ef}.hero{text-align:center}h1{font-size:clamp(30px,6vw,44px);line-height:1.2;color:#7150a0;margin:8px 0}h2{font-size:clamp(24px,5vw,31px);line-height:1.3;color:#7150a0;margin:0 0 12px}.sub{font-size:21px;font-weight:bold}.poem{font-size:clamp(20px,4vw,24px);line-height:1.85;white-space:pre-line}.author{text-align:right;font-weight:bold}.hint{background:#fff5d8;padding:12px;border-radius:12px}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:14px}button{font:inherit;font-weight:bold;border:0;border-radius:15px;padding:13px;min-height:56px;background:#f1e8ff;color:#392653;box-shadow:0 3px 0 #d2bfe8;cursor:pointer}button:focus{outline:4px solid #ffc94a}.feedback{min-height:32px;margin-top:12px;font-weight:bold}.ok{color:#21723a}.try{color:#98500d}.small{font-size:16px;color:#5d5364}.end{background:#f0faed;border:2px dashed #9ec89c;border-radius:15px;padding:15px}input{width:100%;font:inherit;border:2px solid #d6c4e7;border-radius:12px;padding:12px;margin:8px 0}.primary{background:#7150a0;color:white;box-shadow:0 3px 0 #503775}@media(max-width:520px){main{padding:9px}.card,.hero{padding:15px}.choices{grid-template-columns:1fr}}
+</style></head><body><main>
+<header class="hero"><div class="sub">AI CÙNG EM VUI ĐỌC · TUẦN 24</div><h1>🌳 Cây bàng và lớp học</h1><div class="sub">Bài thơ · Minh Tâm</div></header>
+<section class="card"><h2>📖 Bài đọc</h2><div class="poem">Cây bàng và lớp học
+
+Bên cửa lớp học
+Có cây bàng già
+Tán lá xoè ra
+Như ô xanh mướt.
+
+Bàn ghế cửa lớp
+Nghe cô giảng bài
+Mỗi buổi sớm mai
+Quên ngày mưa nắng.
+
+Cuối tuần, lớp vắng
+Không thấy tiếng cô
+Không bạn vui đùa
+Tán bàng ngơ ngác.
+
+Thứ hai trở lại
+Lớp học tưng bừng
+Tán xanh vui mừng
+Vẫy chào các bạn.</div><div class="author">(Minh Tâm)</div><p class="hint"><b>Con tự đọc bài thơ nhé.</b> Trò chơi không đọc hộ con.</p></section>
+<section class="card"><h2>🍃 Trò chơi 1: Tìm từ ngữ trong bài</h2><p id="q1" class="sub"></p><div id="c1" class="choices"></div><div id="f1" class="feedback" aria-live="polite"></div></section>
+<section class="card"><h2>🔎 Trò chơi 2: Đọc hiểu từ ngữ</h2><p id="q2" class="sub"></p><div id="c2" class="choices"></div><div id="f2" class="feedback" aria-live="polite"></div></section>
+<section class="card"><h2>🧠 Trò chơi 3: Nhớ dòng thơ</h2><p id="q3" class="sub"></p><div id="c3" class="choices"></div><div id="f3" class="feedback" aria-live="polite"></div></section>
+<section class="card"><h2>🌿 Trò chơi 4: Theo dõi diễn biến bài thơ</h2><p id="q4" class="sub"></p><div id="c4" class="choices"></div><div id="f4" class="feedback" aria-live="polite"></div></section>
+<section class="card"><h2>💚 Vận dụng: Chăm sóc góc lớp của mình</h2><p>Bài thơ cho thấy cây bàng như đang vui khi các bạn trở lại lớp.</p><p><b>Con thử nghĩ:</b> Có điều gì ở lớp học khiến con vui? Con có thể làm việc nhỏ nào để lớp học sạch đẹp, thân thiện hơn?</p><p class="small">Con có thể nghĩ thầm hoặc nói với người thân khi muốn. Không cần chia sẻ điều riêng tư.</p><label for="r"><b>Con sẽ làm việc gì để lớp học thêm vui?</b></label><input id="r" placeholder="Ví dụ: giữ bàn học gọn gàng…"><button class="primary" onclick="document.getElementById('thanks').textContent='Cảm ơn con! Một việc nhỏ của con cũng góp phần làm lớp học vui hơn. 🌱'">Hoàn thành</button><div id="thanks" class="feedback" aria-live="polite"></div></section>
+<p class="small">Nếu chọn chưa đúng, con hãy đọc lại bài thơ rồi thử lần nữa nhé.</p></main>
+<script>
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function game(n,q,opts,ans,success){document.getElementById('q'+n).textContent=q;let w=document.getElementById('c'+n),f=document.getElementById('f'+n);w.innerHTML='';f.textContent='';shuffle(opts).forEach(t=>{let b=document.createElement('button');b.textContent=t;b.onclick=()=>{if(t===ans){f.textContent=success;f.className='feedback ok';[...w.children].forEach(x=>x.disabled=true)}else{f.textContent='Chưa đúng rồi, con đọc lại bài thơ và thử lựa chọn khác nhé!';f.className='feedback try'}};w.appendChild(b)})}
+game(1,'Tìm từ ngữ trong bài có nghĩa là “xanh tươi, xanh đẹp”.',['xanh mướt','ngơ ngác','tưng bừng'],'xanh mướt','Đúng rồi! Bài thơ miêu tả tán lá “như ô xanh mướt”.');
+game(2,'Trong bài thơ, từ “tưng bừng” miêu tả điều gì?',['Không khí vui nhộn khi lớp học có các bạn trở lại','Lớp học vắng vẻ vào cuối tuần','Cây bàng không có lá'],'Không khí vui nhộn khi lớp học có các bạn trở lại','Chính xác! Thứ hai các bạn trở lại, lớp học tưng bừng.');
+game(3,'Khi lớp vắng vào cuối tuần, cây bàng được miêu tả thế nào?',['Tán bàng ngơ ngác','Tán xanh vui mừng','Vẫy chào các bạn'],'Tán bàng ngơ ngác','Đúng rồi! Dòng thơ viết: “Tán bàng ngơ ngác.”');
+game(4,'Điều gì xảy ra vào thứ hai?',['Lớp học tưng bừng, tán xanh vui mừng','Không thấy tiếng cô, không bạn vui đùa','Lớp học vẫn vắng cả ngày'],'Lớp học tưng bừng, tán xanh vui mừng','Giỏi lắm! Thứ hai các bạn trở lại, lớp học lại rộn ràng.');
+</script></body></html>
