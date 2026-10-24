@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 31 – Tia nắng đi đâu?</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:12px;font-family:"Times New Roman",Times,serif;font-size:22px;line-height:1.5;color:#293b36;background:linear-gradient(135deg,#fff1ce,#fff9e8 48%,#dff5ff)}
+.wrap{max-width:940px;margin:auto}
+.hero{padding:22px 14px;text-align:center;border:4px solid white;border-radius:26px;background:linear-gradient(120deg,#ffd36f,#ffb3a8,#b7e7ff);box-shadow:0 6px 18px #315b3830}
+h1{font-size:clamp(32px,7vw,46px);line-height:1.2;margin:0;color:#9b4a25;text-shadow:1px 2px white}
+.subtitle{font-size:22px;font-weight:bold;margin-top:8px}
+.card{margin:16px 0;padding:18px;border:3px solid white;border-radius:22px;box-shadow:0 5px 15px #45634b18}
+h2{font-size:clamp(25px,5vw,32px);margin:0 0 12px;color:#a44d27}
+.reading{background:#fffdf7}
+.reading-title{text-align:center;font-weight:bold;font-size:clamp(25px,5vw,31px);margin:0 0 12px;color:#9b4a25}
+.reading-text{text-align:left;font-size:clamp(22px,4.5vw,26px);line-height:1.55}
+.reading-text p{margin:0 0 11px;text-indent:1.2em}
+.reading-text p.dialogue{padding-left:1.2em;text-indent:0}
+.author{text-align:right;margin-top:8px;font-size:22px}
+.pink{background:#ffe9f0}.blue{background:#e4f4ff}.yellow{background:#fff2c8}.green{background:#e5f8e2}.purple{background:#f1e9ff}
+.instructions{font-weight:bold;margin:0 0 12px}
+.task{padding:13px;margin:12px 0;border-radius:16px;background:#ffffffc9}
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:10px;margin-top:12px}
+button{font:bold 22px/1.3 "Times New Roman",Times,serif;padding:13px;border:3px solid white;border-radius:16px;min-height:58px;background:white;color:#293c36;box-shadow:0 3px 0 #c5d6ca;cursor:pointer}
+button:focus{outline:4px solid #5289e8}
+button.correct{background:#c9f5d4;border-color:#42ad69}
+button.wrong{background:#ffe0e0;border-color:#d96d6d}
+.feedback{min-height:30px;font-weight:bold;margin-top:10px}
+textarea{width:100%;font:22px "Times New Roman",Times,serif;border:2px solid #a7c7a9;border-radius:12px;padding:10px}
+.footer{text-align:center;font-weight:bold;padding:15px;color:#9b4a25}
+@media(max-width:520px){body{padding:7px}.card{padding:13px}.options{grid-template-columns:1fr}button{width:100%}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="hero"><h1>☀️ TIA NẮNG ĐI ĐÂU? 🌈</h1><div class="subtitle">Tuần 31 · Cùng đọc và khám phá!</div></header>
+
+<section class="card reading">
+<h2>📖 Bài đọc</h2>
+<div class="reading-title">Tia nắng đi đâu?</div>
+<div class="reading-text">
+<p>Buổi sáng thức dậy<br>Bé thấy buồn cười:<br>Có ai đang nhảy<br>Một bài vui vui.</p>
+<p>Đó là tia nắng<br>Nhảy trong lòng tay<br>Nhảy trên bàn học<br>Nhảy trên tán cây.</p>
+<p>Tối đến giờ ngủ<br>Sực nhớ bé tìm<br>Tìm tia nắng nhỏ:<br>Ngủ rồi. Lặng im...</p>
+<p>Bé nằm ngẫm nghĩ:<br>– Nắng ngủ ở đâu?<br>– Nắng ngủ nhà nắng!<br>Mai gặp lại nhau.</p>
+</div>
+<div class="author">(Thùy Anh)</div>
+</section>
+
+<section class="card pink"><h2>🎯 Phần 1. Tìm đúng tiếng, từ</h2>
+<p class="instructions">Con đọc kĩ câu hỏi rồi chọn đáp án. Nếu chưa đúng, con thử lựa chọn khác nhé!</p>
+<div class="task"><b>Câu 1. Tiếng nào có vần <u>ây</u>?</b><div class="options"><button>nắng</button><button data-ok="1">đây</button><button>ngủ</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. Tiếng nào có vần <u>ong</u>?</b><div class="options"><button data-ok="1">trong</button><button>nhảy</button><button>nhỏ</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 3. Từ nào xuất hiện trong bài thơ?</b><div class="options"><button>cánh đồng</button><button data-ok="1">bàn học</button><button>dòng sông</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card blue"><h2>🔎 Phần 2. Hiểu từ ngữ</h2>
+<div class="task"><b>Câu 1. “Sực nhớ” có nghĩa gần nhất với ý nào?</b><div class="options"><button>Quên hẳn một việc</button><button data-ok="1">Chợt nhớ ra điều gì đó</button><button>Ngủ thật say</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. “Ngẫm nghĩ” có nghĩa là gì?</b><div class="options"><button>Chạy thật nhanh</button><button>Hét thật to</button><button data-ok="1">Suy nghĩ, tự hỏi trong lòng</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card yellow"><h2>🗣️ Phần 3. Luyện đọc câu, khổ thơ</h2>
+<p class="instructions">Con tự đọc thành tiếng. Chú ý nhịp thơ, dấu câu và giọng đọc vui tươi, nhẹ nhàng.</p>
+<div class="task"><b>Câu 1. Con hãy đọc khổ thơ đầu:</b><p>Buổi sáng thức dậy<br>Bé thấy buồn cười:<br>Có ai đang nhảy<br>Một bài vui vui.</p><div class="options"><button data-ok="1">Con đã tự đọc xong</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. Khổ thơ nào kể về tia nắng xuất hiện ở nhiều nơi?</b><div class="options"><button>Khổ thơ thứ nhất</button><button data-ok="1">Khổ thơ thứ hai</button><button>Khổ thơ cuối</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 3. Khi đọc câu hỏi “– Nắng ngủ ở đâu?”, con nên đọc như thế nào?</b><div class="options"><button>Giọng tức giận</button><button data-ok="1">Giọng tò mò, ngạc nhiên</button><button>Giọng buồn bã, khóc lóc</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 4. Con tự đọc khổ thơ cuối, phân biệt lời bé hỏi và lời trả lời:</b><p>Bé nằm ngẫm nghĩ:<br>– Nắng ngủ ở đâu?<br>– Nắng ngủ nhà nắng!<br>Mai gặp lại nhau.</p><div class="options"><button data-ok="1">Con đã tự đọc xong</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card green"><h2>🧠 Phần 4. Tìm thông tin trong bài</h2>
+<div class="task"><b>Câu 1. Buổi sáng thức dậy, bé thấy tia nắng ở đâu?</b><div class="options"><button>Chỉ ở trên mái nhà</button><button data-ok="1">Trong lòng tay, trên bàn học và trên tán cây</button><button>Dưới lòng đất</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. Theo bé, buổi tối tia nắng đi đâu?</b><div class="options"><button>Đi ra biển chơi</button><button>Trốn trong bàn học</button><button data-ok="1">Nắng ngủ nhà nắng</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 3. Câu thơ nào cho biết ngày mai bé sẽ gặp lại tia nắng?</b><div class="options"><button>Ngủ rồi. Lặng im...</button><button>Buổi sáng thức dậy</button><button data-ok="1">Mai gặp lại nhau.</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card purple"><h2>🌟 Phần 5. Vận dụng – Tìm tia nắng quanh em</h2>
+<p class="instructions">Hãy liên hệ với buổi sáng của con và tưởng tượng thật vui nhé!</p>
+<div class="task"><b>Câu 1. Nếu tia nắng có thể nhảy như trong bài thơ, con muốn tia nắng nhảy ở đâu?</b><div class="options"><button data-ok="1">Trên trang sách</button><button data-ok="1">Trên bông hoa</button><button data-ok="1">Cả hai ý đều được, con có thể tự chọn nơi mình thích</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. Một buổi sáng có nắng đẹp, con muốn làm gì?</b><div class="options"><button data-ok="1">Quan sát ánh nắng bên cửa sổ</button><button data-ok="1">Ra ngoài cùng người lớn và ngắm thiên nhiên</button><button data-ok="1">Cả hai đều là lựa chọn tốt nếu phù hợp và an toàn</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 3. Con hãy hoàn thành câu:</b><p>“Điều con thích nhất vào buổi sáng là …”</p><textarea rows="2" placeholder="Con có thể gõ câu của mình ở đây..."></textarea></div>
+</section>
+<div class="footer">☀️ Mỗi ngày mở mắt, con lại có điều mới mẻ để khám phá!</div>
+</main>
+<script>
+document.querySelectorAll('.task').forEach(task=>{
+ const feedback=task.querySelector('.feedback');
+ task.querySelectorAll('button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+   if(btn.dataset.ok==='1'){
+    if(task.closest('.purple')){
+     task.querySelectorAll('button').forEach(b=>{b.disabled=true});
+     btn.classList.add('correct');
+    }else{
+     task.querySelectorAll('button').forEach(b=>{b.disabled=true;if(b.dataset.ok==='1')b.classList.add('correct')});
+    }
+    if(feedback){feedback.textContent=task.closest('.purple')?'🌟 Lựa chọn của con được chấp nhận nhé! Mỗi bạn có thể có ý thích riêng.':'🌟 Chính xác! Con làm tốt lắm!';feedback.style.color='#167344';}
+   }else{
+    btn.classList.add('wrong');btn.disabled=true;
+    if(feedback){feedback.textContent='💪 Chưa đúng rồi, con thử một lựa chọn khác nhé!';feedback.style.color='#a43b4b';}
+   }
+  });
+ });
+});
+</script></body></html>

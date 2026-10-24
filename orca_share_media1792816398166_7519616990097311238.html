@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 30 – Cây liễu dẻo dai</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:12px;font-family:"Times New Roman",Times,serif;font-size:22px;line-height:1.5;color:#263b31;background:linear-gradient(135deg,#e5f7df,#fff5d8 52%,#e2f5ff)}
+.wrap{max-width:920px;margin:auto}
+.hero{padding:22px 14px;text-align:center;border:4px solid #fff;border-radius:26px;background:linear-gradient(120deg,#a9e8b0,#fff0ad,#a8e5f3);box-shadow:0 6px 18px #315b3830}
+h1{font-size:clamp(31px,7vw,45px);line-height:1.2;margin:0;color:#225d3c;text-shadow:1px 2px white}
+.subtitle{font-size:22px;font-weight:bold;margin-top:8px}
+.card{margin:16px 0;padding:18px;border:3px solid white;border-radius:22px;box-shadow:0 5px 15px #45634b18}
+h2{font-size:clamp(25px,5vw,32px);margin:0 0 12px;color:#256b48}
+.reading{background:#fffdf5}
+.reading-title{text-align:center;font-weight:bold;font-size:clamp(24px,5vw,30px);margin:0 0 12px;color:#355f42}
+.reading-text{text-align:left;font-size:clamp(22px,4.5vw,26px);line-height:1.55}
+.reading-text p{margin:0 0 12px;text-indent:1.2em}
+.reading-text p.dialogue{text-indent:0;padding-left:1.2em}
+.author{text-align:right;margin-top:8px;font-size:22px}
+.pink{background:#ffe8ef}.blue{background:#e3f4ff}.yellow{background:#fff3c8}.green{background:#e2f8df}.purple{background:#f0e7ff}
+.instructions{font-weight:bold;margin:0 0 12px}
+.task{padding:13px;margin:12px 0;border-radius:16px;background:#ffffffbd}
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:10px;margin-top:12px}
+button{font:bold 22px/1.3 "Times New Roman",Times,serif;padding:13px;border:3px solid white;border-radius:16px;min-height:58px;background:white;color:#293c36;box-shadow:0 3px 0 #c5d6ca;cursor:pointer}
+button:focus{outline:4px solid #5289e8}
+button.correct{background:#c9f5d4;border-color:#42ad69}
+button.wrong{background:#ffe0e0;border-color:#d96d6d}
+.feedback{min-height:30px;font-weight:bold;margin-top:10px}
+textarea{width:100%;font:22px "Times New Roman",Times,serif;border:2px solid #a7c7a9;border-radius:12px;padding:10px}
+.footer{text-align:center;font-weight:bold;padding:15px;color:#286444}
+@media(max-width:520px){body{padding:7px}.card{padding:13px}.options{grid-template-columns:1fr}button{width:100%}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="hero"><h1>🌿 CÂY LIỄU DẺO DAI 🌳</h1><div class="subtitle">Tuần 30 · Cùng đọc và khám phá!</div></header>
+
+<section class="card reading">
+<h2>📖 Bài đọc</h2>
+<div class="reading-title">Cây liễu dẻo dai</div>
+<div class="reading-text">
+<p>Trời nổi gió to. Cây liễu không ngừng lắc lư. Thấy vậy, Nam rất lo cây liễu sẽ bị gãy. Nam hỏi mẹ:</p>
+<p class="dialogue">– Mẹ ơi, cây liễu mềm yếu thế, liệu có bị gió làm gãy không?</p>
+<p>Mẹ mỉm cười đáp:</p>
+<p class="dialogue">– Con yên tâm, cây liễu sẽ không sao đâu!</p>
+<p>Mẹ giải thích thêm:</p>
+<p class="dialogue">– Thân cây liễu tuy không to nhưng dẻo dai. Cành liễu mềm mại, có thể chuyển động theo chiều gió. Vì vậy, cây không dễ bị gãy. Liễu còn là loài cây dễ trồng. Chỉ cần cắm cành xuống đất, nó có thể nhanh chóng mọc lên cây non.</p>
+</div>
+<div class="author">(Hải An)</div>
+</section>
+
+<section class="card pink"><h2>🎯 Phần 1. Tìm đúng tiếng, từ</h2>
+<p class="instructions">Đọc kĩ câu hỏi rồi chọn đáp án. Nếu chưa đúng, con hãy thử lựa chọn khác nhé!</p>
+<div class="task"><b>Câu 1. Tiếng nào có vần <u>iêu</u>?</b><div class="options"><button>cành</button><button data-ok="1">liễu</button><button>gãy</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. Từ nào có tiếng mang vần <u>ăc</u>?</b><div class="options"><button>mềm mại</button><button data-ok="1">lắc lư</button><button>dẻo dai</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 3. Từ nào chỉ đặc điểm của cây liễu trong bài?</b><div class="options"><button>ồn ào</button><button>nặng nề</button><button data-ok="1">dẻo dai</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card blue"><h2>🔎 Phần 2. Hiểu từ ngữ</h2>
+<div class="task"><b>Câu 1. “Lắc lư” có nghĩa gần nhất với ý nào?</b><div class="options"><button>Đứng yên, không chuyển động</button><button data-ok="1">Chuyển động qua lại nhẹ nhàng</button><button>Gãy rời khỏi thân</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. “Dẻo dai” nói về đặc điểm nào?</b><div class="options"><button>Dễ vỡ, dễ gãy</button><button>To lớn và nặng</button><button data-ok="1">Có độ mềm dẻo, khó bị gãy</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 3. “Mềm mại” có nghĩa là gì?</b><div class="options"><button data-ok="1">Mềm, nhẹ nhàng, không cứng</button><button>Cứng và sắc nhọn</button><button>Khô, giòn, dễ vỡ</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card yellow"><h2>🗣️ Phần 3. Luyện đọc câu</h2>
+<p class="instructions">Con tự đọc thành tiếng. Chú ý dấu câu và đọc rõ lời thoại của nhân vật.</p>
+<div class="task"><b>Câu 1. Khi đọc câu “Trời nổi gió to. Cây liễu không ngừng lắc lư.”, con cần thể hiện điều gì?</b><div class="options"><button>Giọng vui như đang hát</button><button data-ok="1">Đọc rõ ràng, thể hiện gió đang thổi mạnh</button><button>Đọc thật nhanh, không ngắt nghỉ</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. Câu nào là lời Nam hỏi mẹ?</b><div class="options"><button>Con yên tâm, cây liễu sẽ không sao đâu!</button><button data-ok="1">Mẹ ơi, cây liễu mềm yếu thế, liệu có bị gió làm gãy không?</button><button>Mẹ giải thích thêm.</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 3. Khi đọc lời mẹ “Con yên tâm, cây liễu sẽ không sao đâu!”, giọng đọc nên như thế nào?</b><div class="options"><button>Giận dữ, quát mắng</button><button>Lo lắng, hoảng hốt</button><button data-ok="1">Nhẹ nhàng, ân cần để trấn an Nam</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 4. Con hãy tự đọc câu dài sau, ngắt nghỉ ở dấu câu:</b><p>“Cành liễu mềm mại, có thể chuyển động theo chiều gió. Vì vậy, cây không dễ bị gãy.”</p><div class="options"><button data-ok="1">Con đã tự đọc xong</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card green"><h2>🧠 Phần 4. Tìm thông tin trong bài</h2>
+<div class="task"><b>Câu 1. Thân cây liễu có đặc điểm gì?</b><div class="options"><button>To lớn và cứng</button><button data-ok="1">Không to nhưng dẻo dai</button><button>Khô và dễ gãy</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. Cành liễu có đặc điểm gì?</b><div class="options"><button>Cứng, không thể chuyển động</button><button>To và nặng</button><button data-ok="1">Mềm mại, có thể chuyển động theo chiều gió</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 3. Vì sao nói liễu là loài cây dễ trồng?</b><div class="options"><button>Vì cây có thân rất to</button><button data-ok="1">Vì chỉ cần cắm cành xuống đất, cành có thể nhanh chóng mọc lên cây non</button><button>Vì cây không cần đất</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 4. Khi Nam lo cây liễu bị gãy, mẹ đã làm gì?</b><div class="options"><button>Không trả lời Nam</button><button>Chặt cây liễu đi</button><button data-ok="1">Mỉm cười trấn an rồi giải thích đặc điểm của cây liễu</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card purple"><h2>🌟 Phần 5. Vận dụng – Mềm dẻo và vững vàng</h2>
+<p class="instructions">Con hãy nghĩ về cách cây liễu vượt qua gió to và chọn cách ứng xử phù hợp trong cuộc sống.</p>
+<div class="task"><b>Câu 1. Khi gặp một việc khó, con thử làm mãi mà chưa được, con nên làm gì?</b><div class="options"><button>Bỏ cuộc ngay và không thử nữa</button><button data-ok="1">Bình tĩnh, thử cách khác và nhờ người lớn giúp khi cần</button><button>Giận dữ với mọi người</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 2. Nếu bạn đang lo lắng vì mắc lỗi, con có thể làm gì để giúp bạn?</b><div class="options"><button>Cười chê bạn</button><button>Bảo bạn đừng bao giờ thử lại</button><button data-ok="1">Nói lời động viên và cùng bạn tìm cách sửa lỗi</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Câu 3. Con hãy chọn một điều mình muốn kiên trì luyện tập.</b><div class="options"><button data-ok="1">Đọc sách, viết chữ, tập vẽ hoặc một việc con yêu thích</button><button>Chỉ làm khi chắc chắn thành công ngay</button><button>Không thử việc mới bao giờ</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Thử thách tự nói:</b><p>Hoàn thành câu: “Khi gặp khó khăn, con sẽ …”</p><textarea rows="2" placeholder="Con có thể gõ câu của mình ở đây..."></textarea></div>
+</section>
+<div class="footer">🌱 Dẻo dai, bình tĩnh và kiên trì – mỗi ngày con tiến bộ một chút!</div>
+</main>
+<script>
+document.querySelectorAll('.task').forEach(task=>{
+ const feedback=task.querySelector('.feedback');
+ task.querySelectorAll('button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+   if(btn.dataset.ok==='1'){
+    task.querySelectorAll('button').forEach(b=>{b.disabled=true;if(b.dataset.ok==='1')b.classList.add('correct')});
+    if(feedback){feedback.textContent='🌟 Chính xác! Con làm tốt lắm!';feedback.style.color='#167344';}
+   }else{
+    btn.classList.add('wrong');btn.disabled=true;
+    if(feedback){feedback.textContent='💪 Chưa đúng rồi, con thử một lựa chọn khác nhé!';feedback.style.color='#a43b4b';}
+   }
+  });
+ });
+});
+</script></body></html>

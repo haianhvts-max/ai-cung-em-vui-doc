@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tuần 32 – Những cánh cò | AI cùng em vui đọc</title>
+<style>
+:root{--orange:#ed7b2b;--ink:#263238;--green:#247c57;--bg:#fff8f0;--muted:#5d6870}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:20px/1.7 "Times New Roman",Times,serif}
+header{background:linear-gradient(120deg,#ed722b,#ffb43c);color:#fff;text-align:center;padding:24px 16px}
+header h1{font-size:clamp(30px,5vw,44px);line-height:1.2;margin:0 0 8px;font-weight:900}header p{margin:0;font-weight:700}
+main{max-width:920px;margin:auto;padding:16px}section{background:#fff;border-radius:18px;padding:clamp(18px,4vw,30px);margin:16px 0;box-shadow:0 3px 14px #714a1a12}
+h2{color:#a94b0a;font-size:clamp(25px,4vw,32px);line-height:1.3;margin:0 0 12px;font-weight:900}h3{font-size:23px;margin:0 0 8px;line-height:1.4}
+.poem-title{text-align:center;font-size:27px;font-weight:900;margin:10px 0 16px}.reading{font-size:clamp(20px,2.7vw,24px);line-height:1.85;white-space:pre-line;text-align:left}
+.small{font-size:17px;color:var(--muted)}button{font:inherit;font-weight:800;cursor:pointer;border:2px solid #d5dfe3;border-radius:13px;background:#fff;color:var(--ink);padding:12px 16px;min-height:56px}
+button:focus-visible{outline:4px solid #ffcb70;outline-offset:2px}.levels{display:flex;gap:9px;flex-wrap:wrap;margin:14px 0}
+button.level{flex:1;min-width:135px;background:#fff5e8;border-color:#f1c28f}button.level.active{background:var(--orange);border-color:var(--orange);color:white}
+.choice{display:block;width:100%;text-align:left;margin:7px 0;min-height:56px}.primary{background:var(--green);border-color:var(--green);color:#fff;margin-top:12px}
+.task{border:2px solid #f0e2d2;background:#fffdf9;border-radius:15px;padding:17px}.question{font-size:22px;font-weight:800;margin:12px 0}
+.feedback{margin-top:12px;padding:12px 14px;border-radius:10px;font-weight:800;min-height:0;border:2px solid #aebbc4;background:#eef3f7;color:#243746}.feedback.correct{background:#176b45;border-color:#0d5133;color:#fff}.feedback.incorrect{background:#fff0d9;border-color:#c77716;color:#713b00}.feedback:empty{display:none}
+textarea{width:100%;font:inherit;border:2px solid #d5dfe3;border-radius:12px;padding:12px}footer{text-align:center;padding:18px;color:var(--muted);font-size:16px}
+.reading-practice{padding:14px;background:#fff8ed;border-radius:12px;margin:12px 0}.word-chip{display:inline-block;background:#fff0d9;border:1px solid #efc18e;border-radius:9px;padding:5px 10px;margin:4px;font-weight:800}
+@media(max-width:520px){main{padding:9px}section{margin:11px 0;border-radius:14px}button{width:100%}button.level{width:auto}}
+</style></head><body>
+<header><h1>Tuần 32 · Những cánh cò</h1><p>AI cùng em vui đọc · Tiếng Việt 1</p></header><main>
+<section><h2>1. Bài đọc</h2><div class="poem-title">Những cánh cò</div>
+<div class="reading">Ông kể ngày xưa, quê của bé có rất nhiều cò. Mùa xuân, từng đàn cò trắng duyên dáng bay tới. Chúng lượn trên bầu trời trong xanh rồi hạ cánh xuống những lũy tre. Hằng ngày, cò đi mò tôm, bắt cá ở các ao, hồ, đầm.
+
+Bây giờ, ao, hồ, đầm phải nhường chỗ cho những toà nhà cao vút, những con đường cao tốc, những nhà máy toả khói mịt mù. Cò chẳng còn nơi kiếm ăn. Cò sợ những âm thanh ồn ào. Thế là chúng bay đi.
+
+Bé ước ao được thấy những cánh cò trên cánh đồng quê.</div>
+<p class="small" style="display:block;margin-top:14px;text-align:right;font-weight:600">(Theo Hoài Nam)</p><p class="small" style="display:block;margin-top:8px">Con tự đọc bài bằng mắt và thành tiếng. Trang này không đọc bài thay con.</p></section>
+<section><h2>2. Tìm hiểu từ ngữ</h2><p>Đọc từ trong bài, rồi chọn cách giải thích phù hợp.</p><div id="vocabTasks"></div></section>
+<section><h2>3. Luyện đọc từ khó, câu dài</h2><p>Con đọc từng tiếng, cụm từ và câu. Có thể đọc chậm, ngắt hơi ở dấu câu.</p><div class="reading-practice"><h3>Đọc từ khó</h3><div><span class="word-chip">duyên dáng</span><span class="word-chip">lũy tre</span><span class="word-chip">nhường chỗ</span><span class="word-chip">cao vút</span><span class="word-chip">cao tốc</span><span class="word-chip">mịt mù</span><span class="word-chip">ồn ào</span></div></div><div class="reading-practice"><h3>Đọc cụm từ</h3><p>từng đàn cò trắng duyên dáng / bay tới</p><p>hạ cánh xuống những lũy tre</p><p>những nhà máy toả khói mịt mù</p></div><div class="reading-practice"><h3>Đọc câu dài</h3><p>“Bây giờ, ao, hồ, đầm phải nhường chỗ cho những toà nhà cao vút, những con đường cao tốc, những nhà máy toả khói mịt mù.”</p><p class="small">Con thử đọc từng đoạn được ngăn bằng dấu phẩy, sau đó đọc cả câu.</p></div></section>
+<section><h2>4. Đọc hiểu</h2><p>Con đọc lại bài, tìm thông tin trong bài rồi chọn đáp án. Nếu chọn chưa đúng, con có thể thử lại; đáp án không hiện ngay.</p><div id="comprehensionTasks"></div></section>
+<section><h2>5. Vận dụng – Những cánh cò cần nơi sống</h2><div class="task"><h3>Quan sát và suy nghĩ</h3><div class="question">Trong bài, cò bay đi vì không còn nơi kiếm ăn và sợ âm thanh ồn ào. Theo con, điều gì sẽ giúp các loài chim có nơi sống tốt hơn?</div><p>Con có thể chọn một ý gần với suy nghĩ của mình. Không có một câu trả lời duy nhất.</p><div id="applicationChoices"><button class="choice" data-good="1">Giữ gìn ao, hồ, cây xanh và môi trường sạch.</button><button class="choice" data-good="1">Không làm hại chim và các con vật.</button><button class="choice" data-good="1">Cùng người lớn chăm sóc thiên nhiên ở nơi mình sống.</button></div><div class="feedback" id="applicationFeedback" aria-live="polite"></div><p class="small">Mỗi lựa chọn đều thể hiện một cách quan tâm đến thiên nhiên. Khi con bấm, chỉ phương án con chọn chuyển màu xanh.</p></div></section>
+<footer>AI cùng em vui đọc · Luyện đọc nhẹ nhàng, tôn trọng nhịp học của mỗi bạn.</footer></main>
+<script>
+function makeTasks(target,items,title){let i=0;function draw(){target.innerHTML="";const item=items[i],card=document.createElement("div");card.className="task";card.innerHTML=`<h3>${title} ${i+1}/${items.length}</h3><div class="question"></div><div class="choices"></div><div class="feedback" aria-live="polite"></div><button class="primary next" disabled>${i===items.length-1?"Làm lại phần này":"Câu tiếp theo →"}</button>`;card.querySelector(".question").textContent=item.q;const choices=card.querySelector(".choices"),fb=card.querySelector(".feedback"),next=card.querySelector(".next");const shuffled=item.opts.map((opt,n)=>({opt,correct:n===item.a})).sort(()=>Math.random()-0.5);shuffled.forEach(entry=>{const b=document.createElement("button");b.className="choice";b.textContent=entry.opt;b.onclick=()=>{if(!next.disabled)return;if(entry.correct){fb.className="feedback correct";fb.textContent="Chính xác! "+item.why;b.style.background="#e7f6eb";b.style.borderColor="#25845b";choices.querySelectorAll("button").forEach(x=>x.disabled=true);next.disabled=false}else{fb.className="feedback incorrect";fb.textContent="Chưa đúng rồi. Con đọc lại bài và thử chọn lần nữa nhé.";}};choices.appendChild(b)});next.onclick=()=>{i=(i+1)%items.length;draw()};target.appendChild(card)}draw()}
+makeTasks(document.getElementById("vocabTasks"),[
+{q:"Trong bài, “lũy tre” là gì?",opts:["Hàng tre mọc thành dãy","Một con đường cao tốc","Một nhà máy lớn"],a:0,why:"Lũy tre là hàng tre mọc thành dãy."},
+{q:"“Cao vút” miêu tả những toà nhà như thế nào?",opts:["Rất cao","Rất thấp","Rất nhỏ"],a:0,why:"“Cao vút” miêu tả độ cao nổi bật."},
+{q:"Trong câu “những nhà máy toả khói mịt mù”, “mịt mù” có nghĩa là gì?",opts:["Khói dày đặc, che phủ khiến người ta khó nhìn rõ","Khói bay lên thành những đám nhỏ rồi tan ngay","Không có khói bay ra từ nhà máy"],a:0,why:"“Mịt mù” nghĩa là dày đặc, mù mịt, khó nhìn rõ — phù hợp với hình ảnh khói nhà máy trong bài."}
+],"Từ ngữ");
+makeTasks(document.getElementById("comprehensionTasks"),[
+{q:"Hằng ngày, cò đi mò tôm, bắt cá ở đâu?",opts:["Ở các ao, hồ, đầm","Trên mái nhà máy","Trên đường cao tốc"],a:0,why:"Bài đọc nêu: cò đi mò tôm, bắt cá ở các ao, hồ, đầm."},
+{q:"Bây giờ ở quê của bé, những gì đã thay thế ao, hồ, đầm?",opts:["Những toà nhà cao vút, đường cao tốc và nhà máy","Những cánh đồng lúa rộng hơn","Những lũy tre mới"],a:0,why:"Bài đọc kể ao, hồ, đầm phải nhường chỗ cho nhà cao, đường cao tốc và nhà máy."},
+{q:"Điều gì khiến đàn cò sợ hãi?",opts:["Những âm thanh ồn ào","Bầu trời trong xanh","Những lũy tre"],a:0,why:"Trong bài có câu: “Cò sợ những âm thanh ồn ào.”"},
+{q:"Bé ước ao điều gì?",opts:["Được thấy những cánh cò trên cánh đồng quê","Được sống trong nhà máy","Được đi trên đường cao tốc"],a:0,why:"Câu cuối bài cho biết bé ước ao được thấy những cánh cò trên cánh đồng quê."}
+],"Câu hỏi");
+document.querySelectorAll("#applicationChoices .choice").forEach(b=>b.onclick=()=>{document.querySelectorAll("#applicationChoices .choice").forEach(x=>{x.style.background="#fff";x.style.borderColor="#d5dfe3";x.setAttribute("aria-pressed","false")});b.style.background="#e7f6eb";b.style.borderColor="#25845b";b.setAttribute("aria-pressed","true");const feedback=document.getElementById("applicationFeedback");feedback.className="feedback correct";feedback.textContent="Con đã chọn một cách giúp các loài chim có môi trường sống tốt hơn. Những việc nhỏ, phù hợp và an toàn cũng có ích!";});
+</script></body></html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tuần 35 – Gửi lời chào lớp Một | AI cùng em vui đọc</title>
+<style>
+:root{--purple:#7650a5;--pink:#f4d9ef;--blue:#dff4ff;--ink:#263247;--green:#18834b;--red:#c43b42;--gold:#fff2c9}
+*{box-sizing:border-box}
+body{margin:0;background:#f7f5fb;color:var(--ink);font-family:"Times New Roman",serif;font-size:20px;line-height:1.55}
+header{background:linear-gradient(120deg,#7250a0,#9b71bf);color:#fff;padding:22px 16px;text-align:center;border-radius:0 0 26px 26px}
+header h1{font-size:clamp(27px,5vw,38px);line-height:1.2;margin:0 0 8px}
+header p{margin:0;font-size:19px}
+main{max-width:900px;margin:18px auto;padding:0 12px 35px}
+.card{background:#fff;border:2px solid #e9e0f2;border-radius:20px;padding:18px;margin:16px 0;box-shadow:0 4px 12px #38215b0c}
+h2{font-size:25px;color:#684293;margin:0 0 10px}
+.instruction{background:#f4edfb;border-radius:12px;padding:10px 13px;margin:8px 0 14px;font-size:19px}
+.poem-title{text-align:center;font-weight:bold;margin:8px 0 14px;font-size:24px;color:#58377d}
+.poem{white-space:pre-line;margin:0 auto;max-width:560px;font-size:22px;line-height:1.68}
+.author{text-align:center;margin-top:12px;font-size:18px;font-style:italic}
+.word-note{color:#8d3c7b;font-size:18px;margin-top:14px}
+button,.choice{font-family:inherit;font-size:20px;cursor:pointer;border:2px solid #d8c7ea;border-radius:13px;padding:10px 14px;background:#fff;color:var(--ink);transition:transform .08s,background .15s}
+button:active,.choice:active{transform:scale(.99)}
+button.primary{background:#7650a5;color:white;border-color:#7650a5;font-weight:bold}
+button.secondary{background:#f5effb}
+button:focus-visible,.choice:focus-visible{outline:3px solid #f0b847;outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:12px 0}
+.choice{min-height:54px;text-align:left}
+.choice.correct{background:#d8f5e4;border-color:#18834b;color:#145d38}
+.choice.wrong{background:#ffe0e1;border-color:#c43b42;color:#8f2028}
+.feedback{min-height:34px;margin:10px 0;font-weight:bold}
+.feedback.good{color:var(--green)} .feedback.try{color:var(--red)}
+.small{font-size:18px}
+.pill{display:inline-block;background:#fff1c8;border-radius:99px;padding:3px 11px;font-size:17px;margin-bottom:7px}
+.word-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.word-tile{background:#f2f8ff;border:2px solid #cfe6fb;border-radius:13px;padding:12px;text-align:center;font-size:23px;font-weight:bold}
+label{display:block;margin:8px 0}
+input[type=text],textarea{font-family:inherit;font-size:20px;width:100%;padding:11px;border:2px solid #d8c7ea;border-radius:12px;background:#fff}
+textarea{min-height:85px;resize:vertical}
+.progress{height:10px;background:#e8e1f0;border-radius:99px;overflow:hidden;margin-top:14px}
+.progress span{display:block;height:100%;width:0;background:#f7c85c;transition:width .2s}
+footer{text-align:center;font-size:17px;color:#6d6479;padding:12px}
+@media(max-width:480px){body{font-size:19px}.card{padding:14px}.poem{font-size:20px}.choices{grid-template-columns:1fr}.word-pair{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌼 AI cùng em vui đọc</h1>
+  <p>Tuần 35 · Bài đọc: <strong>Gửi lời chào lớp Một</strong></p>
+  <div class="progress" aria-label="Tiến độ học"><span id="progressBar"></span></div>
+</header>
+<main>
+<section class="card" id="task1">
+  <span class="pill">Nhiệm vụ 1</span>
+  <h2>📖 Đọc bài thơ</h2>
+  <div class="instruction">Con hãy đọc thành tiếng cả bài thơ. Có thể đọc chậm rãi, rõ từng tiếng. Khi đọc xong, con nhấn nút bên dưới nhé!</div>
+  <div class="poem-title">Gửi lời chào lớp Một</div>
+  <div class="poem">Lớp Một ơi! Lớp Một!
+Đón em vào năm trước,
+Nay giờ phút chia tay,
+Gửi lời chào tiến bước!
+
+Chào bảng đen, cửa sổ,
+Chào chỗ ngồi thân quen.
+Tất cả! Chào ở lại
+Đón các bạn nhỏ lên.
+
+Chào cô giáo kính mến,
+Cô sẽ xa chúng em...
+Làm theo lời cô dạy,
+Cô sẽ luôn ở bên.
+
+Lớp Một ơi! Lớp Một!
+Đón em vào năm trước,
+Nay giờ phút chia tay,
+Gửi lời chào tiến bước!</div>
+  <div class="author">(Hữu Tường, phỏng theo Ma-rút-xi-a đi học, bản dịch của Khánh Như)</div>
+  <div class="row" style="justify-content:center;margin-top:15px"><button class="primary" onclick="completeTask(1)">Con đã đọc xong ✓</button></div>
+  <div class="feedback" id="fb1" aria-live="polite"></div>
+</section>
+
+<section class="card" id="task2">
+  <span class="pill">Nhiệm vụ 2</span>
+  <h2>🔎 Luyện vần dễ lẫn</h2>
+  <div class="instruction">Đọc kĩ tiếng được hỏi rồi chọn đáp án. Nhớ nhìn đủ cả vần, không chỉ nhìn chữ cái đầu nhé!</div>
+  <div class="question" data-task="2" data-correct="trước" data-explain="Đúng rồi! “Trước” có vần ươc. “Bước” cũng có vần ươc.">
+    <strong>2a. Tiếng nào có vần <u>ươc</u>?</strong>
+    <div class="choices">
+      <button class="choice" data-value="chào" onclick="answer(this)">chào</button>
+      <button class="choice" data-value="trước" onclick="answer(this)">trước</button>
+      <button class="choice" data-value="bảng" onclick="answer(this)">bảng</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+  <div class="question" data-task="2" data-correct="vào" data-explain="Chính xác! “Vào” có vần ao; “chào” cũng có vần ao.">
+    <strong>2b. Tiếng nào cùng vần <u>ao</u> với tiếng “chào”?</strong>
+    <div class="choices">
+      <button class="choice" data-value="quen" onclick="answer(this)">quen</button>
+      <button class="choice" data-value="vào" onclick="answer(this)">vào</button>
+      <button class="choice" data-value="bên" onclick="answer(this)">bên</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+  <div class="question" data-task="2" data-correct="bảng" data-explain="Đúng! “Bảng” có vần ang; “bạn” có vần an. Hai vần này nghe gần giống nhưng không giống nhau.">
+    <strong>2c. Tiếng nào có vần <u>ang</u>, khác vần <u>an</u> trong tiếng “bạn”?</strong>
+    <div class="choices">
+      <button class="choice" data-value="bạn" onclick="answer(this)">bạn</button>
+      <button class="choice" data-value="bảng" onclick="answer(this)">bảng</button>
+      <button class="choice" data-value="quen" onclick="answer(this)">quen</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="card" id="task3">
+  <span class="pill">Nhiệm vụ 3</span>
+  <h2>💡 Hiểu từ trong bài</h2>
+  <div class="instruction">Con đọc từ và chọn nghĩa phù hợp nhất.</div>
+  <div class="question" data-task="3" data-correct="gần gũi, đã quen thuộc" data-explain="Đúng rồi! “Thân quen” là gần gũi, quen thuộc với mình.">
+    <strong>3a. “Thân quen” có nghĩa là gì?</strong>
+    <div class="choices">
+      <button class="choice" data-value="rất xa lạ" onclick="answer(this)">rất xa lạ</button>
+      <button class="choice" data-value="gần gũi, đã quen thuộc" onclick="answer(this)">gần gũi, đã quen thuộc</button>
+      <button class="choice" data-value="rất ồn ào" onclick="answer(this)">rất ồn ào</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+  <div class="question" data-task="3" data-correct="rất yêu quý và kính trọng" data-explain="Chính xác! “Kính mến” thể hiện sự yêu quý và kính trọng.">
+    <strong>3b. “Kính mến” có nghĩa là gì?</strong>
+    <div class="choices">
+      <button class="choice" data-value="rất yêu quý và kính trọng" onclick="answer(this)">rất yêu quý và kính trọng</button>
+      <button class="choice" data-value="không muốn gặp" onclick="answer(this)">không muốn gặp</button>
+      <button class="choice" data-value="đang vội vàng" onclick="answer(this)">đang vội vàng</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+  <div class="question" data-task="3" data-correct="tiếp tục đi tới, bước tiếp" data-explain="Đúng rồi! “Tiến bước” nghĩa là tiếp tục đi tới, bước tiếp.">
+    <strong>3c. Trong câu “Gửi lời chào tiến bước!”, “tiến bước” gần nghĩa với điều gì?</strong>
+    <div class="choices">
+      <button class="choice" data-value="đứng yên mãi" onclick="answer(this)">đứng yên mãi</button>
+      <button class="choice" data-value="quay lại từ đầu" onclick="answer(this)">quay lại từ đầu</button>
+      <button class="choice" data-value="tiếp tục đi tới, bước tiếp" onclick="answer(this)">tiếp tục đi tới, bước tiếp</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="card" id="task4">
+  <span class="pill">Nhiệm vụ 4</span>
+  <h2>🧠 Đọc hiểu bài thơ</h2>
+  <div class="instruction">Con hãy tìm câu trả lời trong bài thơ. Nếu chọn chưa đúng, con có thể đọc lại và thử lần nữa.</div>
+  <div class="question" data-task="4" data-correct="của các bạn nhỏ lớp Một" data-explain="Đúng rồi! Đây là lời chào của các bạn nhỏ lớp Một khi chia tay lớp học.">
+    <strong>4a. Lời chào trong bài thơ là của ai?</strong>
+    <div class="choices">
+      <button class="choice" data-value="của cô giáo" onclick="answer(this)">của cô giáo</button>
+      <button class="choice" data-value="của các bạn nhỏ lớp Một" onclick="answer(this)">của các bạn nhỏ lớp Một</button>
+      <button class="choice" data-value="của khách đến trường" onclick="answer(this)">của khách đến trường</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+  <div class="question" data-task="4" data-correct="bảng đen, cửa sổ, chỗ ngồi thân quen và cô giáo" data-explain="Chính xác! Các bạn nhỏ chào bảng đen, cửa sổ, chỗ ngồi thân quen và cô giáo.">
+    <strong>4b. Lời chào được gửi đến ai và những đồ vật nào ở lớp?</strong>
+    <div class="choices">
+      <button class="choice" data-value="bảng đen, cửa sổ, chỗ ngồi thân quen và cô giáo" onclick="answer(this)">bảng đen, cửa sổ, chỗ ngồi thân quen và cô giáo</button>
+      <button class="choice" data-value="bác bảo vệ và sân chơi" onclick="answer(this)">bác bảo vệ và sân chơi</button>
+      <button class="choice" data-value="các bạn ở khu phố" onclick="answer(this)">các bạn ở khu phố</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+  <div class="question" data-task="4" data-correct="chăm ngoan, làm theo lời cô dạy" data-explain="Đúng rồi! Làm theo lời cô dạy là cách các bạn nhỏ thể hiện tình cảm với cô.">
+    <strong>4c. Theo bài thơ, muốn được cô giáo “luôn ở bên”, bạn nhỏ cần làm gì?</strong>
+    <div class="choices">
+      <button class="choice" data-value="chăm ngoan, làm theo lời cô dạy" onclick="answer(this)">chăm ngoan, làm theo lời cô dạy</button>
+      <button class="choice" data-value="không cần nghe cô dặn" onclick="answer(this)">không cần nghe cô dặn</button>
+      <button class="choice" data-value="chỉ chơi, không học" onclick="answer(this)">chỉ chơi, không học</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+  <div class="question" data-task="4" data-correct="khổ thơ nào cũng có thể là lựa chọn của con nếu con nói được lí do" data-explain="Câu hỏi này có nhiều cách trả lời. Điều quan trọng là con chọn khổ thơ mình thích và nói được lí do.">
+    <strong>4d. Con thích khổ thơ nào nhất? Vì sao?</strong>
+    <div class="instruction">Đây là câu hỏi mở. Con có thể nghĩ câu trả lời của mình, không cần chọn đáp án có sẵn.</div>
+    <label><input type="radio" name="favorite" value="Khổ 1"> Khổ thơ thứ nhất</label>
+    <label><input type="radio" name="favorite" value="Khổ 2"> Khổ thơ thứ hai</label>
+    <label><input type="radio" name="favorite" value="Khổ 3"> Khổ thơ thứ ba</label>
+    <label><input type="radio" name="favorite" value="Khổ 4"> Khổ thơ thứ tư</label>
+    <label for="reason">Vì sao con thích khổ thơ đó?</label>
+    <textarea id="reason" placeholder="Con có thể nói thành lời hoặc viết vài từ..."></textarea>
+    <button class="primary" onclick="openAnswer()">Con đã chọn xong</button>
+    <div class="feedback" id="openFeedback" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="card" id="task5">
+  <span class="pill">Nhiệm vụ 5 · Vận dụng</span>
+  <h2>🌈 Lời chào mang theo điều tốt đẹp</h2>
+  <div class="instruction">Hãy tưởng tượng hôm nay là buổi cuối cùng con học ở lớp Một. Con gặp cô giáo ở cửa lớp. Cách nào thể hiện lời chào lễ phép và tình cảm?</div>
+  <div class="question" data-task="5" data-correct="Con chào cô ạ! Con cảm ơn cô đã dạy con." data-explain="Rất tốt! Lời chào lễ phép kèm lời cảm ơn thể hiện tình cảm của con với cô giáo.">
+    <div class="choices">
+      <button class="choice" data-value="Con chào cô ạ! Con cảm ơn cô đã dạy con." onclick="answer(this)">“Con chào cô ạ! Con cảm ơn cô đã dạy con.”</button>
+      <button class="choice" data-value="Im lặng đi qua, không nhìn cô" onclick="answer(this)">Im lặng đi qua, không nhìn cô.</button>
+      <button class="choice" data-value="Chạy đi thật nhanh mà không chào" onclick="answer(this)">Chạy đi thật nhanh mà không chào.</button>
+    </div><div class="feedback" aria-live="polite"></div>
+  </div>
+  <div style="margin-top:14px">
+    <strong>Con muốn gửi lời cảm ơn đến ai?</strong>
+    <p class="small">Con có thể nghĩ thầm hoặc viết một câu ngắn. Không cần chia sẻ điều riêng tư nếu con không muốn.</p>
+    <textarea id="thanks" placeholder="Ví dụ: Con cảm ơn cô vì đã giúp con đọc tốt hơn."></textarea>
+    <button class="secondary" onclick="saveReflection()">Con đã suy nghĩ xong</button>
+    <div class="feedback" id="thanksFeedback" aria-live="polite"></div>
+  </div>
+</section>
+
+<div class="card" style="text-align:center;background:#fff9e8;border-color:#f1df9d">
+  <h2>⭐ Con đã hoàn thành bài đọc!</h2>
+  <p id="finalMessage">Con hãy hoàn thành từng nhiệm vụ nhé. Sai cũng không sao, mình đọc lại rồi thử tiếp!</p>
+  <button class="primary" onclick="showSummary()">Xem tiến độ của con</button>
+  <button class="secondary" onclick="location.reload()">Làm lại từ đầu</button>
+  <div class="feedback" id="summary" aria-live="polite"></div>
+</div>
+</main>
+<footer>AI cùng em vui đọc · Đọc từng bước, tự tin mỗi ngày 💜</footer>
+<script>
+const completed = new Set();
+function completeTask(n){
+  completed.add(n);
+  const fb=document.getElementById('fb'+n);
+  fb.className='feedback good';
+  fb.textContent='Tuyệt lắm! Con đã tự đọc xong cả bài thơ. Mình cùng sang nhiệm vụ tiếp theo nhé!';
+  updateProgress();
+}
+function answer(btn){
+  const q=btn.closest('.question');
+  if(!q || !q.dataset.correct) return;
+  const feedback=q.querySelector('.feedback');
+  const chosen=btn.dataset.value;
+  q.querySelectorAll('.choice').forEach(b=>{b.classList.remove('wrong','correct');});
+  if(chosen===q.dataset.correct){
+    btn.classList.add('correct');
+    feedback.className='feedback good';
+    feedback.textContent=q.dataset.explain || 'Chính xác! Con làm tốt lắm!';
+    q.dataset.done='yes';
+    const task=Number(q.dataset.task);
+    completed.add(task);
+    updateProgress();
+  }else{
+    btn.classList.add('wrong');
+    feedback.className='feedback try';
+    feedback.textContent='Chưa đúng rồi, không sao! Con đọc lại câu hỏi và thử chọn lần nữa nhé.';
+  }
+}
+function openAnswer(){
+  const selected=document.querySelector('input[name="favorite"]:checked');
+  const fb=document.getElementById('openFeedback');
+  if(!selected){
+    fb.className='feedback try';fb.textContent='Con hãy chọn khổ thơ mình thích nhé.';return;
+  }
+  fb.className='feedback good';
+  fb.textContent='Cảm ơn con đã suy nghĩ! Mỗi bạn có thể yêu thích một khổ thơ khác nhau.';
+  completed.add(4);updateProgress();
+}
+function saveReflection(){
+  const fb=document.getElementById('thanksFeedback');
+  fb.className='feedback good';
+  fb.textContent='Thật đáng quý! Biết nhớ ơn và nói lời cảm ơn là một điều đẹp. Con có thể giữ lời nhắn này cho riêng mình.';
+  completed.add(5);updateProgress();
+}
+function updateProgress(){
+  const pct=Math.round(completed.size/5*100);
+  document.getElementById('progressBar').style.width=pct+'%';
+}
+function showSummary(){
+  const fb=document.getElementById('summary');
+  fb.className='feedback good';
+  fb.textContent='Con đã ghi dấu hoàn thành '+completed.size+'/5 nhiệm vụ. Hãy tiếp tục đọc rõ ràng, tìm đúng vần và biết gửi lời cảm ơn nhé!';
+}
+</script>
+</body>
+</html>

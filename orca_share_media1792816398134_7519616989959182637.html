@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tuần 32 – Hoa phượng | AI cùng em vui đọc</title>
+<style>
+:root{--orange:#ed7b2b;--ink:#263238;--green:#176b45;--bg:#fff8f0;--muted:#52616a;--blue:#175d86}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:20px/1.7 "Times New Roman",Times,serif}
+header{background:linear-gradient(120deg,#ed722b,#ffb43c);color:#fff;text-align:center;padding:24px 16px}header h1{font-size:clamp(30px,5vw,44px);line-height:1.2;margin:0 0 8px;font-weight:900}header p{margin:0;font-weight:700}
+main{max-width:920px;margin:auto;padding:16px}section{background:#fff;border-radius:18px;padding:clamp(18px,4vw,30px);margin:16px 0;box-shadow:0 3px 14px #714a1a12}
+h2{color:#a94b0a;font-size:clamp(25px,4vw,32px);line-height:1.3;margin:0 0 12px;font-weight:900}h3{font-size:23px;margin:0 0 8px;line-height:1.4}
+.poem-title{text-align:center;font-size:27px;font-weight:900;margin:10px 0 12px}.reading{font-size:clamp(21px,2.8vw,25px);line-height:1.85;white-space:pre-line;text-align:left}.author{text-align:right;margin-top:10px;font-weight:700}.small{font-size:17px;color:var(--muted)}
+button{font:inherit;font-weight:800;cursor:pointer;border:2px solid #d5dfe3;border-radius:13px;background:#fff;color:var(--ink);padding:12px 16px;min-height:56px}button:focus-visible{outline:4px solid #ffcb70;outline-offset:2px}
+.choice{display:block;width:100%;text-align:left;margin:7px 0;min-height:56px}.primary{background:var(--green);border-color:var(--green);color:#fff;margin-top:12px}.task{border:2px solid #d9e4e9;background:#fbfdff;border-radius:15px;padding:17px;margin:12px 0}.question{font-size:22px;font-weight:800;margin:12px 0}.feedback{margin-top:12px;padding:12px 14px;border-radius:10px;font-weight:800;border:2px solid #aebbc4;background:#eef3f7;color:#243746}.feedback.correct{background:#176b45;border-color:#0d5133;color:#fff}.feedback.incorrect{background:#fff0d9;border-color:#c77716;color:#713b00}.feedback:empty{display:none}.reading-practice{padding:14px;background:#fff8ed;border-radius:12px;margin:12px 0}.word-chip{display:inline-block;background:#eaf4fb;border:1px solid #8dbbd5;border-radius:9px;padding:5px 10px;margin:4px;font-weight:800}.note{background:#eef6fb;border-left:5px solid #3981a7;padding:10px 14px;border-radius:8px}.application-choice.selected{background:#176b45!important;border-color:#0d5133!important;color:#fff!important}.muted-note{color:#405461;background:#eef6fb;border-left:5px solid #3981a7;padding:10px 14px;border-radius:8px}
+footer{text-align:center;padding:18px;color:var(--muted);font-size:16px}@media(max-width:520px){main{padding:9px}section{margin:11px 0;border-radius:14px}button{width:100%}}
+</style></head><body>
+<header><h1>Tuần 32 · Hoa phượng</h1><p>AI cùng em vui đọc · Tiếng Việt 1</p></header><main>
+<section><h2>1. Bài đọc</h2><div class="poem-title">Hoa phượng</div><div class="reading">Hôm qua còn lấm tấm
+Chen lẫn màu lá xanh
+Sáng nay bừng lửa thắm
+Rừng rực cháy trên cành.
+
+– Bà ơi! Sao mà nhanh!
+Phượng nở nghìn mắt lửa,
+Cả dãy phố nhà mình,
+Một trời hoa phượng đỏ.
+
+Hay đêm qua không ngủ
+Chị gió quạt cho cây?
+Hay mặt trời ủ lửa
+Cho hoa bừng hôm nay?</div><div class="author">(Lê Huy Hòa)</div><p class="small">Từ ngữ trong SGK: lấm tấm, bừng, rừng rực cháy.</p><p class="note"><b>Con tự đọc bài</b> bằng mắt và thành tiếng. Trang này không đọc bài thay con.</p></section>
+<section><h2>2. Tìm tiếng cùng vần</h2><p>Đọc tiếng mẫu trong SGK, rồi chọn cặp tiếng có phần vần giống nhau.</p><div id="rhymeTasks"></div></section>
+<section><h2>3. Tìm hiểu từ ngữ</h2><p>Con đọc từ trong bài thơ, rồi chọn cách giải thích phù hợp.</p><div id="vocabTasks"></div></section>
+<section><h2>4. Luyện đọc từ khó, câu thơ</h2><p>Con tự đọc thành tiếng. Đọc chậm, rõ từng tiếng; nghỉ nhẹ ở cuối mỗi dòng thơ.</p><div class="reading-practice"><h3>Đọc từ khó</h3><div><span class="word-chip">lấm tấm</span><span class="word-chip">chen lẫn</span><span class="word-chip">bừng</span><span class="word-chip">lửa thắm</span><span class="word-chip">rừng rực cháy</span><span class="word-chip">nghìn</span><span class="word-chip">quạt</span><span class="word-chip">ủ lửa</span></div></div><div class="reading-practice"><h3>Đọc từng khổ thơ</h3><p>Hôm qua còn lấm tấm / Chen lẫn màu lá xanh / Sáng nay bừng lửa thắm / Rừng rực cháy trên cành.</p><p>– Bà ơi! Sao mà nhanh! / Phượng nở nghìn mắt lửa, / Cả dãy phố nhà mình, / Một trời hoa phượng đỏ.</p><p>Hay đêm qua không ngủ / Chị gió quạt cho cây? / Hay mặt trời ủ lửa / Cho hoa bừng hôm nay?</p></div><div class="task"><h3>Con tự luyện đọc</h3><div class="question">Con muốn chọn cách luyện đọc nào?</div><div id="readingChoices"><button class="choice application-choice">Con đã đọc xong, rõ từng dòng.</button><button class="choice application-choice">Con muốn đọc lại chậm hơn một lần.</button></div><div class="feedback" id="readingFeedback" aria-live="polite"></div></div></section>
+<section><h2>5. Đọc hiểu</h2><p>Con đọc lại bài thơ để tìm thông tin. Nếu chọn chưa đúng, con có thể thử lại; đáp án không hiện ngay.</p><div id="comprehensionTasks"></div></section>
+<section><h2>6. Vận dụng – Sắc hoa quanh em</h2><div class="task"><div class="question">Nếu vẽ một loài hoa con từng nhìn thấy, con sẽ chọn hình ảnh nào?</div><p>Chọn một ý tưởng để bắt đầu bức tranh. Không có đáp án duy nhất.</p><div id="applicationChoices"><button class="choice application-choice">Hoa phượng đỏ rực trên cành cây.</button><button class="choice application-choice">Một bông hoa nhỏ trong vườn.</button><button class="choice application-choice">Khóm hoa ven đường hoặc trong công viên.</button><button class="choice application-choice">Loài hoa khác mà con yêu thích.</button></div><div class="feedback" id="applicationFeedback" aria-live="polite"></div><p class="small">Sau khi chọn, con có thể vẽ và nói một câu giới thiệu bức tranh nếu muốn.</p></div></section>
+<footer>AI cùng em vui đọc · Luyện đọc nhẹ nhàng, tôn trọng nhịp học của mỗi bạn.</footer></main>
+<script>
+function makeTasks(target,items,title){let i=0;function draw(){target.innerHTML="";const item=items[i],card=document.createElement("div");card.className="task";card.innerHTML=`<h3>${title} ${i+1}/${items.length}</h3><div class="question"></div><div class="choices"></div><div class="feedback" aria-live="polite"></div><button class="primary next" disabled>${i===items.length-1?"Làm lại phần này":"Câu tiếp theo →"}</button>`;card.querySelector(".question").textContent=item.q;const choices=card.querySelector(".choices"),fb=card.querySelector(".feedback"),next=card.querySelector(".next");const shuffled=item.opts.map((opt,n)=>({opt,correct:n===item.a})).sort(()=>Math.random()-0.5);shuffled.forEach(entry=>{const b=document.createElement("button");b.className="choice";b.textContent=entry.opt;b.onclick=()=>{if(b.disabled)return;if(entry.correct){fb.className="feedback correct";fb.textContent="Chính xác! "+item.why;b.classList.add("application-choice","selected");choices.querySelectorAll("button").forEach(x=>x.disabled=true);next.disabled=false}else{fb.className="feedback incorrect";fb.textContent="Chưa đúng rồi. Con đọc lại câu hỏi và bài thơ, rồi thử chọn lần nữa nhé.";b.disabled=true}};choices.appendChild(b)});next.onclick=()=>{i=(i+1)%items.length;draw()};target.appendChild(card)}draw()}
+makeTasks(document.getElementById("rhymeTasks"),[
+{q:"Tiếng nào cùng vần với tiếng “xanh” trong bài thơ?",opts:["cành","ngủ","hoa"],a:0,why:"“Xanh” và “cành” cùng vần anh."},
+{q:"Cặp tiếng nào có phần vần giống nhau?",opts:["cây – đây","lửa – lá","nhanh – ngủ"],a:0,why:"“Cây” và “đây” cùng vần ây."},
+{q:"Tiếng nào cùng vần với tiếng “lửa”?",opts:["nữa","xanh","cành"],a:0,why:"“Lửa” và “nữa” cùng vần ưa."}
+],"Câu");
+makeTasks(document.getElementById("vocabTasks"),[
+{q:"“Lấm tấm” trong câu “Hôm qua còn lấm tấm” gợi hình ảnh thế nào?",opts:["Có những chấm nhỏ rải rác","Đỏ rực khắp nơi","Không còn chiếc lá nào"],a:0,why:"“Lấm tấm” gợi những chấm nhỏ xuất hiện rải rác."},
+{q:"Trong bài thơ, hoa phượng “bừng” nở gợi ý gì?",opts:["Hoa nở rộ, nổi bật lên","Hoa khép lại và rụng hết","Cây phượng biến mất"],a:0,why:"“Bừng” gợi sự xuất hiện rõ rệt, rực rỡ của hoa."},
+{q:"“Rừng rực cháy trên cành” muốn nói điều gì về hoa phượng?",opts:["Hoa đỏ rực như lửa, không phải lửa thật","Cành cây đang bị đốt cháy thật","Hoa phượng có màu xanh"],a:0,why:"Đây là cách nói gợi tả sắc hoa phượng đỏ rực."}
+],"Từ ngữ");
+makeTasks(document.getElementById("comprehensionTasks"),[
+{q:"Những câu thơ nào cho biết hoa phượng nở rất nhiều?",opts:["“Phượng nở nghìn mắt lửa, / Cả dãy phố nhà mình, / Một trời hoa phượng đỏ.”","“Hôm qua còn lấm tấm / Chen lẫn màu lá xanh”","“Hay đêm qua không ngủ / Chị gió quạt cho cây?”"],a:0,why:"Những câu thơ này nói hoa phượng nở nhiều, đỏ rực cả dãy phố."},
+{q:"Trong bài thơ, cây phượng được trồng ở đâu?",opts:["Ở dãy phố nhà bạn nhỏ","Giữa biển khơi","Trên đỉnh núi cao"],a:0,why:"Bài thơ có câu “Cả dãy phố nhà mình”, cho biết phượng ở phố nhà bạn nhỏ."},
+{q:"Theo bạn nhỏ, chị gió và mặt trời đã làm gì giúp cây phượng nở hoa?",opts:["Chị gió quạt cho cây, mặt trời ủ lửa cho hoa","Chị gió tưới cây, mặt trời hái hoa","Chị gió che cây, mặt trời làm hoa ngủ"],a:0,why:"Bạn nhỏ tưởng tượng chị gió quạt cho cây và mặt trời ủ lửa để hoa bừng nở."}
+],"Câu hỏi");
+function oneSelected(containerId,feedbackId,message){const container=document.getElementById(containerId),feedback=document.getElementById(feedbackId);container.querySelectorAll(".application-choice").forEach(b=>b.onclick=()=>{container.querySelectorAll(".application-choice").forEach(x=>{x.classList.remove("selected");x.setAttribute("aria-pressed","false")});b.classList.add("selected");b.setAttribute("aria-pressed","true");feedback.className="feedback correct";feedback.textContent=message;});}
+oneSelected("applicationChoices","applicationFeedback","Ý tưởng của con thật đáng quý! Con có thể bắt đầu vẽ theo lựa chọn của mình.");
+oneSelected("readingChoices","readingFeedback","Tốt lắm! Con hãy đọc rõ tiếng và giữ nhịp đọc vừa phải nhé.");
+</script></body></html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 29 – Bảy sắc cầu vồng</title>
+<style>
+:root{--ink:#26345b;--pink:#ffe2ef;--blue:#dff4ff;--yellow:#fff2b8;--green:#dff8df;--purple:#eee3ff;--orange:#ffe5cc}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Times New Roman",Times,serif;font-size:22px;line-height:1.5;color:var(--ink);background:linear-gradient(135deg,#fff5d6,#e3f6ff 45%,#f8e8ff);padding:14px}
+.wrap{max-width:900px;margin:auto}
+.hero{border:4px solid white;border-radius:28px;padding:22px 18px;text-align:center;background:linear-gradient(120deg,#ff8e9e,#ffcc70,#fff28b,#82dfa5,#78d7f5,#9da8ff,#d9a0f5);box-shadow:0 8px 20px #7a7a9b35}
+.hero h1{font-size:clamp(32px,7vw,48px);margin:0 0 8px;color:#3a2869;text-shadow:1px 2px white}
+.subtitle{font-size:22px;font-weight:bold}
+.card{margin:18px 0;padding:20px;border:3px solid white;border-radius:24px;box-shadow:0 5px 14px #596b8b1a}
+.reading{background:#fffdf5}
+.poem{font-size:clamp(22px,4.8vw,28px);font-weight:600;text-align:center;white-space:pre-line;line-height:1.55;color:#45306d}
+.author{text-align:center;font-style:italic;font-size:22px;margin-top:8px}
+h2{font-size:clamp(25px,5vw,32px);margin:0 0 12px;color:#4c3b95}
+.instructions{font-weight:bold;margin:0 0 12px}
+.pink{background:var(--pink)}.blue{background:var(--blue)}.yellow{background:var(--yellow)}.green{background:var(--green)}.purple{background:var(--purple)}.orange{background:var(--orange)}
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:12px}
+button{font-family:inherit;font-size:22px;font-weight:bold;line-height:1.25;border:3px solid white;border-radius:17px;padding:13px 12px;min-height:58px;background:#fff;color:#29345a;box-shadow:0 3px 0 #c7c7dd;cursor:pointer}
+button:focus{outline:4px solid #5b8cff;outline-offset:2px}
+button:hover{filter:brightness(.97);transform:translateY(-1px)}
+button.correct{background:#c9f6d4;border-color:#3bb66b}
+button.wrong{background:#ffe0e0;border-color:#e77b7b}
+.feedback{font-weight:bold;min-height:32px;margin-top:12px}
+.small{font-size:20px}
+.wordbank{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:14px 0}
+.wordbank span{background:white;border:2px dashed #7d8bd2;border-radius:14px;padding:8px 14px;font-weight:bold}
+select{font:inherit;font-size:22px;border-radius:12px;border:2px solid #8c9bd6;padding:7px;background:white;max-width:100%}
+.task{background:#ffffffb8;border-radius:16px;padding:12px;margin:12px 0}
+.footer{text-align:center;font-weight:bold;padding:15px;color:#5a4388}
+@media(max-width:520px){body{padding:8px}.card{padding:15px}.options{grid-template-columns:1fr}button{width:100%}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="hero"><h1>🌈 BẢY SẮC CẦU VỒNG 🌈</h1><div class="subtitle">Tuần 29 · Cùng đọc, cùng khám phá!</div></header>
+<section class="card reading"><h2>📖 Bài đọc</h2>
+<div class="poem">Bảy sắc cầu vồng
+
+Vừa mưa lại nắng
+Hay có cầu vồng
+Bảy màu tươi thắm
+Bé mừng vui trông
+
+Màu đỏ mặt trời
+Màu cam đu đủ
+Màu vàng cá bơi
+Lục kia màu lá
+
+Màu lam đám mây
+Màu chàm áo mẹ
+Màu tím hoa sim
+Bảy màu yêu thế.
+
+Cầu vồng ẩn hiện
+Rồi lại tan mau
+Đất trời bừng tỉnh
+Sau cơn mưa rào.</div>
+<div class="author">(Ngọc Hà)</div>
+</section>
+
+<section class="card pink"><h2>🎯 Phần 1. Tìm tiếng trong bài</h2>
+<p class="instructions">Con hãy chọn tiếng có vần được hỏi. Nếu chưa đúng, con thử lại nhé!</p>
+<div class="task" data-q="r1"><b>Câu 1. Tiếng nào có vần <u>ông</u>?</b><div class="options">
+<button data-ok="1">vồng</button><button>vàng</button><button>mưa</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="r2"><b>Câu 2. Tiếng nào có vần <u>ưa</u>?</b><div class="options">
+<button>trông</button><button data-ok="1">mưa</button><button>màu</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="r3"><b>Câu 3. Trong bài thơ, tiếng nào có vần <u>oi</u>?</b><div class="options">
+<button>vui</button><button>trời</button><button data-ok="1">Bài thơ không có tiếng mang vần “oi”.</button></div><div class="feedback" aria-live="polite"></div><p class="small">Gợi ý: “vui” có vần <b>ui</b>; “trời” có vần <b>ơi</b>, không phải vần <b>oi</b>.</p></div>
+</section>
+
+<section class="card blue"><h2>🔎 Phần 2. Hiểu từ ngữ</h2>
+<p class="instructions">Đọc từ trong bài rồi chọn cách giải thích phù hợp nhất.</p>
+<div class="task" data-q="w1"><b>Câu 1. “Ẩn hiện” có nghĩa là gì?</b><div class="options">
+<button data-ok="1">Lúc hiện ra, lúc khuất đi</button><button>Luôn sáng rõ, không thay đổi</button><button>Chạy thật nhanh</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="w2"><b>Câu 2. “Bừng tỉnh” trong bài gợi cảnh vật thế nào?</b><div class="options">
+<button>Trời tối hẳn lại</button><button data-ok="1">Cảnh vật như sáng bừng, tươi tỉnh sau mưa</button><button>Cơn mưa bắt đầu rơi</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="w3"><b>Câu 3. “Mưa rào” là cơn mưa như thế nào?</b><div class="options">
+<button>Mưa lất phất rất lâu</button><button>Mưa chỉ có vài giọt</button><button data-ok="1">Mưa đến nhanh, thường khá to và kéo dài không lâu</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card yellow"><h2>🗣️ Phần 3. Luyện đọc câu thơ</h2>
+<p class="instructions">Con tự đọc câu thơ thành tiếng, sau đó chọn câu trả lời đúng.</p>
+<div class="task" data-q="s1"><b>Câu 1. Dòng thơ nào nói về lúc cầu vồng xuất hiện?</b><div class="options">
+<button>Rồi lại tan mau</button><button data-ok="1">Vừa mưa lại nắng / Hay có cầu vồng</button><button>Bảy màu yêu thế</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="s2"><b>Câu 2. Hai dòng thơ nào cho biết cầu vồng tan đi nhanh?</b><div class="options">
+<button>Màu đỏ mặt trời / Màu cam đu đủ</button><button>Bảy màu tươi thắm / Bé mừng vui trông</button><button data-ok="1">Cầu vồng ẩn hiện / Rồi lại tan mau</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="s3"><b>Câu 3. Khi đọc “Bảy màu tươi thắm”, con nên đọc thế nào?</b><div class="options">
+<button>Đọc thật lí nhí, bỏ tiếng cuối</button><button data-ok="1">Đọc rõ từng tiếng, giọng vui tươi</button><button>Đọc thật nhanh để xong sớm</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card green"><h2>🧠 Phần 4. Tìm thông tin trong bài</h2>
+<div class="task" data-q="c1"><b>Câu 1. Cầu vồng thường xuất hiện khi nào?</b><div class="options">
+<button>Khi trời có tuyết</button><button data-ok="1">Khi vừa mưa lại có nắng</button><button>Chỉ vào ban đêm</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="c2"><b>Câu 2. Cầu vồng có mấy màu?</b><div class="options">
+<button>Ba màu</button><button>Năm màu</button><button data-ok="1">Bảy màu</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="c3"><b>Câu 3. Dòng thơ nào cho thấy cầu vồng xuất hiện rồi tan đi rất nhanh?</b><div class="options">
+<button>Màu tím hoa sim / Bảy màu yêu thế</button><button data-ok="1">Cầu vồng ẩn hiện / Rồi lại tan mau</button><button>Màu vàng cá bơi / Lục kia màu lá</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="c4"><b>Câu 4. Bảy màu trong bài thơ lần lượt là những màu nào?</b><div class="options">
+<button>Đỏ, xanh lá, trắng, đen, hồng, nâu, tím</button><button data-ok="1">Đỏ, cam, vàng, lục, lam, chàm, tím</button><button>Đỏ, cam, vàng, hồng, trắng, đen, tím</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card purple"><h2>🌟 Phần 5. Vận dụng – Sắc màu quanh em</h2>
+<p class="instructions">Chọn câu trả lời phù hợp với tình huống. Con có thể nghĩ thêm câu trả lời của riêng mình.</p>
+<div class="task" data-q="a1"><b>Câu 1. Sau cơn mưa, con nhìn thấy cầu vồng. Con nên làm gì để ngắm cầu vồng an toàn?</b><div class="options">
+<button>Chạy ra giữa đường để nhìn rõ hơn</button><button data-ok="1">Đứng ở nơi an toàn cùng người lớn và ngắm cầu vồng</button><button>Leo lên chỗ cao không có người lớn</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="a2"><b>Câu 2. Con hãy chọn cách nói thể hiện niềm vui khi nhìn thấy cầu vồng.</b><div class="options">
+<button>“Con chẳng quan tâm!”</button><button>“Xấu quá, con không muốn nhìn.”</button><button data-ok="1">“Cầu vồng đẹp quá! Có nhiều màu thật rực rỡ!”</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="a3"><b>Câu 3. Hãy chọn một việc con có thể làm để mang thêm “sắc màu vui vẻ” đến lớp.</b><div class="options">
+<button>Chê bai tranh của bạn</button><button data-ok="1">Khen bạn chân thành hoặc giúp bạn khi cần</button><button>Giành hết bút màu của các bạn</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Thử thách tự nói:</b><p>Con thích màu nào nhất trong bảy màu cầu vồng? Hãy tự nói một câu: “Con thích màu … vì …”.</p><textarea id="own" rows="2" style="width:100%;font:22px 'Times New Roman',serif;border:2px solid #b8a4ec;border-radius:12px;padding:10px" placeholder="Con có thể gõ câu của mình ở đây..."></textarea></div>
+</section>
+<div class="footer">🌈 Con đọc thật rõ, hiểu thật vui! 🌈</div>
+</main>
+<script>
+document.querySelectorAll('.task[data-q]').forEach(task=>{
+ const feedback=task.querySelector('.feedback');
+ task.querySelectorAll('button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+   if(btn.dataset.ok==='1'){
+    task.querySelectorAll('button').forEach(b=>{b.disabled=true;if(b.dataset.ok==='1')b.classList.add('correct')});
+    feedback.textContent='🌟 Chính xác! Con làm tốt lắm!';
+    feedback.style.color='#167344';
+   }else{
+    btn.classList.add('wrong');
+    btn.disabled=true;
+    feedback.textContent='💪 Chưa đúng rồi, con thử một lựa chọn khác nhé!';
+    feedback.style.color='#a43b4b';
+   }
+  });
+ });
+});
+</script>
+</body></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 30 – Cuộc thi tài năng rừng xanh</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:12px;font-family:"Times New Roman",Times,serif;font-size:22px;line-height:1.5;color:#293b32;background:linear-gradient(135deg,#e4f8dd,#fff3d1 52%,#e1f4ff)}
+.wrap{max-width:920px;margin:auto}
+.hero{padding:22px 14px;text-align:center;border:4px solid #fff;border-radius:28px;background:linear-gradient(120deg,#a7e8a7,#fff0a7,#9fe2f5);box-shadow:0 6px 18px #315b3830}
+h1{font-size:clamp(31px,7vw,45px);line-height:1.2;margin:0;color:#225d3c;text-shadow:1px 2px white}
+.subtitle{font-size:22px;font-weight:bold;margin-top:8px}
+.card{margin:16px 0;padding:18px;border:3px solid white;border-radius:23px;box-shadow:0 5px 15px #45634b18}
+h2{font-size:clamp(25px,5vw,32px);margin:0 0 12px;color:#256b48}
+.reading{background:#fffdf5}
+.reading-title{text-align:center;font-weight:bold;font-size:clamp(24px,5vw,30px);margin:0 0 12px;color:#355f42}
+.reading-text{text-align:left;font-size:clamp(22px,4.5vw,26px);line-height:1.55}
+.reading-text p{margin:0 0 12px;text-indent:1.2em}
+.author{text-align:right;margin-top:8px;font-size:22px;font-style:normal}
+.pink{background:#ffe8ef}.blue{background:#e3f4ff}.yellow{background:#fff3c8}.green{background:#e2f8df}.purple{background:#f0e7ff}
+.instructions{font-weight:bold;margin-top:0}
+.task{padding:13px;margin:12px 0;border-radius:16px;background:#ffffffb8}
+.options{display:grid;grid-template-columns:repeat(auto-fit,minmax(195px,1fr));gap:10px;margin-top:12px}
+button{font:bold 22px/1.3 "Times New Roman",Times,serif;padding:13px;border:3px solid white;border-radius:16px;min-height:58px;background:white;color:#293c36;box-shadow:0 3px 0 #c5d6ca;cursor:pointer}
+button:focus{outline:4px solid #5289e8}
+button.correct{background:#c9f5d4;border-color:#42ad69}
+button.wrong{background:#ffe0e0;border-color:#d96d6d}
+.feedback{min-height:30px;font-weight:bold;margin-top:10px}
+.small{font-size:20px}
+.footer{text-align:center;font-weight:bold;padding:15px;color:#286444}
+textarea{width:100%;font:22px "Times New Roman",Times,serif;border:2px solid #a7c7a9;border-radius:12px;padding:10px}
+@media(max-width:520px){body{padding:7px}.card{padding:13px}.options{grid-template-columns:1fr}button{width:100%}}
+</style>
+</head>
+<body><main class="wrap">
+<header class="hero"><h1>🌳 CUỘC THI TÀI NĂNG RỪNG XANH 🐒</h1><div class="subtitle">Tuần 30 · Cùng đọc và khám phá!</div></header>
+
+<section class="card reading">
+<h2>📖 Bài đọc</h2>
+<div class="reading-title">Cuộc thi tài năng rừng xanh</div>
+<div class="reading-text">
+<p>Mừng xuân, các con vật trong rừng tổ chức một cuộc thi tài năng. Đúng như dự kiến, cuộc thi mở đầu bằng tiết mục chim yểng bắt chước tiếng của một số loài vật. Tiếp theo là ca khúc “ngooao ngooao” của mèo rừng. Gõ kiến chỉ trong nháy mắt đã khoét được cái tổ xinh xắn. Chim công khiến khán giả say mê, choáng ngợp vì điệu múa tuyệt đẹp. Voọc xám với tiết mục đu cây điêu luyện làm tất cả trầm trồ thích thú.</p>
+<p>Các con vật đều xứng đáng nhận phần thưởng.</p>
+</div>
+<div class="author">(Lâm Anh)</div>
+</section>
+
+<section class="card pink"><h2>🎯 Phần 1. Tìm tiếng trong bài</h2>
+<p class="instructions">Đọc kĩ câu hỏi rồi chọn đáp án. Nếu chưa đúng, con hãy thử lựa chọn khác nhé!</p>
+<div class="task" data-q="p1"><b>Câu 1. Con vật nào bắt chước tiếng của một số loài vật?</b><div class="options"><button>Gõ kiến</button><button data-ok="1">Chim yểng</button><button>Chim công</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="p2"><b>Câu 2. Tiếng nào trong bài có vần <u>oao</u>?</b><div class="options"><button>yểng</button><button>tài</button><button data-ok="1">ngoao</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="p3"><b>Câu 3. Từ nào trong bài có tiếng mang vần <u>oet</u>?</b><div class="options"><button>điêu luyện</button><button data-ok="1">khoét</button><button>trầm trồ</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card blue"><h2>🔎 Phần 2. Hiểu từ ngữ</h2>
+<div class="task" data-q="w1"><b>Câu 1. “Khoét được cái tổ” nghĩa là gì?</b><div class="options"><button>Trang trí tổ bằng hoa</button><button data-ok="1">Đục, tạo thành một cái tổ</button><button>Bay đi tìm tổ khác</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="w2"><b>Câu 2. “Điêu luyện” có nghĩa là gì?</b><div class="options"><button>Lúng túng, chưa biết làm</button><button>Chậm chạp, vụng về</button><button data-ok="1">Thành thạo, rất khéo léo</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="w3"><b>Câu 3. “Trầm trồ thích thú” thể hiện cảm xúc nào?</b><div class="options"><button>Buồn bã, thất vọng</button><button data-ok="1">Ngạc nhiên, thán phục và vui thích</button><button>Sợ hãi, lo lắng</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card yellow"><h2>🗣️ Phần 3. Luyện đọc câu</h2>
+<p class="instructions">Con tự đọc thành tiếng. Chú ý đọc rõ tên con vật và ngắt nghỉ ở dấu câu.</p>
+<div class="task" data-q="s1"><b>Câu 1. Khi đọc câu mở đầu, con cần biết điều gì?</b><div class="options"><button>Cuộc thi diễn ra ở biển</button><button data-ok="1">Các con vật trong rừng tổ chức cuộc thi tài năng vào mùa xuân</button><button>Cuộc thi chỉ có chim công</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="s2"><b>Câu 2. Dòng nào kể về tiết mục của gõ kiến?</b><div class="options"><button>Chim công khiến khán giả say mê</button><button>Chim yểng bắt chước tiếng các loài vật</button><button data-ok="1">Gõ kiến chỉ trong nháy mắt đã khoét được cái tổ xinh xắn</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="s3"><b>Câu 3. Khi đọc câu “Chim công khiến khán giả say mê, choáng ngợp vì điệu múa tuyệt đẹp.”, con nên nhấn giọng ở nhóm từ nào?</b><div class="options"><button>khiến khán giả</button><button data-ok="1">say mê, choáng ngợp, tuyệt đẹp</button><button>vì điệu</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="s4"><b>Câu 4. Câu nào cho biết kết quả chung của cuộc thi?</b><div class="options"><button>Cuộc thi mở đầu bằng tiết mục chim yểng</button><button>Gõ kiến khoét được cái tổ xinh xắn</button><button data-ok="1">Các con vật đều xứng đáng nhận phần thưởng</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card green"><h2>🧠 Phần 4. Tìm thông tin trong bài</h2>
+<div class="task" data-q="c1"><b>Câu 1. Những con vật nào được nhắc đến trong cuộc thi?</b><div class="options"><button>Chim sẻ, thỏ, hươu và gấu</button><button data-ok="1">Chim yểng, mèo rừng, gõ kiến, chim công và voọc xám</button><button>Chỉ có chim công và gõ kiến</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="c2"><b>Câu 2. Mèo rừng biểu diễn tiết mục gì?</b><div class="options"><button>Múa một điệu tuyệt đẹp</button><button>Khoét một cái tổ</button><button data-ok="1">Hát ca khúc “ngoao ngoao”</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="c3"><b>Câu 3. Chim công làm khán giả say mê vì điều gì?</b><div class="options"><button>Vì bắt chước tiếng loài vật</button><button data-ok="1">Vì điệu múa tuyệt đẹp</button><button>Vì khoét tổ rất nhanh</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="c4"><b>Câu 4. Theo bài đọc, các con vật đều xứng đáng nhận điều gì?</b><div class="options"><button>Một cái tổ mới</button><button>Một khu rừng riêng</button><button data-ok="1">Phần thưởng</button></div><div class="feedback" aria-live="polite"></div></div>
+</section>
+
+<section class="card purple"><h2>🌟 Phần 5. Vận dụng – Mỗi bạn một tài năng</h2>
+<p class="instructions">Mỗi người có điểm mạnh riêng. Con hãy chọn cách nghĩ và hành động tích cực nhé!</p>
+<div class="task" data-q="a1"><b>Câu 1. Khi bạn biểu diễn chưa thật tốt, con nên làm gì?</b><div class="options"><button>Cười chê bạn</button><button data-ok="1">Cổ vũ và động viên bạn cố gắng</button><button>Bảo bạn không được tham gia nữa</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="a2"><b>Câu 2. Nếu được tham gia “cuộc thi tài năng” ở lớp, con muốn thể hiện điều gì?</b><div class="options"><button data-ok="1">Con có thể chọn đọc thơ, hát, vẽ hoặc một tài năng mình yêu thích</button><button>Chỉ chọn việc mà bạn khác làm giỏi hơn mình</button><button>Không cho bạn nào khác tham gia</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task" data-q="a3"><b>Câu 3. Khi các bạn có tài năng khác nhau, điều gì là tốt nhất?</b><div class="options"><button>Chỉ khen người giỏi nhất</button><button>So sánh để làm bạn buồn</button><button data-ok="1">Tôn trọng, khích lệ và ghi nhận điểm mạnh của mỗi bạn</button></div><div class="feedback" aria-live="polite"></div></div>
+<div class="task"><b>Thử thách tự nói:</b><p>Con hãy nói một câu: “Con làm tốt việc …” hoặc “Con muốn luyện tập thêm …”.</p><textarea rows="2" placeholder="Con có thể gõ câu của mình ở đây..."></textarea></div>
+</section>
+<div class="footer">🌟 Mỗi bạn có một tài năng – cùng động viên nhau tiến bộ! 🌿</div>
+</main>
+<script>
+document.querySelectorAll('.task[data-q]').forEach(task=>{
+ const feedback=task.querySelector('.feedback');
+ task.querySelectorAll('button').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+   if(btn.dataset.ok==='1'){
+    task.querySelectorAll('button').forEach(b=>{b.disabled=true;if(b.dataset.ok==='1')b.classList.add('correct')});
+    feedback.textContent='🌟 Chính xác! Con làm tốt lắm!';
+    feedback.style.color='#167344';
+   }else{
+    btn.classList.add('wrong');btn.disabled=true;
+    feedback.textContent='💪 Chưa đúng rồi, con thử một lựa chọn khác nhé!';
+    feedback.style.color='#a43b4b';
+   }
+  });
+ });
+});
+</script></body></html>

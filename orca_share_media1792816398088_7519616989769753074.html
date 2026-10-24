@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tuần 35 - Cảm ơn</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#eff9ff;color:#17324d;font:20px/1.55 "Times New Roman",serif}header{background:linear-gradient(120deg,#087eaa,#38bfd0);color:white;text-align:center;padding:22px 12px;border-bottom:6px solid #ffd16f}h1{font-size:clamp(28px,5vw,38px);line-height:1.2;margin:0 0 8px}header p{margin:0}header a{display:inline-block;color:white;border:2px solid white;border-radius:20px;padding:4px 14px;margin-top:10px;text-decoration:none;font-weight:bold}main{max-width:900px;margin:auto;padding:12px}section{background:white;border:2px solid #c9e3ee;border-radius:17px;padding:17px;margin:15px 0;box-shadow:0 3px 10px #1232}h2{font-size:clamp(23px,4vw,29px);color:#075d86;margin:0 0 12px}.story-title{text-align:center;font-size:27px;font-weight:bold;color:#075d86;margin:8px 0 14px}.reading{font-size:22px;text-align:left}.reading p{margin:0 0 12px;text-indent:1.2em}.author{text-align:right;font-style:italic}.note{background:#eaf8ff;border-left:5px solid #18a1c9;padding:10px 13px;border-radius:8px}.task{border:2px solid #d4e7ef;border-radius:13px;padding:13px;margin:12px 0;background:#fbfeff}.question{font-size:22px;font-weight:bold;margin:0 0 10px}.choices{display:grid;grid-template-columns:1fr;gap:8px}button{font:inherit;cursor:pointer;border:2px solid #8bbdcc;border-radius:11px;background:white;padding:10px 12px;color:#17324d;text-align:left;min-height:46px}button:hover{background:#eefaff}button.correct{background:#dff5e7;border-color:#258452;color:#124b31}button.incorrect{background:#fff0d9;border-color:#b86a16;color:#633000}.feedback{font-weight:bold;margin-top:9px;padding:8px 10px;border-radius:8px}.feedback:empty{display:none}.good{background:#e2f6e9;color:#145a35}.try{background:#fff2df;color:#75420c}.levels{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}.levels button{font-weight:bold;text-align:center}.levels button.active{background:#087eaa;color:white;border-color:#087eaa}.wordbank{background:#fff8dc;border:2px dashed #e8bd50;border-radius:12px;padding:12px;margin:10px 0;font-weight:bold;text-align:center}.small{font-size:18px}@media(min-width:650px){.choices.two{grid-template-columns:1fr 1fr}}
+</style></head><body>
+<header><h1>Tuần 35 · Cảm ơn</h1><p>AI cùng em vui đọc · Tiếng Việt 1</p><a href="index.html">← Về danh sách tuần</a></header>
+<main>
+<section><h2>1. Bài đọc</h2><div class="story-title">Cảm ơn</div>
+<div class="reading">
+<p>Một tuần nữa là năm học kết thúc. Thời gian trôi qua thật nhanh. Tôi nhớ lại những chuyện đã qua. Từ tháng Chín năm ngoái đến nay, tôi đã tiến bộ không ngừng nhờ sự giúp đỡ của nhiều người. Tôi muốn cảm ơn tất cả.</p>
+<p>Tôi muốn cảm ơn cô giáo. Nhờ sự tận tâm dạy dỗ của cô, tôi đã hiểu được nhiều điều thú vị. Tôi muốn cảm ơn các bạn. Các bạn đã cùng tôi học nhóm. Các bạn cũng giúp tôi học được cách cư xử thân thiện với mọi người. Đặc biệt, tôi muốn cảm ơn bố mẹ tôi. Bố mẹ đã dành cho tôi tình yêu thương và luôn chăm chú lắng nghe những câu chuyện ở trường của tôi.</p>
+<p>Năm học vừa qua quả là tuyệt vời đối với tôi.</p></div><div class="author">(Theo A-mi-xi)</div>
+<p class="note"><b>Con tự đọc cả bài.</b> Chú ý đọc rõ các tiếng nhiều âm tiết và ngắt nghỉ ở dấu câu. Trò chơi không đọc bài thay con.</p></section>
+<section><h2>2. Luyện đọc từ và vần dễ lẫn</h2><p>Con đọc thành tiếng từng từ, chú ý các tiếng gần giống nhau. Chọn từ đúng theo yêu cầu.</p>
+<div class="levels"><button class="active" data-level="0">Nhẹ nhàng</button><button data-level="1">Vừa sức</button><button data-level="2">Thử thách</button></div><div id="rhymes"></div></section>
+<section><h2>3. Tìm hiểu từ ngữ</h2><p>Con đọc từng từ trong bài, rồi chọn nghĩa phù hợp nhất.</p><div id="vocab"></div></section>
+<section><h2>4. Đọc hiểu</h2><p class="note">Con hãy đọc lại bài để tìm thông tin. Mỗi câu đều có nội dung và các phương án lựa chọn. Nếu chọn chưa đúng, con có thể thử lại; đáp án không hiện ngay.</p><div id="read"></div></section>
+<section><h2>5. Vận dụng · Trao gửi lời cảm ơn</h2>
+<div class="task"><p class="question">Một bạn nhặt giúp con chiếc bút bị rơi. Con có thể nói câu nào?</p><p class="small">Chọn lời nói con thấy phù hợp nhất.</p><div class="choices" id="thanks"><button>“Cảm ơn bạn đã nhặt bút giúp mình!”</button><button>“Bạn phải nhặt bút cho mình.”</button><button>Không nói gì và bỏ đi.</button></div><div class="feedback" id="thanksfb"></div></div>
+<div class="task"><p class="question">Đôi khi, người khác giúp mình bằng cách lắng nghe. Con hãy chọn một cách thể hiện sự biết ơn.</p><div class="choices" id="show"><button>Nói lời cảm ơn chân thành.</button><button>Lắng nghe khi người ấy nói.</button><button>Giúp đỡ lại khi mình có thể.</button></div><div class="feedback" id="showfb"></div><p class="small">Mỗi cách trên đều có thể thể hiện sự biết ơn. Con chọn cách mình muốn thực hiện nhé.</p></div>
+</section>
+</main><footer style="text-align:center;padding:18px;font-size:17px">Lời cảm ơn chân thành giúp mọi người gần gũi nhau hơn. 🌼</footer>
+<script>
+const data={
+rhymes:[
+[
+{q:'Trong tiếng “trường”, vần nào được dùng?',o:['ươn','ương','ươm'],a:1,w:'“Trường” có âm đầu tr, vần ương, thanh huyền.'},
+{q:'Đọc “lắng nghe”. Tiếng “lắng” có vần gì?',o:['ăng','âng','ang'],a:0,w:'“Lắng” có vần ăng, thanh sắc.'},
+{q:'Tiếng nào có vần iêu?',o:['điều','tiến','thân'],a:0,w:'“Điều” có vần iêu; “tiến” có vần iên.'}
+],
+[
+{q:'Hai tiếng “trường – thương” có điểm gì giống nhau về vần?',o:['Đều có vần ương','Đều có vần ươn','Đều có vần ươngg'],a:0,w:'“Trường” và “thương” đều có vần ương.'},
+{q:'Tiếng “thiện” trong cụm “thân thiện” có vần gì?',o:['iên','iêng','iêm'],a:0,w:'“Thiện” có vần iên, mang thanh nặng.'},
+{q:'Cặp tiếng nào có vần khác nhau?',o:['điều – hiểu','lắng – chăm','tiến – thiện'],a:1,w:'“Lắng” có vần ăng; “chăm” có vần ăm. Hai cặp còn lại lần lượt cùng có vần iêu và iên.'}
+],
+[
+{q:'Chọn cách phân tích đúng tiếng “chuyện”.',o:['Âm đầu ch, vần uyên','Âm đầu ch, vần uyêt','Âm đầu tr, vần uyên'],a:0,w:'“Chuyện” gồm âm đầu ch và vần uyên, mang thanh nặng.'},
+{q:'Đọc “học nhóm – giúp đỡ”. Tiếng “học” có vần gì?',o:['oc','om','up'],a:0,w:'“Học” có vần oc; “nhóm” có vần om; “giúp” có vần up.'},
+{q:'Tìm cặp tiếng có cùng vần.',o:['tiến – thiện','lắng – chăm','học – nhóm'],a:0,w:'“Tiến” và “thiện” đều có vần iên, nhưng khác thanh: tiến mang thanh sắc, thiện mang thanh nặng.'}
+]
+],
+vocab:[
+{q:'“Tận tâm” trong bài có nghĩa gần nhất với cách nào?',o:['Làm việc qua loa','Hết lòng, hết sức với việc mình làm','Làm thật nhanh cho xong'],a:1,w:'Cô giáo tận tâm dạy dỗ nghĩa là cô hết lòng dạy học sinh.'},
+{q:'“Thân thiện” có nghĩa gần nhất với từ nào?',o:['Gần gũi, vui vẻ và tốt bụng với mọi người','Hay cáu giận','Không muốn nói chuyện với ai'],a:0,w:'Cư xử thân thiện là cư xử gần gũi, vui vẻ và tốt bụng.'},
+{q:'Trong bài, “tiến bộ không ngừng” nghĩa là gì?',o:['Không học thêm điều gì','Ngày càng học hỏi và làm tốt hơn','Nghỉ học thường xuyên'],a:1,w:'Bạn nhỏ ngày càng tiến bộ nhờ sự giúp đỡ của nhiều người.'}
+],
+read:[
+{q:'Bạn nhỏ muốn cảm ơn những ai trong bài?',o:['Chỉ cảm ơn cô giáo','Cô giáo, các bạn và bố mẹ','Chỉ cảm ơn các bạn'],a:1,w:'Bạn nhỏ muốn cảm ơn cô giáo, các bạn và bố mẹ.'},
+{q:'Nhờ đâu mà bạn nhỏ tiến bộ không ngừng?',o:['Nhờ sự giúp đỡ của nhiều người','Nhờ không cần ai giúp','Nhờ chỉ chơi một mình'],a:0,w:'Bài đọc nói bạn nhỏ tiến bộ nhờ sự giúp đỡ của nhiều người.'},
+{q:'Các bạn đã giúp bạn nhỏ học được điều gì?',o:['Cách đi du lịch','Cách cư xử thân thiện với mọi người','Cách nấu ăn'],a:1,w:'Các bạn giúp bạn nhỏ học cách cư xử thân thiện với mọi người.'},
+{q:'Bố mẹ đã làm gì cho bạn nhỏ?',o:['Dành tình yêu thương và chăm chú lắng nghe chuyện ở trường','Chỉ mua đồ chơi','Không hỏi han bạn nhỏ'],a:0,w:'Bố mẹ yêu thương và chăm chú lắng nghe những câu chuyện ở trường của bạn nhỏ.'},
+{q:'Vì sao bạn nhỏ thấy năm học vừa qua tuyệt vời?',o:['Vì bạn không phải học gì','Vì bạn được nhiều người yêu thương, dạy dỗ và giúp đỡ','Vì bạn không cần kết bạn'],a:1,w:'Nội dung bài cho thấy bạn nhỏ biết ơn cô giáo, bạn bè và bố mẹ.'}
+]};
+function render(id,tasks){const root=document.getElementById(id);root.innerHTML='';tasks.forEach((t,n)=>{const box=document.createElement('div');box.className='task';const q=document.createElement('p');q.className='question';q.textContent=(n+1)+'. '+t.q;box.appendChild(q);const opts=document.createElement('div');opts.className='choices';const fb=document.createElement('div');fb.className='feedback';fb.setAttribute('aria-live','polite');t.o.forEach((s,i)=>{const b=document.createElement('button');b.textContent=s;b.onclick=()=>{opts.querySelectorAll('button').forEach(x=>x.classList.remove('correct','incorrect'));if(i===t.a){b.classList.add('correct');fb.className='feedback good';fb.textContent='Đúng rồi! '+t.w}else{b.classList.add('incorrect');fb.className='feedback try';fb.textContent='Con thử lại nhé. Đọc lại từ hoặc câu trong bài để tìm manh mối.'}};opts.appendChild(b)});box.appendChild(opts);box.appendChild(fb);root.appendChild(box)})}
+function setLevel(n){render('rhymes',data.rhymes[n]);document.querySelectorAll('[data-level]').forEach(b=>b.classList.toggle('active',+b.dataset.level===n))}
+document.querySelectorAll('[data-level]').forEach(b=>b.onclick=()=>setLevel(+b.dataset.level));setLevel(0);render('vocab',data.vocab);render('read',data.read);
+document.querySelectorAll('#thanks button').forEach((b,i)=>b.onclick=()=>{document.querySelectorAll('#thanks button').forEach(x=>x.classList.remove('correct','incorrect'));const f=document.getElementById('thanksfb');if(i===0){b.classList.add('correct');f.className='feedback good';f.textContent='Đúng rồi! 🌟 Lời cảm ơn lịch sự cho người khác biết con trân trọng sự giúp đỡ.'}else{b.classList.add('incorrect');f.className='feedback try';f.textContent='Con thử lại nhé! 💛 Hãy chọn lời nói thể hiện sự biết ơn.'}});
+document.querySelectorAll('#show button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#show button').forEach(x=>x.classList.remove('correct'));b.classList.add('correct');const f=document.getElementById('showfb');f.className='feedback good';f.textContent='Tuyệt lắm! 🌷 Con đã chọn một cách thể hiện sự biết ơn. Mỗi lựa chọn ở đây đều phù hợp.'});
+</script></body></html>

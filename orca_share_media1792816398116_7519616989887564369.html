@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuần 33 – Lớn lên bạn làm gì? | AI cùng em vui đọc</title>
+<style>
+:root{--ink:#263238;--bg:#fff8f0;--purple:#7352a3;--pink:#b72f72;--blue:#175d86;--green:#176b45}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:20px/1.65 "Times New Roman",Times,serif}
+header{background:linear-gradient(120deg,#7954a7,#bb8ad7);color:#fff;text-align:center;padding:24px 16px}
+header h1{font-size:clamp(29px,5vw,43px);line-height:1.2;margin:0 0 8px;font-weight:900}
+header p{margin:0;font-weight:700}
+main{max-width:920px;margin:auto;padding:16px}
+section{background:#fff;border-radius:18px;padding:clamp(18px,4vw,30px);margin:16px 0;box-shadow:0 3px 14px #40245b12}
+h2{color:#65408e;font-size:clamp(25px,4vw,32px);line-height:1.3;margin:0 0 12px;font-weight:900}
+h3{font-size:23px;margin:0 0 8px;line-height:1.4}
+.story-title{text-align:center;font-size:27px;font-weight:900;margin:10px 0 15px}
+.poem{font-size:clamp(21px,2.8vw,25px);line-height:1.75;white-space:pre-line;text-align:left;margin:0}
+.stanza{margin:0 0 13px}
+.author{text-align:right;margin-top:12px;font-weight:700}
+.small{font-size:17px;color:#52616a}
+button{font:inherit;font-weight:800;cursor:pointer;border:2px solid #cbd6de;border-radius:13px;background:#fff;color:var(--ink);padding:12px 16px;min-height:56px}
+button:focus-visible{outline:4px solid #ffcb70;outline-offset:2px}
+.choice{display:block;width:100%;text-align:left;margin:7px 0;min-height:56px}
+.primary{background:var(--purple);border-color:var(--purple);color:#fff;margin-top:12px}
+.primary:disabled{opacity:.5;cursor:not-allowed}
+.task{border:2px solid #d9e4e9;background:#fbfdff;border-radius:15px;padding:17px;margin:12px 0}
+.question{font-size:22px;font-weight:800;margin:12px 0;color:#263238}
+.feedback{margin-top:12px;padding:12px 14px;border-radius:10px;font-weight:800;border:2px solid #8295a3;background:#e7edf2;color:#172b3a}
+.feedback.correct{background:#176b45;border-color:#0d5133;color:#fff}
+.feedback.incorrect{background:#fff0d9;border-color:#a95b00;color:#633000}
+.feedback:empty{display:none}
+.practice{padding:14px;background:#f4effa;border:1px solid #d6c6e8;border-radius:12px;margin:12px 0}
+.chip{display:inline-block;background:#eaf4fb;border:1px solid #8dbbd5;border-radius:9px;padding:5px 10px;margin:4px;font-weight:800}
+.note{background:#eef6fb;border-left:5px solid #3981a7;padding:10px 14px;border-radius:8px}
+.wrong{background:#fff0d9!important;border-color:#a95b00!important;color:#633000!important}
+.selected{background:#e0f4e7!important;border:3px solid #176b45!important;color:#124b31!important}
+input{font:inherit;max-width:100%;padding:8px;border:2px solid #aebec8;border-radius:8px}
+footer{text-align:center;padding:18px;color:#52616a;font-size:16px}
+@media(max-width:520px){main{padding:9px}section{margin:11px 0;border-radius:14px}button{width:100%}}
+</style>
+</head>
+<body>
+<header><h1>Tuần 33 · Lớn lên bạn làm gì?</h1><p>AI cùng em vui đọc · Tiếng Việt 1</p></header>
+<main>
+<section>
+<h2>1. Bài đọc</h2>
+<div class="story-title">Lớn lên bạn làm gì?</div>
+<div class="poem">
+<div class="stanza">Lớn lên bạn làm gì?
+Tớ muốn làm thuỷ thủ
+Lái tàu vượt sóng dữ,
+Băng qua nhiều đại dương.</div>
+<div class="stanza">Lớn lên bạn làm gì?
+Tớ sẽ làm đầu bếp,
+Làm bánh ngọt thật đẹp,
+Nấu món mì… siêu ngon.</div>
+<div class="stanza">Lớn lên bạn làm gì?
+À, tớ đi gieo hạt…
+Mỗi khi vào mùa gặt
+Lúa vàng reo trên đồng.</div>
+<div class="stanza">Lớn lên bạn làm gì?
+Câu hỏi này… khó quá!
+Để tớ làm bài đã…
+Rồi ngày mai, nghĩ dần…</div>
+</div>
+<div class="author">(Thái Dương)</div>
+<p class="note"><b>Con tự đọc cả bài thơ</b> bằng mắt và thành tiếng. Trang này không đọc bài thay con. Con có thể đọc lại toàn bài nếu muốn luyện thêm.</p>
+</section>
+
+<section>
+<h2>2. Vần hiếm gặp</h2>
+<p>Con quan sát các tiếng trong bài thơ để nhận ra phần vần giống nhau.</p>
+<div class="practice"><b>Nhớ nhé:</b><div><span class="chip">hạt – vần at</span><span class="chip">đẹp – vần ep</span><span class="chip">bếp – vần êp</span></div></div>
+<div id="rimeTasks"><p class="small">Các câu hỏi luyện vần sẽ hiện ở đây.</p></div>
+</section>
+
+<section>
+<h2>3. Từ ngữ</h2>
+<p>Con đọc từ trong bài và nhớ nghĩa của từ trước khi làm câu hỏi.</p>
+<div class="practice"><p><b>Thuỷ thủ:</b> người làm việc trên tàu, thuyền.</p><p><b>Đại dương:</b> vùng biển rất rộng lớn.</p><p><b>Mùa gặt:</b> thời gian thu hoạch lúa hoặc cây trồng.</p></div>
+<div id="vocabTasks"><p class="small">Các câu hỏi luyện từ ngữ sẽ hiện ở đây.</p></div>
+</section>
+
+<section>
+<h2>4. Luyện đọc từ khó, câu thơ</h2>
+<p>Con tự đọc thành tiếng. Đọc chậm, rõ từng tiếng; nghỉ nhẹ ở dấu phẩy, dấu chấm và dấu ba chấm.</p>
+<div class="practice"><h3>Đọc từ khó</h3>
+<div><span class="chip">thuỷ thủ</span><span class="chip">sóng dữ</span><span class="chip">đại dương</span><span class="chip">đầu bếp</span><span class="chip">bánh ngọt</span><span class="chip">siêu ngon</span><span class="chip">gieo hạt</span><span class="chip">mùa gặt</span><span class="chip">lúa vàng</span><span class="chip">nghĩ dần</span></div></div>
+<div class="task"><h3>Con tự luyện đọc</h3><div class="question">Con đã tự đọc cả bài thơ như thế nào?</div>
+<div id="readingChoices"><button class="choice">Con đã đọc xong cả bài, rõ tiếng.</button><button class="choice">Con muốn đọc lại cả bài chậm hơn một lần.</button></div>
+<div class="feedback" id="readingFeedback" aria-live="polite"></div></div>
+</section>
+
+<section>
+<h2>5. Đọc hiểu</h2>
+<p>Con đọc lại bài thơ để tìm thông tin. Chọn chưa đúng thì thử phương án khác; đáp án không hiện ngay.</p>
+<div id="comprehensionTasks"></div>
+<div class="task"><h3>Hoàn thành câu</h3>
+<p>Con có thể nói câu trả lời thành tiếng trước khi điền.</p>
+<p><b>1.</b> Bạn nhỏ muốn làm thuỷ thủ để <input id="fill1" aria-label="Bạn nhỏ muốn làm thủy thủ để" placeholder="...">.</p>
+<p><b>2.</b> Bạn nhỏ muốn làm đầu bếp để <input id="fill2" aria-label="Bạn nhỏ muốn làm đầu bếp để" placeholder="...">.</p>
+<button class="primary" id="checkFill">Kiểm tra câu trả lời</button><div class="feedback" id="fillFeedback" aria-live="polite"></div>
+<p class="small">Con có thể diễn đạt bằng lời riêng, miễn là đúng ý bài thơ.</p>
+</div>
+</section>
+
+<section>
+<h2>6. Vận dụng – Nghề em tò mò</h2>
+<div class="task">
+<div class="question">Một bạn hỏi: “Lớn lên bạn muốn làm nghề gì?”</div>
+<p>Chọn một cách trả lời phù hợp với con lúc này.</p>
+<div id="applicationChoices">
+<button class="choice">Con có thể kể một nghề mình thích và nói lí do.</button>
+<button class="choice">Con phải chọn ngay một nghề và không được đổi ý.</button>
+<button class="choice">Con không cần nghĩ hay tìm hiểu nghề nào cả.</button>
+</div>
+<div class="feedback" id="applicationFeedback" aria-live="polite"></div>
+</div>
+<div class="task">
+<div class="question">Nếu con chưa biết lớn lên muốn làm nghề gì thì sao?</div>
+<p>Chọn câu con thấy hợp lí nhất.</p>
+<div id="reflectionChoices">
+<button class="choice">Không sao cả. Con có thể tìm hiểu nhiều nghề và nghĩ dần.</button>
+<button class="choice">Con phải biết ngay, nếu không sẽ bị điểm kém.</button>
+<button class="choice">Con chỉ được chọn nghề giống bạn thân.</button>
+</div>
+<div class="feedback" id="reflectionFeedback" aria-live="polite"></div>
+<p class="small">Mỗi người có thể yêu thích một nghề khác nhau. Con có thời gian tìm hiểu và suy nghĩ.</p>
+</div>
+</section>
+<footer>AI cùng em vui đọc · Luyện đọc nhẹ nhàng, tôn trọng nhịp học của mỗi bạn.</footer>
+</main>
+<script>
+function makeTasks(target,items,title){
+ let i=0;
+ function draw(){
+  target.innerHTML="";
+  const item=items[i],card=document.createElement("div");card.className="task";
+  card.innerHTML=`<h3>${title} ${i+1}/${items.length}</h3><div class="question"></div><div class="choices"></div><div class="feedback" aria-live="polite"></div><button class="primary next" disabled>${i===items.length-1?"Làm lại phần này":"Câu tiếp theo →"}</button>`;
+  card.querySelector(".question").textContent=item.q;
+  const choices=card.querySelector(".choices"),fb=card.querySelector(".feedback"),next=card.querySelector(".next");
+  item.opts.map((opt,n)=>({opt,correct:n===item.a})).sort(()=>Math.random()-0.5).forEach(entry=>{
+   const b=document.createElement("button");b.className="choice";b.textContent=entry.opt;
+   b.onclick=()=>{
+    if(b.disabled)return;
+    if(entry.correct){fb.className="feedback correct";fb.textContent="Chính xác! "+item.why;b.classList.add("selected");choices.querySelectorAll("button").forEach(x=>x.disabled=true);next.disabled=false}
+    else{fb.className="feedback incorrect";fb.textContent="Chưa đúng rồi. Con đọc lại câu hỏi và bài thơ, rồi thử chọn lần nữa nhé.";b.classList.add("wrong");b.disabled=true}
+   };
+   choices.appendChild(b);
+  });
+  next.onclick=()=>{i=(i+1)%items.length;draw()};
+  target.appendChild(card);
+ }
+ draw();
+}
+makeTasks(document.getElementById("rimeTasks"),[
+ {q:"Trong bài thơ, tiếng nào có vần at như tiếng mẫu “hạt”?",opts:["đẹp","hạt","dữ"],a:1,why:"“Hạt” có vần at; tiếng này xuất hiện trong câu “À, tớ đi gieo hạt…”."},
+ {q:"Trong khổ thơ thứ hai, tiếng nào có vần ep?",opts:["đẹp","ngon","tàu"],a:0,why:"“Đẹp” có vần ep trong câu “Làm bánh ngọt thật đẹp”.”},
+ {q:"Trong khổ thơ thứ hai, tiếng nào có vần êp?",opts:["ngọt","bếp","mì"],a:1,why:"“Bếp” có vần êp trong từ “đầu bếp”."}
+],"Câu");
+makeTasks(document.getElementById("vocabTasks"),[
+ {q:"“Thuỷ thủ” là người làm công việc gì?",opts:["Làm việc trên tàu, thuyền","Làm bánh trong bếp","Trồng cây trong vườn"],a:0,why:"Trong bài thơ, bạn nhỏ muốn làm thuỷ thủ để lái tàu vượt đại dương."},
+ {q:"“Đại dương” có nghĩa gần nhất với từ nào?",opts:["Một con đường nhỏ","Vùng biển rất rộng","Một cánh đồng lúa"],a:1,why:"Đại dương là vùng biển rộng lớn."},
+ {q:"“Mùa gặt” là thời gian người nông dân làm gì?",opts:["Thu hoạch lúa","Lái tàu ra biển","Làm bánh ngọt"],a:0,why:"Mùa gặt là lúc thu hoạch lúa hoặc các loại cây trồng."}
+],"Câu");
+makeTasks(document.getElementById("comprehensionTasks"),[
+ {q:"Bạn nhỏ muốn làm thuỷ thủ để làm gì?",opts:["Lái tàu vượt sóng dữ, băng qua nhiều đại dương","Làm bánh ngọt thật đẹp","Gieo hạt trên đồng"],a:0,why:"Khổ thơ đầu nêu mong muốn lái tàu vượt sóng dữ, băng qua nhiều đại dương."},
+ {q:"Bạn nhỏ muốn làm đầu bếp để làm gì?",opts:["Đi qua nhiều đại dương","Làm bánh ngọt thật đẹp, nấu món mì siêu ngon","Chăm sóc những con tàu"],a:1,why:"Khổ thơ thứ hai nói bạn nhỏ muốn làm bánh ngọt và nấu món mì ngon."},
+ {q:"Bạn nhỏ trong khổ thơ thứ ba muốn làm công việc gì?",opts:["Làm đầu bếp","Làm thuỷ thủ","Gieo hạt, làm công việc gắn với đồng ruộng"],a:2,why:"Bạn nhỏ nói “tớ đi gieo hạt” và nhắc đến mùa gặt, lúa vàng trên đồng."},
+ {q:"Ở cuối bài thơ, bạn nhỏ quyết định thế nào?",opts:["Nghĩ dần, sau khi làm bài xong","Chọn nghề ngay lập tức","Không bao giờ nghĩ về nghề nghiệp"],a:0,why:"Bạn nhỏ nói: “Để tớ làm bài đã… / Rồi ngày mai, nghĩ dần…”."}
+],"Câu hỏi");
+function selectOne(containerId,feedbackId,correctIndex,success,fail){
+ const container=document.getElementById(containerId),feedback=document.getElementById(feedbackId);
+ container.querySelectorAll(".choice").forEach((b,i)=>b.onclick=()=>{
+  container.querySelectorAll(".choice").forEach(x=>{x.classList.remove("selected","wrong");x.setAttribute("aria-pressed","false")});
+  b.classList.add(i===correctIndex?"selected":"wrong");b.setAttribute("aria-pressed","true");
+  feedback.className="feedback "+(i===correctIndex?"correct":"incorrect");
+  feedback.textContent=i===correctIndex?success:fail;
+ });
+}
+selectOne("applicationChoices","applicationFeedback",0,"Đúng rồi! Con có thể chia sẻ nghề mình đang thích và lí do; sở thích có thể thay đổi khi con lớn lên.","Con thử nghĩ lại nhé. Không cần quyết định nghề nghiệp ngay từ bây giờ.");
+selectOne("reflectionChoices","reflectionFeedback",0,"Chính xác! Con có thể tìm hiểu nhiều nghề và nghĩ dần, giống như bạn nhỏ ở cuối bài thơ.","Con đọc lại khổ thơ cuối nhé. Bạn nhỏ cũng nói sẽ nghĩ dần.");
+document.querySelectorAll("#readingChoices .choice").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll("#readingChoices .choice").forEach(x=>{x.classList.remove("selected");x.setAttribute("aria-pressed","false")});
+ b.classList.add("selected");b.setAttribute("aria-pressed","true");
+ const f=document.getElementById("readingFeedback");f.className="feedback correct";
+ f.textContent=b.textContent.includes("đọc lại")?"Tốt lắm! Đọc chậm cả bài giúp con đọc rõ hơn.":"Con đã hoàn thành lượt luyện đọc. Hãy tiếp tục đọc rõ cả bài thơ nhé.";
+});
+document.getElementById("checkFill").onclick=()=>{
+ const a=document.getElementById("fill1").value.trim().toLocaleLowerCase("vi"),b=document.getElementById("fill2").value.trim().toLocaleLowerCase("vi"),f=document.getElementById("fillFeedback");
+ const ok1=/lái tàu|vượt sóng|đại dương/.test(a),ok2=/bánh ngọt|nấu món mì|món mì|siêu ngon/.test(b);
+ f.className="feedback "+(ok1&&ok2?"correct":"incorrect");
+ f.textContent=ok1&&ok2?"Con đã nêu được ý phù hợp. Mỗi bạn có thể diễn đạt bằng lời riêng.":"Con hãy đọc lại khổ thơ thứ nhất và thứ hai. Câu trả lời có thể khác nhau; thử bổ sung ý còn thiếu nhé.";
+};
+</script>
+</body>
+</html>
