@@ -30,6 +30,7 @@ document.querySelectorAll('main > .panel').forEach((panel,index)=>panel.addEvent
 function playAudio(filename){
  const generation=++audioGeneration;
  if(audio){audio.pause();audio.currentTime=0;audio=null;}
+ if('speechSynthesis'in window)window.speechSynthesis.cancel();
  if(!filename){status.textContent='⚠️ Chưa có tệp âm thanh phù hợp.';return;}
  audio=new Audio(AUDIO_BASE+filename);audio.preload='auto';
  status.textContent='🔊 Đang tải âm thanh: '+filename;
@@ -38,16 +39,31 @@ function playAudio(filename){
  audio.onerror=()=>{if(generation===audioGeneration){status.textContent='⚠️ Không tải được '+filename+'. Hãy kiểm tra thư mục '+AUDIO_BASE;audio=null;}};
  audio.play().catch(()=>{if(generation===audioGeneration)status.textContent='⚠️ Không phát được âm thanh. Hãy chạm nút nghe lần nữa.';});
 }
+function speakSystem(text){
+ const generation=++audioGeneration;
+ if(audio){audio.pause();audio.currentTime=0;audio=null;}
+ if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)){status.textContent='⚠️ Thiết bị không hỗ trợ giọng đọc. Hãy tiếp tục bằng hướng dẫn trên màn hình.';return;}
+ const synth=window.speechSynthesis;synth.cancel();
+ const utterance=new SpeechSynthesisUtterance(text),voice=synth.getVoices().find(item=>/^vi([_-]|$)/i.test(item.lang||''));
+ utterance.lang=voice?.lang||'vi-VN';if(voice)utterance.voice=voice;utterance.rate=.9;
+ status.textContent='🔊 Đang dùng giọng tiếng Việt trên thiết bị…';
+ utterance.onstart=()=>{if(generation===audioGeneration)status.textContent='🔊 Đang dùng giọng tiếng Việt trên thiết bị…';};
+ utterance.onend=()=>{if(generation===audioGeneration)status.textContent='✅ Đã phát xong âm thanh.';};
+ utterance.onerror=()=>{if(generation===audioGeneration)status.textContent='⚠️ Thiết bị không phát được giọng đọc tiếng Việt.';};
+ synth.speak(utterance);
+}
 function speak(text){
- if(activeGame>=4){playAudio('week08_feedback_rocket_complete.mp3');return;}
- const target=items[rounds[activeGame]%items.length],rime=RIME_AUDIO[target.v],game=activeGame+1,lower=text.toLowerCase();
+ const lower=text.toLowerCase();
+ if(/^(chào các con|các con đã cố gắng)/i.test(text)){speakSystem(text);return;}
+ if(activeGame>=4){speakSystem(text);return;}
+ const target=items[rounds[activeGame]%items.length],rime=RIME_AUDIO[target.v],game=activeGame+1;
  if(!rime){status.textContent='⚠️ Chưa có bản thu cho vần '+target.v+'.';return;}
+ if(/chưa đúng|chưa có|thử tìm/i.test(lower)){playAudio('week08_feedback_game'+game+'_retry.mp3');return;}
  if(/đúng|giỏi|tuyệt|vận dụng rất tốt/i.test(lower)){
   if(activeGame===3&&rocketDone.size===items.length-1&&!rocketDone.has(target.v))playAudio('week08_feedback_rocket_complete.mp3');
   else playAudio('week08_feedback_game'+game+'_correct.mp3');
   return;
  }
- if(/chưa đúng|chưa có|thử tìm/i.test(lower)){playAudio('week08_feedback_game'+game+'_retry.mp3');return;}
  playAudio('week08_game'+game+'_'+AUDIO_GAME_NAMES[activeGame]+'_rime_'+rime+'.mp3');
 }
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
