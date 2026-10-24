@@ -6,7 +6,7 @@
 <style>
 :root{--ink:#253c35;--green:#197a51;--line:#d6e7dc;--gold:#f6c85f;--blue:#dff3fb}*{box-sizing:border-box}body{margin:0;background:#f4faf6;color:var(--ink);font-family:Arial,system-ui,sans-serif}main{max-width:940px;margin:auto;padding:12px}header,.panel{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;margin:12px 0}header{background:linear-gradient(120deg,#dff6e8,#fff2d5)}h1{font-size:clamp(25px,5vw,36px);margin:8px 0;color:#19724e}h2{font-size:clamp(20px,4vw,25px);margin:4px 0 10px}p{line-height:1.5}.pill{display:inline-block;background:#fff;border-radius:99px;padding:6px 10px;font-size:13px}.status,.feedback{padding:12px;border-radius:12px;background:#f2f8f3;line-height:1.5;margin:10px 0;min-height:44px}.status{background:#fff7dc}.btn{border:0;border-radius:12px;padding:12px 15px;font-weight:bold;background:var(--green);color:#fff;font-size:15px;cursor:pointer;margin:3px}.btn.alt{background:#edf5ef;color:#245340;border:1px solid var(--line)}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:9px}.card{border:2px solid #c8e8f5;border-radius:16px;padding:10px;background:linear-gradient(145deg,#fff,#f0fbff);color:var(--ink);font-size:clamp(19px,4vw,27px);font-weight:bold;cursor:pointer;min-height:86px;box-shadow:0 3px 0 #d8edf5}.card .art{display:block;font-size:clamp(38px,9vw,60px);margin-bottom:5px}.card small{display:block;font-size:14px;font-weight:normal}.card.correct{background:#e4f8e9;border-color:#16844a}.card.wrong{background:#fff0ee;border-color:#d66b60}.card.selected{background:#fff4cf;border-color:#c99418}.muted{color:#5b7066;font-size:14px}.machine{border:2px dashed #a5d6bc;border-radius:18px;padding:12px;background:#f7fcf8;margin:12px 0}.belt{display:flex;gap:8px;overflow-x:auto;padding:8px 2px}.product{min-width:94px;min-height:92px;border-radius:14px;border:2px solid #d9e8df;background:white;padding:8px;font-size:17px;font-weight:bold}.product.correct{background:#e4f8e9;border-color:#16844a}.product.wrong{background:#fff0ee;border-color:#d66b60}.signal{font-size:36px;margin:0 6px}.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(115px,1fr));gap:8px}.road{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.lane{background:#f5f8fa;border:2px dashed #b9c8cf;border-radius:14px;padding:10px;text-align:center;min-height:80px}.lane .art{font-size:36px;display:block}.robot{display:flex;align-items:center;gap:12px;background:#f7fbff;border:2px solid #cde5f5;border-radius:18px;padding:12px;margin:10px 0}.robotFace{font-size:64px}.part{font-size:34px;background:#fff;border:2px solid #d9e8df;border-radius:12px;padding:7px}.part.done{background:#e4f8e9;border-color:#16844a}.hidden{display:none}@media(max-width:480px){header,.panel{padding:12px}.card{min-height:76px}.road{gap:5px}.lane{padding:6px}}
 .home-link{display:inline-block;margin:3px;padding:12px 15px;border:1px solid #d6e7dc;border-radius:12px;background:#edf5ef;color:#245340;font-size:15px;font-weight:bold;text-decoration:none}.home-link:focus-visible{outline:3px solid #218653;outline-offset:3px}</style></head><body><main>
-<header><a class="home-link" href="index.html">&#127968; &#x0056;&#x1EC1; m&#x00E0;n h&#x00EC;nh ch&#x00ED;nh</a><span class="pill">TUẦN 16 • PHẦN 2: VẦN</span><h1>🤖 AI cùng em vui đọc</h1><p><b>Mỗi em một điểm xuất phát, mỗi ngày một bước tiến bộ.</b></p><p>Tuần này, chúng mình cùng luyện các vần <b>ước, ướt, ươm, ướp, ươn, ương, oa, oe</b>.</p><div class="status" id="status">🔊 Âm thanh tiếng Việt cần kết nối Internet. Bấm nút nghe để nghe nhiệm vụ và phản hồi.</div><button class="btn alt" onclick="speak('Chào các con! Hôm nay chúng mình cùng luyện các vần uôi, uôm, uốc, uốt, uôn, uông, ươi, ươu. Hãy bấm nút nghe để nghe nhiệm vụ nhé!')">🔊 Nghe lời chào</button></header>
+<header><a class="home-link" href="index.html">&#127968; &#x0056;&#x1EC1; m&#x00E0;n h&#x00EC;nh ch&#x00ED;nh</a><span class="pill">TUẦN 16 • PHẦN 2: VẦN</span><h1>🤖 AI cùng em vui đọc</h1><p><b>Mỗi em một điểm xuất phát, mỗi ngày một bước tiến bộ.</b></p><p>Tuần này, chúng mình cùng luyện các vần <b>ước, ướt, ươm, ướp, ươn, ương, oa, oe</b>.</p><div class="status" id="status">&#194;m thanh thu s&#7861;n. Ch&#7841;m n&#250;t nghe &#273;&#7875; ph&#225;t; kh&#244;ng c&#7847;n k&#7871;t n&#7889;i Internet.</div><button class="btn alt" onclick="speak('Ch\u00e0o c\u00e1c con!')">🔊 Nghe lời chào</button></header>
 <section class="panel"><h2>🏭 Trò chơi 1: Dây chuyền nhà máy</h2><p>Quan sát hình và tên sản phẩm trên dây chuyền. Chạm vào hình hoặc tên sản phẩm để chọn.</p><button class="btn alt" id="listen1">🔊 Nghe nhiệm vụ</button><div class="machine"><p><b>Vần cần đưa vào khay:</b> <span id="target1" class="pill">uôi</span></p><div class="belt" id="belt1"></div></div><div class="feedback" id="fb1">Con quan sát hình và đọc tên sản phẩm nhé!</div><button class="btn" id="next1">Lượt mới</button></section>
 <section class="panel"><h2>🕵️ Trò chơi 2: Giải mã mật thư</h2><p>Nghe câu hỏi có nêu rõ vần và từ, rồi chọn đúng vần để mở khóa.</p><button class="btn alt" id="listen2">🔊 Nghe manh mối</button><div class="machine"><p><b>Mật thư:</b> <span id="clue2">Nghe cô đọc manh mối.</span></p><div class="grid" id="cards2"></div><p><b>Mã khóa:</b> <span id="code2">🔒 Chưa mở</span></p></div><div class="feedback" id="fb2">Con lắng nghe manh mối và chọn ký hiệu phù hợp nhé!</div><button class="btn" id="next2">Mật thư mới</button></section>
 <section class="panel"><h2>🚦 Trò chơi 3: Ngã tư quyết định</h2><p>Nghe nhận định: “Tiếng … có vần …”. Nếu nhận định đúng, con chọn “Đi tiếp”; nếu nhận định sai, con chọn “Dừng lại”.</p><button class="btn alt" id="listen3">🔊 Nghe tình huống</button><div class="road"><div class="lane"><span class="art">⬅️</span>Rẽ trái</div><div class="lane"><span class="art">🚦</span><span id="traffic3">Đèn đang đỏ</span></div><div class="lane"><span class="art">➡️</span>Rẽ phải</div></div><div class="machine"><p><b>Vần cần nghe:</b> <span id="target3" class="pill">uôi</span></p><p><b>Tiếng vừa nghe:</b> <span id="word3" class="pill">...</span></p><div class="choices"><button class="card" id="go3">🟢<small>Đi tiếp</small></button><button class="card" id="stop3">🛑<small>Dừng lại</small></button></div></div><div class="feedback" id="fb3">Con nghe thật kỹ rồi quyết định nhé!</div><button class="btn" id="next3">Tình huống mới</button></section>
@@ -29,7 +29,50 @@ const distractors=[
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
 function stripTone(s){const map={'á':'a','à':'a','ả':'a','ã':'a','ạ':'a','ắ':'ă','ằ':'ă','ẳ':'ă','ẵ':'ă','ặ':'ă','ấ':'â','ầ':'â','ẩ':'â','ẫ':'â','ậ':'â','é':'e','è':'e','ẻ':'e','ẽ':'e','ẹ':'e','ế':'ê','ề':'ê','ể':'ê','ễ':'ê','ệ':'ê','í':'i','ì':'i','ỉ':'i','ĩ':'i','ị':'i','ó':'o','ò':'o','ỏ':'o','õ':'o','ọ':'o','ố':'ô','ồ':'ô','ổ':'ô','ỗ':'ô','ộ':'ô','ớ':'ơ','ờ':'ơ','ở':'ơ','ỡ':'ơ','ợ':'ơ','ú':'u','ù':'u','ủ':'u','ũ':'u','ụ':'u','ứ':'ư','ừ':'ư','ử':'ư','ữ':'ư','ự':'ư','ý':'y','ỳ':'y','ỷ':'y','ỹ':'y','ỵ':'y'};return [...s.toLowerCase()].map(c=>map[c]||c).join('')}
 function hasRime(word,rime){return String(word).toLowerCase().split(/[^\p{L}]+/u).filter(Boolean).some(s=>stripTone(s).endsWith(rime))}
-let audio=null;function speak(text){const st=document.getElementById('status');st.textContent='🔊 Đang tải giọng đọc tiếng Việt…';try{if(audio){audio.pause();audio.currentTime=0}audio=new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q='+encodeURIComponent(text));audio.onplaying=()=>st.textContent='🔊 Đang phát giọng đọc tiếng Việt.';audio.onerror=()=>fallback(text);const p=audio.play();if(p&&p.catch)p.catch(()=>fallback(text))}catch(e){fallback(text)}}function fallback(text){if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)){document.getElementById('status').textContent='⚠️ Chưa phát được âm thanh. Cô kiểm tra kết nối Internet hoặc thử Chrome.';return}try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='vi-VN';u.rate=.82;u.onerror=()=>document.getElementById('status').textContent='⚠️ Thiết bị không phát được giọng đọc.';speechSynthesis.speak(u)}catch(e){document.getElementById('status').textContent='⚠️ Chưa phát được âm thanh.'}}
+const AUDIO_BASE='./Audio/Week-16/';
+const RIME_AUDIO={'ước':'uoc_acute','ướt':'uot_acute','ươm':'uom','ướp':'uop_acute','ươn':'uon','ương':'uong','ươi':'uoi','ươu':'uou'};
+let audio=null,audioQueue=[],audioGeneration=0,activeGame=-1;
+const status=document.getElementById('status');
+document.querySelectorAll('main > .panel').forEach((panel,index)=>panel.addEventListener('click',()=>{activeGame=index},true));
+function playAudioQueue(filenames){
+ const generation=++audioGeneration;audioQueue=[...filenames];
+ if(audio){audio.pause();audio.currentTime=0;audio=null;}
+ const playNext=()=>{
+  if(generation!==audioGeneration)return;
+  const filename=audioQueue.shift();
+  if(!filename){status.textContent='✅ Đã phát xong âm thanh.';audio=null;return;}
+  const currentAudio=new Audio(AUDIO_BASE+filename);audio=currentAudio;currentAudio.preload='auto';
+  status.textContent='🔊 Đang tải âm thanh: '+filename;
+  currentAudio.onplaying=()=>{if(generation===audioGeneration)status.textContent='🔊 Đang phát âm thanh tiếng Việt.';};
+  currentAudio.onended=playNext;
+  currentAudio.onerror=()=>{if(generation===audioGeneration){status.textContent='⚠️ Không tải được '+filename+'. Hãy kiểm tra thư mục '+AUDIO_BASE;audio=null;}};
+  currentAudio.play().catch(()=>{if(generation===audioGeneration)status.textContent='⚠️ Không phát được âm thanh. Hãy chạm nút nghe lần nữa.';});
+ };
+ playNext();
+}
+function speak(text){
+ const lower=text.toLowerCase();
+ if(lower.startsWith('chào các con!')){playAudioQueue(['week16_welcome.mp3']);return;}
+ if(activeGame>=4){playAudioQueue(['week16_closing.mp3']);return;}
+ const target=activeGame>=0&&activeGame<4?items[targets[activeGame]%items.length]:null;
+ const rimeFile=target?'week16_rime_'+RIME_AUDIO[target.v]+'.mp3':null;
+ const game=activeGame+1;
+ const gameIntro=activeGame>=0&&lower.includes(names[activeGame].toLowerCase());
+ const queues={
+  'game 1':['week16_game1_intro.mp3','week16_game1_task.mp3'],
+  'game 2':['week16_game2_intro.mp3','week16_game2_task.mp3'],
+  'game 3':['week16_game3_intro.mp3','week16_game3_task.mp3'],
+  'game 4':['week16_game4_intro.mp3','week16_game4_task.mp3']
+ };
+ if(gameIntro){playAudioQueue([...queues['game '+game],...(activeGame===0||activeGame===1||activeGame===2||activeGame===3?[rimeFile]:[])]);return;}
+ if(activeGame===0&&lower.startsWith('con hãy chạm vào hình')){playAudioQueue(['week16_game1_task.mp3',...(rimeFile?[rimeFile]:[])]);return;}
+ if(activeGame===1&&lower.startsWith('con hãy tìm vần')){playAudioQueue(['week16_game2_task.mp3',...(rimeFile?[rimeFile]:[])]);return;}
+ if(activeGame===2&&lower.startsWith('tiếng ')){playAudioQueue(['week16_game3_task.mp3',...(rimeFile?[rimeFile]:[])]);return;}
+ if(activeGame===3&&lower.startsWith('hãy chọn bộ phận')){playAudioQueue(['week16_game4_task.mp3',...(rimeFile?[rimeFile]:[])]);return;}
+ if(/chưa đúng|chưa có|chưa thành|thử lại|chọn thẻ khác/i.test(lower)){playAudioQueue(['week16_feedback_retry.mp3',...(lower.includes('vần')&&rimeFile?[rimeFile]:[])]);return;}
+ if(/đúng|giỏi|tuyệt|tốt lắm/i.test(lower)){playAudioQueue(['week16_feedback_correct.mp3',...(lower.includes('vần')&&rimeFile?[rimeFile]:[])]);return;}
+ status.textContent='⚠️ Chưa có bản thu phù hợp cho câu này.';
+}
 let targets=[0,0,0,0],rounds=[0,0,0,0],intro=[false,false,false,false],factoryDone=new Set(),robotDone=new Set();
 function target(i){return items[targets[i]%items.length]}
 function taskIntro(i,task){const introText=intro[i]?'':`Trò chơi ${['một','hai','ba','bốn'][i]}. ${['Dây chuyền nhà máy','Giải mã mật thư','Ngã tư quyết định','Lắp ráp rô-bốt'][i]}. `;intro[i]=true;speak(introText+task)}

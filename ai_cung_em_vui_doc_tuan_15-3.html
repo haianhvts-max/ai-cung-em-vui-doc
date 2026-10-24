@@ -29,7 +29,56 @@ const distractors=[
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
 function stripTone(s){const map={'á':'a','à':'a','ả':'a','ã':'a','ạ':'a','ắ':'ă','ằ':'ă','ẳ':'ă','ẵ':'ă','ặ':'ă','ấ':'â','ầ':'â','ẩ':'â','ẫ':'â','ậ':'â','é':'e','è':'e','ẻ':'e','ẽ':'e','ẹ':'e','ế':'ê','ề':'ê','ể':'ê','ễ':'ê','ệ':'ê','í':'i','ì':'i','ỉ':'i','ĩ':'i','ị':'i','ó':'o','ò':'o','ỏ':'o','õ':'o','ọ':'o','ố':'ô','ồ':'ô','ổ':'ô','ỗ':'ô','ộ':'ô','ớ':'ơ','ờ':'ơ','ở':'ơ','ỡ':'ơ','ợ':'ơ','ú':'u','ù':'u','ủ':'u','ũ':'u','ụ':'u','ứ':'ư','ừ':'ư','ử':'ư','ữ':'ư','ự':'ư','ý':'y','ỳ':'y','ỷ':'y','ỹ':'y','ỵ':'y'};return [...s.toLowerCase()].map(c=>map[c]||c).join('')}
 function hasRime(word,rime){return String(word).toLowerCase().split(/[^\p{L}]+/u).filter(Boolean).some(s=>stripTone(s).endsWith(rime))}
-let audio=null;function speak(text){const st=document.getElementById('status');st.textContent='🔊 Đang tải giọng đọc tiếng Việt…';try{if(audio){audio.pause();audio.currentTime=0}audio=new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q='+encodeURIComponent(text));audio.onplaying=()=>st.textContent='🔊 Đang phát giọng đọc tiếng Việt.';audio.onerror=()=>fallback(text);const p=audio.play();if(p&&p.catch)p.catch(()=>fallback(text))}catch(e){fallback(text)}}function fallback(text){if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)){document.getElementById('status').textContent='⚠️ Chưa phát được âm thanh. Cô kiểm tra kết nối Internet hoặc thử Chrome.';return}try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='vi-VN';u.rate=.82;u.onerror=()=>document.getElementById('status').textContent='⚠️ Thiết bị không phát được giọng đọc.';speechSynthesis.speak(u)}catch(e){document.getElementById('status').textContent='⚠️ Chưa phát được âm thanh.'}}
+const AUDIO_BASE='./Audio/Week-15/';
+const RIME_AUDIO={'uôi':'uoi','uôm':'uom','uốc':'uoc','uốt':'uot','uôn':'uon','uông':'uong','ươi':'uoi_horn','ươu':'uou_horn'};
+const WORD_AUDIO={'buổi':'buoi','nhuộm':'nhuom','cuốc':'cuoc','tuốt':'tuot','cuộn':'cuon','chuông':'chuong','tươi':'tuoi','hươu':'huou'};
+let audio=null,audioQueue=[],audioGeneration=0,activeGame=-1;
+const status=document.getElementById('status');
+document.querySelectorAll('main > .panel').forEach((panel,index)=>panel.addEventListener('click',()=>{activeGame=index},true));
+function playAudioQueue(filenames){
+ const generation=++audioGeneration;audioQueue=[...filenames];
+ if(audio){audio.pause();audio.currentTime=0;audio=null;}
+ const playNext=()=>{
+  if(generation!==audioGeneration)return;
+  const filename=audioQueue.shift();
+  if(!filename){status.textContent='✅ Đã phát xong âm thanh.';audio=null;return;}
+  const currentAudio=new Audio(AUDIO_BASE+filename);audio=currentAudio;currentAudio.preload='auto';
+  status.textContent='🔊 Đang tải âm thanh: '+filename;
+  currentAudio.onplaying=()=>{if(generation===audioGeneration)status.textContent='🔊 Đang phát âm thanh tiếng Việt.';};
+  currentAudio.onended=playNext;
+  currentAudio.onerror=()=>{if(generation===audioGeneration){status.textContent='⚠️ Không tải được '+filename+'. Hãy kiểm tra thư mục '+AUDIO_BASE;audio=null;}};
+  currentAudio.play().catch(()=>{if(generation===audioGeneration)status.textContent='⚠️ Không phát được âm thanh. Hãy chạm nút nghe lần nữa.';});
+ };
+ playNext();
+}
+function speak(text){
+ const lower=text.toLowerCase();
+ if(lower.startsWith('chào các con!')){playAudioQueue(['week15_welcome.mp3']);return;}
+ if(activeGame>=4){playAudioQueue(['week15_closing.mp3']);return;}
+ const target=activeGame>=0?items[targets[activeGame]%items.length]:null;
+ const rimeFile=target?'week15_rime_'+RIME_AUDIO[target.v]+'.mp3':null;
+ const word=target?'week15_word_'+WORD_AUDIO[target.word]+'.mp3':null;
+ const game=activeGame+1,gameIntro=activeGame>=0&&lower.includes(names[activeGame].toLowerCase());
+ const queues={
+  'game 1':['week15_game1_intro.mp3','week15_game1_task.mp3'],
+  'game 2':['week15_game2_intro.mp3','week15_game2_task.mp3'],
+  'game 3':['week15_game3_intro.mp3'],
+  'game 4':['week15_game4_intro.mp3','week15_game4_task.mp3']
+ };
+ const getWordAudio=()=>{const item=items.find(candidate=>lower.includes(candidate.word.toLowerCase()));return item?'week15_word_'+WORD_AUDIO[item.word]+'.mp3':word;};
+ if(gameIntro){
+  if(activeGame===2){const scenario=scenarios3[rounds[2]%scenarios3.length],scenarioItem=items.find(item=>item.word===scenario.word),scenarioRime='week15_rime_'+RIME_AUDIO[scenario.v]+'.mp3',scenarioWord='week15_word_'+WORD_AUDIO[scenarioItem.word]+'.mp3';playAudioQueue([...queues['game 3'],'week15_game3_prefix.mp3',scenarioWord,'week15_game3_connector.mp3',scenarioRime,'week15_game3_decision.mp3']);}
+  else playAudioQueue([...queues['game '+game],...(rimeFile?[rimeFile]:[]),...(activeGame===1&&word?[word]:[])]);
+  return;
+ }
+ if(activeGame===0&&lower.startsWith('con hãy chạm')){playAudioQueue(['week15_game1_task.mp3',...(rimeFile?[rimeFile]:[])]);return;}
+ if(activeGame===1&&lower.startsWith('con hãy tìm vần')){playAudioQueue(['week15_game2_task.mp3',...(word?[word]:[]),...(rimeFile?[rimeFile]:[])]);return;}
+ if(activeGame===2&&lower.startsWith('tiếng ')){const scenario=scenarios3[rounds[2]%scenarios3.length],scenarioItem=items.find(item=>item.word===scenario.word);playAudioQueue(['week15_game3_prefix.mp3','week15_word_'+WORD_AUDIO[scenarioItem.word]+'.mp3','week15_game3_connector.mp3','week15_rime_'+RIME_AUDIO[scenario.v]+'.mp3','week15_game3_decision.mp3']);return;}
+ if(activeGame===3&&lower.startsWith('hãy chọn câu')){playAudioQueue(['week15_game4_task.mp3',...(rimeFile?[rimeFile]:[])]);return;}
+ const feedback=/chưa đúng|chưa có|chưa thành|thử lại|thử ghép|chưa phù hợp/i.test(lower)?'week15_feedback_retry.mp3':/đúng|giỏi|tuyệt|tốt lắm/i.test(lower)?'week15_feedback_correct.mp3':null;
+ if(feedback){playAudioQueue([feedback,...(getWordAudio()?[getWordAudio()]:[]),...(lower.includes('vần')&&rimeFile?[rimeFile]:[])]);return;}
+ status.textContent='⚠️ Chưa có bản thu phù hợp cho câu này.';
+}
 let targets=[0,0,0,0],rounds=[0,0,0,0],intro=[false,false,false,false],factoryDone=new Set(),robotDone=new Set();
 function target(i){return items[targets[i]%items.length]}
 function taskIntro(i,task){const introText=intro[i]?'':`Trò chơi ${['một','hai','ba','bốn'][i]}. ${['Dây chuyền nhà máy','Giải mã mật thư','Ngã tư quyết định','Lắp ráp rô-bốt'][i]}. `;intro[i]=true;speak(introText+task)}
