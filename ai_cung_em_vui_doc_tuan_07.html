@@ -6,16 +6,42 @@
 .home-link{display:inline-block;margin:3px;padding:12px 15px;border:1px solid #d6e7dc;border-radius:12px;background:#edf5ef;color:#245340;font-size:15px;font-weight:bold;text-decoration:none}.home-link:focus-visible{outline:3px solid #218653;outline-offset:3px}</style></head><body><main>
 <header><a class="home-link" href="index.html">&#127968; &#x0056;&#x1EC1; m&#x00E0;n h&#x00EC;nh ch&#x00ED;nh</a><div class="pill">TUẦN 07</div><div class="pill">Đội thám tử chữ</div><h1>🤖 AI cùng em vui đọc</h1>
 <p><b>Mỗi em một điểm xuất phát, mỗi ngày một bước tiến bộ.</b><br>Tuần này con làm quen với các âm <b>ph, qu, v, x, y</b> và quy tắc chính tả của <b>k, gh, ngh</b>.</p>
-<div class="status" id="status">🔊 Giọng đọc tiếng Việt trực tuyến. Cần kết nối Internet; nếu âm thanh không phát, con vẫn có thể chơi bằng hình ảnh.</div>
+<div class="status" id="status">&#194;m thanh thu s&#7861;n. Ch&#7841;m n&#250;t nghe &#273;&#7875; ph&#225;t; con v&#7851;n c&#243; th&#7875; xem &#273;&#7873; v&#224; ch&#417;i b&#7857;ng h&#236;nh &#7843;nh.</div>
 </header>
 <section class="panel"><h2>🕵️ Trò 1: Thám tử tìm dấu vết</h2><p id="p1">Tìm hình có tiếng bắt đầu bằng âm ph.</p><button class="btn alt" id="l1">🔊 Nghe nhiệm vụ</button><div class="grid" id="g1"></div><div class="feedback" id="f1">Quan sát hình rồi tìm dấu vết đúng nhé!</div><button class="btn" id="n1">Nhiệm vụ tiếp theo</button></section>
 <section class="panel"><h2>🧩 Trò 2: Mảnh ghép đầu tiếng</h2><p>Chọn âm đầu để hoàn thành tiếng dưới hình.</p><button class="btn alt" id="l2">🔊 Nghe nhiệm vụ</button><div id="pic2" style="font-size:60px;text-align:center"></div><div id="word2" style="font-size:30px;text-align:center;font-weight:bold">__ở</div><div id="opts2" style="text-align:center"></div><div class="feedback" id="f2">Chọn một mảnh ghép nhé!</div><button class="btn" id="n2">Tiếng tiếp theo</button></section>
 <section class="panel"><h2>🚦 Trò 3: Đèn xanh chính tả</h2><p>Nhớ quy tắc: <b>k, gh, ngh</b> đi với <b>i, e, ê</b>.</p><div class="rule"><div><b>k</b>i, e, ê</div><div><b>gh</b>i, e, ê</div><div><b>ngh</b>i, e, ê</div></div><button class="btn alt" id="l3">🔊 Nghe câu hỏi</button><p id="p3" style="font-size:21px;font-weight:bold"></p><div class="grid" id="g3"></div><div class="feedback" id="f3">Chọn cách viết đúng nhé!</div><button class="btn" id="n3">Câu tiếp theo</button></section>
 <section class="panel"><h2>🏅 Trò chơi 4: Sưu tập huy hiệu âm</h2><p id="p4">Tìm tất cả thẻ có âm v.</p><button class="btn alt" id="l4">🔊 Nghe nhiệm vụ</button><div class="grid" id="g4"></div><div class="feedback" id="f4">Chạm các thẻ đúng. Tìm đủ để nhận huy hiệu!</div><p class="muted" id="score4">Huy hiệu: 0</p><button class="btn" id="n4">Nhiệm vụ mới</button></section>
-<section class="panel"><h2>🌟 Hôm nay con đã làm thám tử!</h2><p id="closingWords">Cô khen con đã cố gắng hoàn thành các thử thách hôm nay. Con hãy đọc lại các âm ph, qu, v, x, y và nhớ quy tắc k, gh, ngh đi với i, e, ê nhé. Mỗi ngày luyện đọc một chút, con sẽ tiến bộ hơn!</p><button class="btn" id="closingListen">🔊 Nghe lời cô dặn cuối bài</button><p class="muted">Giáo viên đối chiếu từ ngữ với tiến độ bài học thực tế trước khi sử dụng. Âm thanh phụ thuộc TTS tiếng Việt và kết nối thiết bị.</p></section>
+<section class="panel"><h2>🌟 Hôm nay con đã làm thám tử!</h2><p id="closingWords">Cô khen con đã cố gắng hoàn thành các thử thách hôm nay. Con hãy đọc lại các âm ph, qu, v, x, y và nhớ quy tắc k, gh, ngh đi với i, e, ê nhé. Mỗi ngày luyện đọc một chút, con sẽ tiến bộ hơn!</p><button class="btn" id="closingListen">🔊 Nghe lời cô dặn cuối bài</button><p class="muted">Giáo viên đối chiếu từ ngữ với tiến độ bài học thực tế trước khi sử dụng. Âm thanh phụ thuộc các tệp MP3 đã ghi sẵn.</p></section>
 </main>
 <script>
-let aud=null;function speak(t){let s=document.getElementById('status');try{if(aud){aud.pause();aud.currentTime=0}let q=t; q=q.replace(/âm\s+âm/gi,'âm'); q=q.replace(/chữ\s+ngh\b/gi,'âm ngờ').replace(/chữ\s+gh\b/gi,'âm gờ'); q=q.replace(/âm\s+ngh\b/gi,'âm ngờ').replace(/âm\s+gh\b/gi,'âm gờ'); q=q.replace(/(^|\s)ngh(?=\s|[.,!?]|$)/g,'$1ngờ').replace(/(^|\s)gh(?=\s|[.,!?]|$)/g,'$1gờ'); q=q.replace(/âm\s+ph\b/gi,'âm phờ').replace(/âm\s+qu\b/gi,'âm quờ').replace(/âm\s+v\b/gi,'âm vờ').replace(/âm\s+x\b/gi,'âm xờ'); aud=new Audio('https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q='+encodeURIComponent(q));aud.onplaying=()=>s.textContent='🔊 Đang phát giọng đọc tiếng Việt.';aud.onerror=()=>s.textContent='⚠️ Chưa tải được âm thanh; con vẫn có thể chơi bằng hình ảnh.';let p=aud.play();if(p&&p.catch)p.catch(()=>s.textContent='⚠️ Chưa phát được âm thanh; con vẫn có thể chơi bằng hình ảnh.')}catch(e){s.textContent='⚠️ Chưa phát được âm thanh.'}}
+const AUDIO_BASE='./Audio/Week-07/';
+let aud=null,audioGeneration=0,activeGame=0;
+const status=document.getElementById('status');
+document.querySelectorAll('main > .panel').forEach((panel,index)=>panel.addEventListener('click',()=>{activeGame=index},true));
+function playAudio(filename){
+ const generation=++audioGeneration;
+ if(aud){aud.pause();aud.currentTime=0;aud=null;}
+ if(!filename){status.textContent='⚠️ Chưa có tệp âm thanh phù hợp.';return;}
+ const audio=new Audio(AUDIO_BASE+filename);aud=audio;audio.preload='auto';
+ status.textContent='🔊 Đang tải âm thanh: '+filename;
+ audio.onplaying=()=>{if(generation===audioGeneration)status.textContent='🔊 Đang phát âm thanh tiếng Việt.';};
+ audio.onended=()=>{if(generation===audioGeneration){status.textContent='✅ Đã phát xong âm thanh.';aud=null;}};
+ audio.onerror=()=>{if(generation===audioGeneration){status.textContent='⚠️ Không tải được '+filename+'. Hãy kiểm tra thư mục '+AUDIO_BASE;aud=null;}};
+ audio.play().catch(()=>{if(generation===audioGeneration)status.textContent='⚠️ Không phát được âm thanh. Hãy chạm nút nghe lần nữa.';});
+}
+function speak(text){
+ const lower=text.toLowerCase(),correct=/^đúng rồi|^chính xác|^giỏi lắm|^cô khen/i.test(text),wrong=/chưa đúng|chưa phù hợp|thử lại/i.test(lower);
+ const detective=E[a1%E.length][0],piece=E[a2%E.length][0],badge=['v','ph','y','x','qu','gh','ngh','k'][a4%8],answer=Q[a3%Q.length][2];
+ const pieceNames={ph:'pho',qu:'quat',v:'voi',x:'xe',y:'yta'},spellingInstructions={'kẻ':'k_e','ghế':'gh_e','nghỉ':'ngh_i',ke:'k_e2',nghe:'ngh_e',ghi:'gh_i'},spellingFeedback={'kẻ':'ke','ghế':'ghe','nghỉ':'nghi',ke:'ke_plain',nghe:'nghe',ghi:'ghi'};
+ let filename='';
+ if(activeGame===0)filename=/tìm hình/i.test(text)?'w07_instruction_detective_'+detective+'.mp3':correct?'w07_feedback_detective_correct_'+detective+'.mp3':'w07_feedback_detective_try_again.mp3';
+ else if(activeGame===1)filename=wrong?'w07_feedback_sound_piece_try_again.mp3':correct?'w07_feedback_sound_piece_correct_'+pieceNames[piece]+'.mp3':'w07_instruction_sound_piece.mp3';
+ else if(activeGame===2)filename=wrong?'w07_feedback_spelling_try_again.mp3':/chọn cách viết/i.test(lower)?'w07_instruction_spelling_'+spellingInstructions[answer]+'.mp3':'w07_feedback_spelling_'+spellingFeedback[answer]+'.mp3';
+ else if(activeGame===3)filename=/tìm tất cả/i.test(lower)?'w07_instruction_badge_'+badge+'.mp3':/tìm đủ|nhận một huy hiệu/i.test(lower)?'w07_feedback_badge_complete.mp3':correct?'w07_feedback_badge_correct.mp3':'w07_feedback_badge_wrong.mp3';
+ else filename='w07_closing_encouragement.mp3';
+ playAudio(filename);
+}
 const S=['ph','qu','v','x','y'],E=[['ph','phở','🍜'],['qu','quạt','🪭'],['v','voi','🐘'],['x','xe','🚲'],['y','y tá','🧑‍⚕️']];
 const sh=a=>[...a].sort(()=>Math.random()-.5);
 let a1=0;function r1(){let t=E[a1%5],root=document.getElementById('g1');document.getElementById('p1').textContent='Tìm hình có tiếng bắt đầu bằng âm '+t[0]+'.';root.innerHTML='';sh([t,...E.filter(x=>x!==t).slice(0,3)]).forEach(x=>{let b=document.createElement('button');b.className='card';b.innerHTML='<span class="emoji">'+x[2]+'</span>'+x[1];b.onclick=()=>{b.classList.add(x[0]===t[0]?'good':'bad');document.getElementById('f1').textContent=x[0]===t[0]?'Đúng rồi! '+x[1]+' bắt đầu bằng âm '+t[0]+'.':'Chưa đúng. Nghe lại nhiệm vụ rồi thử nhé!';speak(document.getElementById('f1').textContent)};root.appendChild(b)});document.getElementById('f1').textContent='Quan sát hình rồi tìm dấu vết đúng nhé!'}
