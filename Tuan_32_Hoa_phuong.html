@@ -54,4 +54,4 @@ makeTasks(document.getElementById("comprehensionTasks"),[
 function oneSelected(containerId,feedbackId,message){const container=document.getElementById(containerId),feedback=document.getElementById(feedbackId);container.querySelectorAll(".application-choice").forEach(b=>b.onclick=()=>{container.querySelectorAll(".application-choice").forEach(x=>{x.classList.remove("selected");x.setAttribute("aria-pressed","false")});b.classList.add("selected");b.setAttribute("aria-pressed","true");feedback.className="feedback correct";feedback.textContent=message;});}
 oneSelected("applicationChoices","applicationFeedback","Ý tưởng của con thật đáng quý! Con có thể bắt đầu vẽ theo lựa chọn của mình.");
 oneSelected("readingChoices","readingFeedback","Tốt lắm! Con hãy đọc rõ tiếng và giữ nhịp đọc vừa phải nhé.");
-</script></body></html>
+</script><p class="teacher-credit" style="text-align:center;font-size:16px;color:#53617a;margin:16px 0">Cô Vũ Thị Hải Anh - Tiểu học Lê Quý Đôn, Pleiku, Gia Lai</p></body></html>

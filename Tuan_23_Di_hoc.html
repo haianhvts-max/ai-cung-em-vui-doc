@@ -34,4 +34,4 @@ const data=[
 ];
 // Correct answer locations deliberately vary: 1st, 2nd, 2nd, 2nd.
 data.forEach(item=>{const box=document.getElementById(item.id),fb=document.getElementById(item.f);let attempts=0;item.options.forEach((opt,i)=>{const b=document.createElement('button');b.className='choice';b.textContent=opt;b.onclick=()=>{if(opt===item.correct){fb.className='feedback good';fb.textContent='Đúng rồi! '+item.explain;Array.from(box.children).forEach(x=>x.disabled=true)}else{attempts++;fb.className='feedback retry';fb.textContent='Chưa đúng rồi, con đọc lại bài thơ và thử chọn lần nữa nhé.';b.style.borderColor='#e8b5a0';b.style.background='#fff8f4';}};box.appendChild(b)});});
-</script></body></html>
+</script><p class="teacher-credit" style="text-align:center;font-size:16px;color:#53617a;margin:16px 0">Cô Vũ Thị Hải Anh - Tiểu học Lê Quý Đôn, Pleiku, Gia Lai</p></body></html>

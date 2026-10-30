@@ -58,4 +58,4 @@ let t=list[idx];$('step').textContent=`${t.step} · THỬ THÁCH ${idx+1}/${list
 $('next').addEventListener('click',()=>{idx++;render()});$('restart').addEventListener('click',()=>{idx=0;score=0;done.clear();render()});$('level').addEventListener('change',()=>{idx=0;done.clear();render()});
 document.querySelectorAll('[data-app]').forEach(group=>{group.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>{if(group.dataset.done==='yes')return;let fb=group.parentElement.querySelector('.feedback');if(btn.dataset.correct==='true'){group.dataset.done='yes';group.querySelectorAll('button').forEach(x=>x.dataset.locked='yes');btn.classList.add('correct');fb.textContent='Đúng rồi! Đó là cách mở lời phù hợp và thân thiện.';fb.className='feedback good'}else{btn.classList.add('wrong');btn.dataset.locked='yes';fb.textContent='Con thử nghĩ xem lời nói nào lễ phép hoặc giúp người khác cảm thấy được chào đón nhé.';fb.className='feedback try'}}))});
 render();
-</script></body></html>
+</script><p class="teacher-credit" style="text-align:center;font-size:16px;color:#53617a;margin:16px 0">Cô Vũ Thị Hải Anh - Tiểu học Lê Quý Đôn, Pleiku, Gia Lai</p></body></html>

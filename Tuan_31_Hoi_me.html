@@ -42,4 +42,4 @@ Bay lên thăm Cuội?</div><div class="options"><button data-ok="1">Con đã đ
 <div class="footer">🌈 Những câu hỏi hay giúp con khám phá thế giới mỗi ngày!</div></main>
 <script>
 document.querySelectorAll('.task').forEach(task=>{const feedback=task.querySelector('.feedback');const buttons=[...task.querySelectorAll('button')];buttons.forEach(btn=>{btn.addEventListener('click',()=>{if(btn.dataset.ok==='1'||btn.dataset.accept==='1'){buttons.forEach(b=>{b.disabled=true;b.classList.remove('correct','wrong')});btn.classList.add('correct');if(feedback){feedback.textContent=btn.dataset.accept==='1'?'🌟 Ý kiến của con được chấp nhận! Mỗi bạn có thể có câu trả lời riêng.':'🌟 Chính xác! Con làm tốt lắm!';feedback.style.color='#167344'}}else{btn.classList.add('wrong');btn.disabled=true;if(feedback){feedback.textContent='💪 Chưa đúng rồi, con thử một lựa chọn khác nhé!';feedback.style.color='#a43b4b'}}})})});
-</script></body></html>
+</script><p class="teacher-credit" style="text-align:center;font-size:16px;color:#53617a;margin:16px 0">Cô Vũ Thị Hải Anh - Tiểu học Lê Quý Đôn, Pleiku, Gia Lai</p></body></html>

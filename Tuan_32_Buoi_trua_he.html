@@ -57,4 +57,4 @@ function oneSelected(containerId,feedbackId,message){const container=document.ge
 oneSelected("openChoices","openFeedback","Cảm ơn con đã chọn! Mỗi người có thể yêu thích một khổ thơ vì những điều khác nhau.");
 oneSelected("applicationChoices","applicationFeedback","Lựa chọn của con thật đáng quý. Con có thể nói thêm một câu về hình ảnh mình thích.");
 document.querySelectorAll("#readingChoices .choice").forEach(b=>b.onclick=()=>{document.querySelectorAll("#readingChoices .choice").forEach(x=>x.classList.remove("selected"));b.classList.add("selected");const f=document.getElementById("readingFeedback");f.className="feedback correct";f.textContent=b.textContent.includes("đọc lại")?"Tốt lắm! Đọc chậm và thử lại giúp con đọc rõ hơn.":"Con đã hoàn thành lượt luyện đọc. Hãy tiếp tục giữ nhịp đọc rõ ràng nhé.";});
-</script></body></html>
+</script><p class="teacher-credit" style="text-align:center;font-size:16px;color:#53617a;margin:16px 0">Cô Vũ Thị Hải Anh - Tiểu học Lê Quý Đôn, Pleiku, Gia Lai</p></body></html>

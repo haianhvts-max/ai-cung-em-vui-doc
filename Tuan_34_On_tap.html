@@ -50,4 +50,4 @@ function answer(btn){const q=btn.closest('.question');if(!q||!q.dataset.correct)
 function finishReflection(){const fb=document.getElementById('reflectionFeedback');fb.className='feedback good';fb.textContent='Con làm tốt lắm! Khi viết tên riêng, hãy nhớ viết hoa chữ cái đầu mỗi tiếng. Con có thể giữ câu viết này cho riêng mình.';fb.dataset.done='yes';if(document.querySelector('#task5 .question').dataset.done==='yes')completed.add(5);updateProgress();}
 function updateProgress(){document.getElementById('progressBar').style.width=Math.round(completed.size/5*100)+'%';}
 function showSummary(){const fb=document.getElementById('summary');fb.className='feedback good';fb.textContent='Con đã ghi dấu hoàn thành '+completed.size+'/5 nhiệm vụ. Hãy tiếp tục luyện đọc rõ tiếng, nhận biết vần và viết đúng tên riêng nhé!';}
-</script></body></html>
+</script><p class="teacher-credit" style="text-align:center;font-size:16px;color:#53617a;margin:16px 0">Cô Vũ Thị Hải Anh - Tiểu học Lê Quý Đôn, Pleiku, Gia Lai</p></body></html>
