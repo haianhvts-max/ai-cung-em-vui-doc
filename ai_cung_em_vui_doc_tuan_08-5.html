@@ -4,7 +4,8 @@
 <section class="panel"><h2>🎣 Trò chơi 2: Câu cá tìm vần</h2><p id="p2">Câu con cá mang tiếng có vần cô đọc.</p><button class="btn alt" id="listen2">🔊 Nghe hướng dẫn</button><div class="grid" id="cards2"></div><div class="feedback" id="fb2">Con chọn chú cá phù hợp nhé!</div><button class="btn" id="next2">Lượt tiếp theo</button></section>
 <section class="panel"><h2>🥐 Trò chơi 3: Tiệm bánh kỳ diệu</h2><p id="p3">Chọn câu ngắn có tiếng chứa vần cô đọc.</p><button class="btn alt" id="listen3">🔊 Nghe hướng dẫn</button><div class="grid" id="cards3"></div><div class="feedback" id="fb3">Con chọn chiếc bánh phù hợp nhé!</div><button class="btn" id="next3">Lượt tiếp theo</button></section>
 <section class="panel"><h2>🚀 Trò chơi 4: Tên lửa chinh phục hành tinh</h2><p id="p4">Vận dụng: chọn tiếng hoặc từ phù hợp với vần đã nghe.</p><button class="btn alt" id="listen4">🔊 Nghe hướng dẫn</button><div class="grid" id="cards4"></div><div class="feedback" id="fb4">Mỗi đáp án đúng giúp tên lửa tiến lên một bước!</div><p id="progress4">🚀 Hành trình: 0 / 13</p><button class="btn" id="next4">Lượt tiếp theo</button></section>
-<section class="panel"><h2>💚 Con đã cố gắng!</h2><p>Con có thể nghỉ khi mệt. Mỗi lần thử là một lần học thêm.</p><button class="btn alt" onclick="speak('Các con đã cố gắng rất tốt! Bây giờ mình nghỉ ngơi nhé. Hẹn gặp lại các con!')">🔊 Nghe lời cô dặn</button></section></main>
+<section class="panel"><h2>💚 Con đã cố gắng!</h2><p>Con có thể nghỉ khi mệt. Mỗi lần thử là một lần học thêm.</p></section>
+</main>
 <script>
 const items=[
  {v:'an',w:'bạn',sentence:'Bạn Lan hát.',emoji:'💎',pool:['bàn ăn','đàn gà','bạn Lan','lan can']},
@@ -22,40 +23,49 @@ const items=[
  {v:'ơm',w:'rơm',sentence:'Bó rơm ở sân.',emoji:'🌾',pool:['bó rơm','cơm ngon','thơm lừng','rơm khô']}
 ]
 const AUDIO_BASE='./Audio/Week-08/';
-const AUDIO_GAME_NAMES=['treasure','fishing','bakery','rocket'];
 const RIME_AUDIO={'an':'an','ăn':'an_acute','ân':'an_circumflex','on':'on','ôn':'on_circumflex','ơn':'on_horn','en':'en','ên':'en_circumflex','in':'in','un':'un','om':'om','ôm':'om_circumflex','ơm':'om_horn'};
 let audio=null,audioGeneration=0,activeGame=0;
+let audioQueue=[];
 const status=document.getElementById('status');
 document.querySelectorAll('main > .panel').forEach((panel,index)=>panel.addEventListener('click',()=>{activeGame=index},true));
-function playAudio(filename){
+function playAudioQueue(files){
  const generation=++audioGeneration;
- if(audio){audio.pause();audio.currentTime=0;audio=null;}
+ audioQueue=[...files];
+ if(audio){audio.pause();audio.currentTime=0;audio.onended=null;audio.onerror=null;audio=null;}
  if('speechSynthesis'in window)window.speechSynthesis.cancel();
- if(!filename){status.textContent='⚠️ Chưa có tệp âm thanh phù hợp.';return;}
+ playNextAudio(generation);
+}
+function playNextAudio(generation){
+ if(generation!==audioGeneration)return;
+ const filename=audioQueue.shift();
+ if(!filename){status.textContent='✅ Đã phát xong âm thanh.';audio=null;return;}
  audio=new Audio(AUDIO_BASE+filename);audio.preload='auto';
  status.textContent='🔊 Đang tải âm thanh: '+filename;
  audio.onplaying=()=>{if(generation===audioGeneration)status.textContent='🔊 Đang phát âm thanh tiếng Việt.';};
- audio.onended=()=>{if(generation===audioGeneration){status.textContent='✅ Đã phát xong âm thanh.';audio=null;}};
- audio.onerror=()=>{if(generation===audioGeneration){status.textContent='⚠️ Không tải được '+filename+'. Hãy kiểm tra thư mục '+AUDIO_BASE;audio=null;}};
- audio.play().catch(()=>{if(generation===audioGeneration)status.textContent='⚠️ Không phát được âm thanh. Hãy chạm nút nghe lần nữa.';});
+ audio.onended=()=>playNextAudio(generation);
+ audio.onerror=()=>handleAudioError(filename,generation);
+ audio.play().catch(()=>handleAudioError(filename,generation));
 }
-function speakSystem(text){
- const generation=++audioGeneration;
- if(audio){audio.pause();audio.currentTime=0;audio=null;}
- if(!('speechSynthesis'in window)||!('SpeechSynthesisUtterance'in window)){status.textContent='⚠️ Thiết bị không hỗ trợ giọng đọc. Hãy tiếp tục bằng hướng dẫn trên màn hình.';return;}
- const synth=window.speechSynthesis;synth.cancel();
- const utterance=new SpeechSynthesisUtterance(text),voice=synth.getVoices().find(item=>/^vi([_-]|$)/i.test(item.lang||''));
- utterance.lang=voice?.lang||'vi-VN';if(voice)utterance.voice=voice;utterance.rate=.9;
- status.textContent='🔊 Đang dùng giọng tiếng Việt trên thiết bị…';
- utterance.onstart=()=>{if(generation===audioGeneration)status.textContent='🔊 Đang dùng giọng tiếng Việt trên thiết bị…';};
- utterance.onend=()=>{if(generation===audioGeneration)status.textContent='✅ Đã phát xong âm thanh.';};
- utterance.onerror=()=>{if(generation===audioGeneration)status.textContent='⚠️ Thiết bị không phát được giọng đọc tiếng Việt.';};
- synth.speak(utterance);
+function handleAudioError(filename,generation){
+ if(generation!==audioGeneration)return;
+ audio=null;audioQueue=[];
+ status.textContent='⚠️ Không tải được '+filename+'. Hãy kiểm tra thư mục '+AUDIO_BASE;
+}
+function playAudio(filename){
+ playAudioQueue([filename]);
+}
+function playRoundPrompt(gameIndex,target){
+ const suffix=RIME_AUDIO[target.v];
+ if(!suffix){status.textContent='⚠️ Chưa có bản thu cho vần '+target.v+'.';return;}
+ const files=[];
+ if(!introHeard[gameIndex])files.push('week08_game'+(gameIndex+1)+'_intro.mp3');
+ introHeard[gameIndex]=true;
+ files.push('week08_game'+(gameIndex+1)+'_task.mp3','week08_rime_'+suffix+'.mp3');
+ playAudioQueue(files);
 }
 function speak(text){
  const lower=text.toLowerCase();
- if(/^(chào các con|các con đã cố gắng)/i.test(text)){speakSystem(text);return;}
- if(activeGame>=4){speakSystem(text);return;}
+ if(/^chào các con/i.test(text)){playAudio('week08_welcome.mp3');return;}
  const target=items[rounds[activeGame]%items.length],rime=RIME_AUDIO[target.v],game=activeGame+1;
  if(!rime){status.textContent='⚠️ Chưa có bản thu cho vần '+target.v+'.';return;}
  if(/chưa đúng|chưa có|thử tìm/i.test(lower)){playAudio('week08_feedback_game'+game+'_retry.mp3');return;}
@@ -64,11 +74,10 @@ function speak(text){
   else playAudio('week08_feedback_game'+game+'_correct.mp3');
   return;
  }
- playAudio('week08_game'+game+'_'+AUDIO_GAME_NAMES[activeGame]+'_rime_'+rime+'.mp3');
+ playRoundPrompt(activeGame,target);
 }
 function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
 const rounds=[0,0,0,0], rocketDone=new Set(), introHeard=[false,false,false,false];
-const names=['Khu vườn kho báu','Câu cá tìm vần','Tiệm bánh kỳ diệu','Tên lửa chinh phục hành tinh'];
 const verbs=['Tìm kho báu','Câu cá','Chọn chiếc bánh','Tìm hành tinh'];
 const praise=[
  d=>`Con đã tìm được kho báu có chứa vần ${d.v} rồi này. Con giỏi quá!`,
@@ -116,9 +125,8 @@ function render(i){
      else{b.classList.add('wrong');const msg=i===0?`Chưa đúng rồi. Con nghe lại vần ${target.v} và tìm kho báu nhé!`:i===1?`Chú cá này chưa có vần ${target.v}. Con thử câu chú cá khác nhé!`:i===2?`Câu này chưa có tiếng chứa vần ${target.v}. Con thử câu khác nhé!`:`Con thử tìm tiếng có vần ${target.v} nhé!`;fb.textContent=msg;speak(msg)}
    };root.appendChild(b);
  });
- const task=i===0?`Hãy tìm vần ${target.v}.`:i===1?`Hãy câu cá mang tiếng có vần ${target.v}.`:i===2?`Hãy chọn câu có tiếng chứa vần ${target.v}.`:`Hãy chọn tiếng có vần ${target.v}.`;
  document.getElementById('fb'+(i+1)).textContent='Con nghe nhiệm vụ rồi chọn đáp án nhé!';
- document.getElementById('listen'+(i+1)).onclick=()=>{const intro=introHeard[i]?'':`Trò chơi ${['một','hai','ba','bốn'][i]}. ${names[i]}. `;introHeard[i]=true;speak(intro+task)};
+ document.getElementById('listen'+(i+1)).onclick=()=>playRoundPrompt(i,target);
 }
 
 for(let i=0;i<4;i++){render(i);document.getElementById('next'+(i+1)).onclick=()=>{rounds[i]++;render(i)}}
